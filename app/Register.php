@@ -16,7 +16,7 @@ class Register extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'role', 'username', 'password',
     ];
 
     /**
@@ -36,4 +36,14 @@ class Register extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function farmer()
+        {
+            return $this->hasOne('App\Farmer', 'user_id');
+        }
+    
+        public function customer()
+        {
+            return $this->hasOne('App\Investor', 'user_id');
+        }
 }
