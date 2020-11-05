@@ -9,7 +9,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Register extends Authenticatable
 {
     use Notifiable;
-
+    public $timestamps = false;
+    protected $table = 'user';
     /**
      * The attributes that are mass assignable.
      *
@@ -25,7 +26,7 @@ class Register extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
 
     /**
@@ -33,17 +34,17 @@ class Register extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 
     public function farmer()
         {
-            return $this->hasOne('App\Farmer', 'user_id');
+            return $this->hasOne('App\Farmer', 'id_user');
         }
     
-        public function customer()
-        {
-            return $this->hasOne('App\Investor', 'user_id');
-        }
+    public function investor()
+    {
+        return $this->hasOne('App\Investor', 'id_user');
+    }
 }

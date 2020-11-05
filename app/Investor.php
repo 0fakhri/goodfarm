@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Investor extends Model
 {
+    public $timestamps = false;
+    protected $table = 'ca_investor';
     protected $fillable=[
+        'id_user',
         'nama_petani',
         'no_ponsel_investor',
         'tanggal_lahir_investor',
@@ -18,6 +21,6 @@ class Investor extends Model
         'foto_ktp_investor',];
 
     public function user(){
-        return $this->belongsTo('App\Register', 'user_id');
+        return $this->belongsTo('App\Register', 'id_user');
     }
 }

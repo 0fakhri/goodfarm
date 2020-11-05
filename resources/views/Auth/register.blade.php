@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -39,8 +41,8 @@
                         <div class="register-form text-center">
                             <!-- Login Heading -->
                             <div class="register-heading">
-                                <span>Sign Up</span>
-                                <p>Create your account to get full access</p>
+                                <span>Daftar</span>
+                                <p>Pilih daftar sebagai</p>
                             </div>
                             <div class="container row justify-content-center">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -57,26 +59,24 @@
                             <!-- Single Input Fields -->
                             <div class="tab-content" id="myTabContent" style="padding-bottom: -100px;">
                                 <div class="tab-pane fade" id="farmer" role="tabpanel" aria-labelledby="home-tab">
-                                    <form class="input-box" method="POST" action="/regCu">
+                                    <form class="input-box" method="POST" action="/regCu" enctype="multipart/form-data">
                                         @csrf
                                         <!-- <div class="input-box"> -->
                                         <div class="single-input-fields">
+                                            <label>Username</label>
+                                            <input name="username" type="text" placeholder="Masukkan username" >
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Password</label>
+                                            <input name="password" type="password" placeholder="Masukkan Password" class="@error('name') is-invalid @enderror">
+                                        </div>
+                                        <div class="single-input-fields">
                                             <label>Nama Lengkap</label>
                                             <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="@error('name') is-invalid @enderror">
-                                            @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Email Address</label>
                                             <input name="email" type="email" placeholder="Masukkan email address" class="@error('name') is-invalid @enderror">
-                                            @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                <strong>{{session('error')}}</strong>
-                                                </span>
-                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>No. Handphone</label>
@@ -86,19 +86,55 @@
                                             <label>Tanggal lahir</label>
                                             <input name="tgllahir" type="date" placeholder="Masukkan tanggal lahir" >
                                         </div>
-                                        <input type="hidden" name="role" value="farmer">
-                                        <div class="single-input-fields">
-                                            <label>Username</label>
-                                            <input name="username" type="text" placeholder="Masukkan username" >
-                                        </div>
+                                        <input type="hidden" name="role" value="petani">
                                         <div class="single-input-fields">
                                             <label>Alamat</label>
                                             <input name="alamat" type="text" placeholder="Masukkan alamat" >
                                         </div>
                                         <div class="single-input-fields">
+                                            <select name="ddlProvinsi" id="ddlProvinsi" class="form-control" onchange="comboboxkota()">
+                                                <option value="0" selected>- Pilih Provinsi -</option>
+                                                <option value="1">Aceh</option>
+                                                <option value="2">Sumatera Utara</option>
+                                                <option value="3">Sumatera Barat</option>
+                                                <option value="4">Riau</option>
+                                                <option value="5">Jambi</option>
+                                                <option value="7">Bengkulu</option>
+                                                <option value="6">Sumatera Selatan</option>
+                                                <option value="8">Lampung</option>
+                                                <option value="10">Kepulauan Riau</option>
+                                                <option value="9">Kepulauan Bangka Belitung</option>
+                                                <option value="16">Banten</option>
+                                                <option value="12">Jawa Barat</option>
+                                                <option value="11">DKI Jakarta</option>
+                                                <option value="13">Jawa Tengah</option>
+                                                <option value="15">Jawa Timur</option>
+                                                <option value="14">Daerah Istimewa Yogyakarta</option>
+                                                <option value="17">Bali</option>
+                                                <option value="18">Nusa Tenggara Barat</option>
+                                                <option value="19">Nusa Tenggara Timur</option>
+                                                <option value="20">Kalimantan Barat</option>
+                                                <option value="22">Kalimantan Selatan</option>
+                                                <option value="21">Kalimantan Tengah</option>
+                                                <option value="23">Kalimantan Timur</option>
+                                                <option value="26">Sulawesi Selatan</option>
+                                                <option value="27">Sulawesi Tenggara</option>
+                                                <option value="24">Sulawesi Utara</option>
+                                                <option value="28">Gorontalo</option>
+                                                <option value="30">Maluku</option>
+                                                <option value="33">Papua Barat</option>
+                                                <option value="32">Papua</option>
+                                                <option value="31">Maluku Utara</option>
+                                                <option value="25">Sulawesi Tengah</option>
+                                            </select>
+                                            <select name="ddlKota" id="ddlKota" class="form-control">
+                                                <option selected="selected" value="0">- Pilih Kota -</option>
+                                            </select>
+                                        </div>
+                                        <div class="single-input-fields">
                                             <label>Jenis kelamin</label>
 											<div class="default-select" id="default-select">
-												<select>
+												<select name="jeniskelamin" class="form-control">
 													<option value="1">Laki-laki</option>
 													<option value="2">Perempuan</option>
 												</select>
@@ -107,7 +143,7 @@
                                         <div class="single-input-fields">
                                             <label>Jenis identitas</label>
 											<div class="default-select" id="default-select">
-												<select>
+												<select name="jenisidentitas" class="form-control">
 													<option value="1">KTP</option>
 													<option value="2">SIM</option>
 													<option value="3">Pasport</option>
@@ -119,12 +155,12 @@
                                             <input name="noidentitas" type="number" placeholder="Masukkan nomer identitas" >
                                         </div>
                                         <div class="single-input-fields">
-                                            <label>Password</label>
-                                            <input name="password" type="password" placeholder="Masukkan Password" class="@error('name') is-invalid @enderror">
+                                            <label>Foto KTP</label>
+                                            <input type="file" name="img" placeholder="Bukti">
                                         </div>
                                         <div class="single-input-fields">
-                                            <label>Confirm Password</label>
-                                            <input name="password_confirmation" type="password" placeholder="Confirm Password" >
+                                            <label>Foto lahan hidroponik</label>
+                                            <input type="file" name="img2" placeholder="Bukti">
                                         </div>
                                         <!-- form Footer -->
                                         <div class="register-footer">
@@ -133,34 +169,104 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="tab-pane fade" id="CV" role="tabpanel" aria-labelledby="CV-tab">
+                                <div class="tab-pane fade" id="investor" role="tabpanel" aria-labelledby="CV-tab">
                                     <form class="input-box" method="POST" action="/regCu" enctype="multipart/form-data">
                                         @csrf
                                     <!-- <div class="input-box"> -->
-                                        <div class="single-input-fields">
-                                            <label>Nama CV</label>
-                                            <input name="nama_cv" type="text" placeholder="Masukkan nama CV">
-                                        </div>
-                                        <div class="single-input-fields">
-                                            <label>Email Address</label>
-                                            <input name="email" type="email" placeholder="Masukkan email address">
+                                    <div class="single-input-fields">
+                                            <label>Username</label>
+                                            <input name="username" type="text" placeholder="Masukkan username" >
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Password</label>
-                                            <input name="password" type="password" placeholder="Masukkan Password">
+                                            <input name="password" type="password" placeholder="Masukkan Password" class="@error('name') is-invalid @enderror">
                                         </div>
-                                        <input type="hidden" name="role" value="cv">
                                         <div class="single-input-fields">
-                                            <label>Confirm Password</label>
-                                            <input type="password" placeholder="Confirm Password">
+                                            <label>Nama Lengkap</label>
+                                            <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="@error('name') is-invalid @enderror">
                                         </div>
+                                        <div class="single-input-fields">
+                                            <label>Email Address</label>
+                                            <input name="email" type="email" placeholder="Masukkan email address" class="@error('name') is-invalid @enderror">
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>No. Handphone</label>
+                                            <input name="nohp" type="number" placeholder="Masukkan nomer handphone" >
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Tanggal lahir</label>
+                                            <input name="tgllahir" type="date" placeholder="Masukkan tanggal lahir" >
+                                        </div>
+                                        <input type="hidden" name="role" value="investor">
                                         <div class="single-input-fields">
                                             <label>Alamat</label>
-                                            <input name="alamat" type="text" placeholder="Alamat">
+                                            <input name="alamat" type="text" placeholder="Masukkan alamat" >
                                         </div>
-                                        
                                         <div class="single-input-fields">
-                                            <label>Upload Bukti</label>
+                                            <select name="ddlProvinsi" id="ddlProvinsi2" class="form-control" onchange="comboboxkota2()">
+                                                <option value="0" selected>- Pilih Provinsi -</option>
+                                                <option value="1">Aceh</option>
+                                                <option value="2">Sumatera Utara</option>
+                                                <option value="3">Sumatera Barat</option>
+                                                <option value="4">Riau</option>
+                                                <option value="5">Jambi</option>
+                                                <option value="7">Bengkulu</option>
+                                                <option value="6">Sumatera Selatan</option>
+                                                <option value="8">Lampung</option>
+                                                <option value="10">Kepulauan Riau</option>
+                                                <option value="9">Kepulauan Bangka Belitung</option>
+                                                <option value="16">Banten</option>
+                                                <option value="12">Jawa Barat</option>
+                                                <option value="11">DKI Jakarta</option>
+                                                <option value="13">Jawa Tengah</option>
+                                                <option value="15">Jawa Timur</option>
+                                                <option value="14">Daerah Istimewa Yogyakarta</option>
+                                                <option value="17">Bali</option>
+                                                <option value="18">Nusa Tenggara Barat</option>
+                                                <option value="19">Nusa Tenggara Timur</option>
+                                                <option value="20">Kalimantan Barat</option>
+                                                <option value="22">Kalimantan Selatan</option>
+                                                <option value="21">Kalimantan Tengah</option>
+                                                <option value="23">Kalimantan Timur</option>
+                                                <option value="26">Sulawesi Selatan</option>
+                                                <option value="27">Sulawesi Tenggara</option>
+                                                <option value="24">Sulawesi Utara</option>
+                                                <option value="28">Gorontalo</option>
+                                                <option value="30">Maluku</option>
+                                                <option value="33">Papua Barat</option>
+                                                <option value="32">Papua</option>
+                                                <option value="31">Maluku Utara</option>
+                                                <option value="25">Sulawesi Tengah</option>
+                                            </select>
+                                            <select name="ddlKota" id="ddlKota2" class="form-control">
+                                                <option selected="selected" value="0">- Pilih Kota -</option>
+                                            </select>
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Jenis kelamin</label>
+											<div class="default-select" id="default-select">
+												<select name="jeniskelamin" class="form-control">
+													<option value="1">Laki-laki</option>
+													<option value="2">Perempuan</option>
+												</select>
+											</div>
+										</div>
+                                        <div class="single-input-fields">
+                                            <label>Jenis identitas</label>
+											<div class="default-select" id="default-select">
+												<select name="jenisidentitas" class="form-control">
+													<option value="1">KTP</option>
+													<option value="2">SIM</option>
+													<option value="3">Pasport</option>
+												</select>
+											</div>
+										</div>
+                                        <div class="single-input-fields">
+                                            <label>No. Identitas</label>
+                                            <input name="noidentitas" type="number" placeholder="Masukkan nomer identitas" >
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Foto KTP</label>
                                             <input type="file" name="img" placeholder="Bukti">
                                         </div>
                                         <!-- form Footer -->
@@ -180,6 +286,8 @@
     </main>
 
     <!-- JS here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ asset('js/comboBox.js') }}"></script>
     <!-- Jquery, Popper, Bootstrap -->
     <script src="{{ asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
     <script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
@@ -188,7 +296,7 @@
     
     <!-- Jquery Plugins, main Jquery -->	
     <script src="{{ asset('js/plugins.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>  
+    <script src="{{ asset('js/main.js') }}"></script>
   
 </body>
 

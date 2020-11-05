@@ -18,5 +18,20 @@ Route::get('/', function () {
 Route::get('/login', 'LoginController@login')->name('login');
 Route::get('/register', 'RegisterController@index')->name('register');
 Route::post('/postlogin', 'LoginController@postlogin');
-Route::post('/regCu', 'RegisterController@create');
-Route::get('/logout', 'LoginController@logout')->name('logout');
+Route::post('/regCu', 'RegisterController@store');
+// Route::get('/logout', 'LoginController@logout')->name('logout');
+
+Route::group(['middleware' => ['auth', 'CheckRole:admin']], function(){
+    Route::get('/dashboard', 'AdminController@dashboard');
+    // Route::get('/dataart', 'AdminController@dataart');
+    // Route::get('/datamaster', 'AdminController@datamaster');
+    // Route::post('/dataart/create','AdminController@create');
+    // Route::get('/art/edit/{id}', 'AdminController@edit');
+    // Route::get('/edit/{id}', 'AdminController@editadmin');
+    // Route::post('/art/{id}/update', 'AdminController@update');
+    // Route::post('/admin/{id}/update', 'AdminController@updateadmin');
+    // Route::get('/notfound', 'notfoundController@notfound');
+    // Route::get('art/profile/{id}','AdminController@profilart');
+    // Route::get('master/profile/{id}','AdminController@profilmaster');
+    // Route::get('dataku/{id}','AdminController@profiladmin');
+});

@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Farmer extends Model
 {
+    public $timestamps = false;
+    protected $table = 'ca_farmer';
     protected $fillable=[
+        'id_user',
         'nama_petani',
         'no_ponsel_petani',
         'tanggal_lahir_petani',
@@ -19,6 +22,6 @@ class Farmer extends Model
         'foto_lahan_hidroponik',];
 
     public function user(){
-        return $this->belongsTo('App\Register', 'user_id');
+        return $this->belongsTo('App\Register', 'id_user');
     }
 }
