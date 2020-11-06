@@ -48,28 +48,28 @@
 <div style="margin-top: 10%;">
     <div class="row" style="margin: 0px 50px 0px 50px;">
         <div class="card" style="width: 100%;">
-            <div class="card-header">List profil petani</div>
+            <div class="card-header">List profil investor</div>
             <div class="card-body">
                 @foreach($data as $li)
                     <div class="col-md-3">
                         <div class="contact-box center-version">
                             <a href="">
-                                
-                                <h3 class="m-b-xs" style="margin-bottom: 20px;"><strong>{{$li->nama_petani}}</strong></h3>
+
+                                <h3 class="m-b-xs" style="margin-bottom: 20px;"><strong>{{$li->nama_investor}}</strong></h3>
                     
                                 <div class="font-bold">{{$li->jenis_kelamin}}</div>
                                 <address class="m-t-md">
                                     <!-- <strong>Twitter, Inc.</strong><br> -->
                                     {{$li->alamat}},{{$li->kota}}<br>
                                     {{$li->provinsi}}<br>
-                                    <abbr title="Phone">P:</abbr> {{$li->no_ponsel_petani}}
+                                    <abbr title="Phone">P:</abbr> {{$li->no_ponsel_investor}}
                                 </address>
                     
                             </a>
                             <div class="contact-box-footer">
                                 <div class="m-t-xs btn-group">
-                                    <a class="btn btn-xs btn-white" href="tel:{{$li->no_ponsel_petani}}"><i class="fa fa-phone"></i> Call </a>
-                                    <a class="btn btn-xs btn-white" href="mailto:{{$li->email_petani}}"><i class="fa fa-envelope"></i> Email</a>
+                                    <a class="btn btn-xs btn-white" href="tel:{{$li->no_ponsel_investor}}"><i class="fa fa-phone"></i> Call </a>
+                                    <a class="btn btn-xs btn-white" href="mailto:{{$li->email_investor}}"><i class="fa fa-envelope"></i> Email</a>
                                 </div>
                             </div>
                     

@@ -26,8 +26,7 @@ class LoginController extends Controller
                 return view(404);
             }
         }
-        dd(Auth::attempt($request->only('username', 'password')));
-        return redirect('/login');
+        return redirect('/login')->with('error', 'Harap memasukan data dengan benar');
     }
 
     // public function postloginAshgakj(Request $request)

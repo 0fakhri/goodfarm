@@ -44,7 +44,7 @@
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="index-2.html" style="color: white; font-weight: bold;">
+                                    <a href="/" style="color: white; font-weight: bold;">
                                         GOODFARM
                                     </a>
                                 </div>
@@ -53,8 +53,8 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="/index">Dashboard</a></li>
-                                            <li><a href="/mitra">Mitra</a></li>
+                                            <li><a href="/">Dashboard</a></li>
+                                            <li><a href="/list-mitra">Mitra</a></li>
                                             <!-- <li><a href="about.html">about</a></li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">

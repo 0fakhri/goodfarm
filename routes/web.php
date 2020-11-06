@@ -23,11 +23,15 @@ Route::post('/postlogin', 'LoginController@postlogin');
 Route::post('/regCu', 'RegisterController@store');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::get('/dashboard', 'AdminController@index')->name('homeAdmin');
-Route::get('/verifikasi', 'AdminController@verifikasi');
-// Route::get('/mitra', 'MitraController@index')->name('mitra');
-Route::get('/mitra', function (){
-    $data_inv = DB::table('ca_farmer')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
-    return view('mitra',['data'=>$data_inv]);
+Route::get('/verifikasi', 'AdminController@indexVerifikasi');
+Route::get('/list-investor', function (){
+    $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
+    return view('investor',['data'=>$data_inv]);
+});
+
+Route::get('/list-mitra', function (){
+    $data_pet = DB::table('ca_farmer')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
+    return view('mitra',['data'=>$data_pet]);
 });
 
 

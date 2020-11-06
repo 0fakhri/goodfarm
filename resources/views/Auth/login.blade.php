@@ -19,6 +19,16 @@
 </head>
 
 <body>
+    @if(session('error'))
+    <!-- Modal -->
+    <div class="alert alert-danger" role="alert">
+      {{session('error')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    @endif
+
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -70,7 +80,7 @@
                                     </div>
                                     <div class="single-input-fields login-check">
                                         <!-- <input type="checkbox" id="fruit1" name="keep-log" {{ old('remember') ? 'checked' : '' }}> -->
-                                        <label for="fruit1">Keep me logged in</label>
+                                        <!-- <label for="fruit1">Keep me logged in</label> -->
 
                                         @if (Route::has('password.request'))
                                             <a href="{{ route('password.request') }}" class="f-right">Forgot Password?</a>
@@ -79,7 +89,7 @@
                                 </div>
                                 <!-- form Footer -->
                                 <div class="login-footer">
-                                    <p>Don’t have an account? <a href="{{ route('register') }}">Sign Up</a>  here</p>
+                                    <p>Belum punya akun? <a href="{{ route('register') }}">Daftar</a>  here</p>
                                     <button type="submit" class="submit-btn3">Login</button>
                                 </div>
                             </form>

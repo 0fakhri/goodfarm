@@ -38,9 +38,14 @@ class RegisterController extends Controller
      */
     public function store(Request $data)
     {
+        $this->validate($data,[
+            // 'nohp'=>'required|min:11|max:13|regex:/(08)[0-9]{9}/',
+            'username'=>'required|unique:user',
+        ]);
+
         $user =  Register::create([
             'role'      => $data['role'],
-            'username'     => $data['username'],
+            'username'  => $data['username'],
             'password'  => Hash::make($data['password']),
         ]);
 
@@ -106,9 +111,9 @@ class RegisterController extends Controller
                 'email_investor'    => $data['email'],
                 'foto_ktp_investor'    => 'stoage/' . $newName,
             ]);
-
+            
         }
-        return redirect('login');
+        return redirect('login')->with('sukses', 'Selamat anda berhasil membuat akun');;
     }
 
     /**

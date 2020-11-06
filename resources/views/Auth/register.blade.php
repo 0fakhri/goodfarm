@@ -19,6 +19,25 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+@if(session('sukses'))
+    <!-- Modal -->
+    <div class="alert alert-danger" role="alert">
+      {{session('error')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+@endif
+@if(session('error'))
+    <!-- Modal -->
+    <div class="alert alert-danger" role="alert">
+      {{session('error')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+@endif
+
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
