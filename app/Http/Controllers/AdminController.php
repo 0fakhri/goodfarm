@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -35,15 +37,28 @@ class AdminController extends Controller
         return redirect('/dataku/{id}')->with('sukses', 'data berhasil diubah');
     }
 
-    public function verifikasi(){
-        $users = \App\Farmer::all()->where('status', null);
-        $users2 = \App\Investor::all()->where('status', null);
-        // return response()->json(['data' => $users, $users2]);
-        return view('admin.verifikasi');
+    public function IndexVerifikasi(){
+        $user= DB::table('user')->join('ca_investor','user.id_user','=','ca_investor.id_user')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
+        $user2= DB::table('user')->join('ca_farmer','user.id_user','=','ca_farmer.id_user')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
+        // dd($user2);
+        return view('admin.verifikasi',['data'=>$user], ['data2'=>$user2]);
     }
 
-    public function getDataUser() {
-        
+    public function verifikasi(Request $request) {
+        DB::table('ca_farmer')->where('id_petani',$request->id)->update([
+            'status' => $request->status,
+        ]);
+
+        Mail::send('email', ['nama' => $request->nama, 'pesan' => $request->pesan], function ($message) use ($request)
+        {
+            $message->subject($request->judul);
+            $message->from('goodfarm@gmail.com', '');
+            $message->to($request->email);
+        });
+        Mail::send('isiemail', array('pesan' => $request->pesan) , function($pesan) use($request){
+            $pesan->to($request->penerima,'Verifikasi')->subject('Pemberitahuan');
+            $pesan->from(env('MAIL_USERNAME','didikprab@gmail.com'),'Verifikasi Akun email anda');
+        });
     }
 
     
