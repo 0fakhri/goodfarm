@@ -24,36 +24,36 @@
       <!-- Heading -->
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-people-carry"></i>
-          <span>Data Layanan Pekerjaan</span>
+          <span>Data Apalah</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/notfound">Detail Pekerjaan</a>
-            <a class="collapse-item" href="/notfound">Detail Order</a>
+            <a class="collapse-item" href="/notfound">Detail gagagg</a>
+            <a class="collapse-item" href="/notfound">Detail agahsjs</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-people-arrows"></i>
           <span>Data Pengguna</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/dataart">Data ART</a>
+            <a class="collapse-item" href="/dataart">Data agag</a>
             <a class="collapse-item" href="/datamaster">Data Master</a>
           </div>
         </div>
-      </li>
+      </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="/notfound">
+        <a class="nav-link" href="/verifikasi">
           <i class="fas fa-handshake"></i>
-          <span>Data Transaksi</span></a>
+          <span>Verifikasi</span></a>
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider">

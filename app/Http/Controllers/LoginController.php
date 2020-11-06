@@ -20,13 +20,14 @@ class LoginController extends Controller
             // dd(Auth()->user()->role);
             if (Auth()->user()->role == 'admin') {
                 return redirect('/dashboard');
-            }else if (Auth()->user()->role == 'admin') {
-                return view('homeAdmin');
-            }else if (Auth()->user()->role == 'ahli gizi') {
-                return view('homeAhliGizi');
+            }else if (Auth()->user()->role == 'petani') {
+                return view(404);
+            }else if (Auth()->user()->role == 'investor') {
+                return view(404);
             }
         }
-        return redirect(404);
+        dd(Auth::attempt($request->only('username', 'password')));
+        return redirect('/login');
     }
 
     // public function postloginAshgakj(Request $request)

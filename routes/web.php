@@ -19,10 +19,12 @@ Route::get('/login', 'LoginController@login')->name('login');
 Route::get('/register', 'RegisterController@index')->name('register');
 Route::post('/postlogin', 'LoginController@postlogin');
 Route::post('/regCu', 'RegisterController@store');
-// Route::get('/logout', 'LoginController@logout')->name('logout');
+Route::get('/logout', 'LoginController@logout')->name('logout');
+Route::get('/dashboard', 'AdminController@index')->name('homeAdmin');
+Route::get('/verifikasi', 'AdminController@verifikasi');
 
-Route::group(['middleware' => ['auth', 'CheckRole:admin']], function(){
-    Route::get('/dashboard', 'AdminController@dashboard');
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
+    
     // Route::get('/dataart', 'AdminController@dataart');
     // Route::get('/datamaster', 'AdminController@datamaster');
     // Route::post('/dataart/create','AdminController@create');

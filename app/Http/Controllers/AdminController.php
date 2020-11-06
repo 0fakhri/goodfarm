@@ -8,15 +8,14 @@ class AdminController extends Controller
 {
     
 
-    public function dataUser(Request $request)
-    {
-        $admin = \App\Register::all();
-    }
+    // public function dataUser(Request $request)
+    // {
+    //     $admin = \App\Register::all();
+    // }
 
     
-
     public function index() {
-       return view ('/admin.dashboard');
+       return view ('admin.dashboard');
     }
 
     
@@ -34,6 +33,16 @@ class AdminController extends Controller
         //$users->password = bcrypt($users->password);
         $users->update($request->all());
         return redirect('/dataku/{id}')->with('sukses', 'data berhasil diubah');
+    }
+
+    public function verifikasi(){
+        $users = \App\Register::with(['farmer', 'investor'])->get();
+        return response()->json(['data' => $users]);
+        return view('admin.verifikasi');
+    }
+
+    public function getDataUser() {
+        
     }
 
     
