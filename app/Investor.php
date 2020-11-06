@@ -10,7 +10,7 @@ class Investor extends Model
     protected $table = 'ca_investor';
     protected $fillable=[
         'id_user',
-        'nama_petani',
+        'nama_investor',
         'no_ponsel_investor',
         'tanggal_lahir_investor',
         'jenis_kelamin',

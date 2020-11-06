@@ -91,10 +91,10 @@ class RegisterController extends Controller
             $name = time();
             $extension = $file->getClientOriginalExtension();
             $newName = $name . '.' .$extension;
-            dd($newName);
-            Storage::putFileAs('public/img', $data->file('img2'), $newName);
+            // dd($newName);
+            Storage::putFileAs('public/img', $data->file('img'), $newName);
 
-            \App\Farmer::create([
+            \App\Investor::create([
                 'id_user' => $user->id,
                 'nama_investor'    => $data['nama'],
                 'no_ponsel_investor'    => $data['nohp'],

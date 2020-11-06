@@ -36,8 +36,9 @@ class AdminController extends Controller
     }
 
     public function verifikasi(){
-        $users = \App\Register::with(['farmer', 'investor'])->get();
-        return response()->json(['data' => $users]);
+        $users = \App\Farmer::all()->where('status', null);
+        $users2 = \App\Investor::all()->where('status', null);
+        // return response()->json(['data' => $users, $users2]);
         return view('admin.verifikasi');
     }
 

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {   
-    
+
     public function login()
     {
         return view('auth.login');
@@ -48,9 +48,10 @@ class LoginController extends Controller
     //     return redirect('/login');
     // }
 
-    // public function logout()
-    // {
-    //     Auth::logout();
-    //     return redirect('/');
-    // }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
 }

@@ -17,121 +17,206 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/progressbar_barfiller.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/lightslider.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/price_rangs.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/gijgo.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animated-headline.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fontawesome-all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="page/css/bootstrap.min.css">
+    <link rel="stylesheet" href="page/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="page/css/magnific-popup.css">
+    <link rel="stylesheet" href="page/css/font-awesome.min.css">
+    <link rel="stylesheet" href="page/css/themify-icons.css">
+    <link rel="stylesheet" href="page/css/nice-select.css">
+    <link rel="stylesheet" href="page/css/flaticon.css">
+    <link rel="stylesheet" href="page/css/gijgo.css">
+    <link rel="stylesheet" href="page/css/animate.min.css">
+    <link rel="stylesheet" href="page/css/slick.css">
+    <link rel="stylesheet" href="page/css/slicknav.css">
+    <link rel="stylesheet" href="page/css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+    <!-- header-start -->
+    <header>
+        <div class="header-area" style="background-color: #6c757d;">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid ">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2">
+                                <div class="logo">
+                                    <a href="index-2.html" style="color: white; font-weight: bold;">
+                                        GOODFARM
                                     </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
                                 </div>
-                            </li>
-                        @endguest
-                    </ul>
+                            </div>
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/index">Dashboard</a></li>
+                                            <li><a href="/mitra">Mitra</a></li>
+                                            <!-- <li><a href="about.html">about</a></li>
+                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="apply.html">apply loan</a></li>
+                                                    <li><a href="elements.html">elements</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">blog</a></li>
+                                                    <li><a href="single-blog.html">single-blog</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="FAQ.html">FAQ</a></li>
+                                            <li><a href="contact.html">Contact</a></li> -->
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                <div class="Appointment">
+                                    <div class="phone_num d-none d-xl-block">
+                                        <a href="#"> <i class="fa fa-phone"></i> +10 673 567 367</a>
+                                    </div>
+                                    <div class="d-none d-lg-block" style="padding: 10 10 10 10;">
+                                        <a class="boxed-btn4" href="{{ route('login') }}">Login</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+        </div>
+    </header>
+    @yield('content')
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-lg-3">
+                        <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="img/footer_logo.png" alt="">
+                                </a>
+                            </div>
+                            <p>
+                            goodfarm@support.com <br>
+                            +10 873 672 6782 <br>
+                            600/D, Green road, NewYork
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="footer_widget wow fadeInUp" data-wow-duration="1.1s" data-wow-delay=".4s">
+                            <h3 class="footer_title">
+                                Services
+                            </h3>
+                            <ul>
+                                <li><a href="#">SEO/SEM </a></li>
+                                <li><a href="#">Web design </a></li>
+                                <li><a href="#">Ecommerce</a></li>
+                                <li><a href="#">Digital marketing</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".5s">
+                            <h3 class="footer_title">
+                                Useful Links
+                            </h3>
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#"> Contact</a></li>
+                                <li><a href="#">Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".6s">
+                            <!-- <h3 class="footer_title">
+                            Goodfarm Terdaftar dan Diawasi Oleh
+                            </h3>
+                            <img src="{{ asset('page/img/ojk.png') }}" alt=""> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/ footer end  -->
 </body>
-<!-- JS here -->
-    <!-- Jquery, Popper, Bootstrap -->
-    <script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- JS here -->
+    <script src="{{ asset('page/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+    <script src="{{ asset('page/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('page/js/popper.min.js') }}"></script>
+    <script src="{{ asset('page/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('page/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('page/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('page/js/ajax-form.js') }}"></script>
+    <script src="{{ asset('page/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('page/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('page/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('page/js/scrollIt.js') }}"></script>
+    <script src="{{ asset('page/js/jquery.scrollUp.min.js') }}"></script>
+    <script src="{{ asset('page/js/wow.min.js') }}"></script>
+    <script src="{{ asset('page/js/nice-select.min.js') }}"></script>
+    <script src="{{ asset('page/js/jquery.slicknav.min.js') }}"></script>
+    <script src="{{ asset('page/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('page/js/plugins.js') }}"></script>
+    <script src="{{ asset('page/js/gijgo.min.js') }}"></script>
+    <script src="{{ asset('page/js/slick.min.js') }}"></script>
+    <!--contact js-->
+    <script src="{{ asset('page/js/contact.js') }}"></script>
+    <script src="{{ asset('page/js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('page/js/jquery.form.js') }}"></script>
+    <script src="{{ asset('page/js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('page/js/mail-script.js') }}"></script>
+    <script src="{{ asset('page/js/main.js') }}"></script>
 
-    <!-- Slick-slider , Owl-Carousel ,slick-nav -->
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/jquery.slicknav.min.js"></script>
-
-    <!-- One Page, Animated-HeadLin, Date Picker , price, light-slider -->
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/animated.headline.js"></script>
-    <script src="assets/js/jquery.magnific-popup.js"></script>
-    <script src="assets/js/gijgo.min.js"></script>
-    <script src="assets/js/lightslider.min.js"></script>
-    <script src="assets/js/price_rangs.js"></script>
-    
-    <!-- Nice-select, sticky,Progress -->
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/jquery.sticky.js"></script>
-    <script src="assets/js/jquery.barfiller.js"></script>
-    
-    <!-- counter , waypoint,Hover Direction -->
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.countdown.min.js"></script>
-    <script src="assets/js/hover-direction-snake.min.js"></script>
-
-    <!-- contact js -->
-    <script src="assets/js/contact.js"></script>
-    <script src="assets/js/jquery.form.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="assets/js/mail-script.js"></script>
-    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
 </html>

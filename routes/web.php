@@ -11,8 +11,10 @@
 |
 */
 
+use Illuminate\Support\Facades\DB;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/login', 'LoginController@login')->name('login');
@@ -22,6 +24,12 @@ Route::post('/regCu', 'RegisterController@store');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::get('/dashboard', 'AdminController@index')->name('homeAdmin');
 Route::get('/verifikasi', 'AdminController@verifikasi');
+// Route::get('/mitra', 'MitraController@index')->name('mitra');
+Route::get('/mitra', function (){
+    $data_inv = DB::table('ca_farmer')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
+    return view('mitra',['data'=>$data_inv]);
+});
+
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     

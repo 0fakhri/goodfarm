@@ -21,7 +21,7 @@ class Farmer extends Model
         'foto_ktp_petani',
         'foto_lahan_hidroponik',];
 
-    public function user(){
+    public function register(){
         return $this->belongsTo('App\Register', 'id_user');
     }
 }
