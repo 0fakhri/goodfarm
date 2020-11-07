@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('investor.layouts.app')
 @section('content')
 <style>
         /* body{margin-top:15%;

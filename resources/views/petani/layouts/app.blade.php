@@ -54,8 +54,8 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="/">Dashboard</a></li>
-                                            <li><a href="/list-mitra">Mitra</a></li>
-                                            <!-- <li><a href="about.html">about</a></li>
+                                            <li><a href="/list-investor">Investor</a></li>
+                                            <li><a href="about.html">about</a></li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="apply.html">apply loan</a></li>
@@ -69,7 +69,7 @@
                                                 </ul>
                                             </li>
                                             <li><a href="FAQ.html">FAQ</a></li>
-                                            <li><a href="contact.html">Contact</a></li> -->
+                                            <li><a href="contact.html">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -80,7 +80,19 @@
                                         <a href="#"> <i class="fa fa-phone"></i> +10 673 567 367</a>
                                     </div>
                                     <div class="d-none d-lg-block" style="padding: 10 10 10 10;">
-                                        <a class="boxed-btn4" href="{{ route('login') }}">Login</a>
+                                        <div class="main-menu  d-none d-lg-block">
+                                            <nav>
+                                                <ul id="navigation">
+                                                    <li><a href="#">{{auth()->user()->username}} <i class="ti-angle-down"></i></a>
+                                                        <ul class="submenu">
+                                                            <li><a href="/logout">logout</a></li>
+                                                            <!-- <li><a href="single-blog.html">single-blog</a></li> -->
+                                                        </ul>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </nav>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
