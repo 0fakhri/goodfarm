@@ -14,7 +14,7 @@
 use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
-    return view('index');
+    return view('auth.login');
 });
 
 Route::get('/login', 'LoginController@login')->name('login');
@@ -28,12 +28,13 @@ Route::get('/list-investor', function (){
     $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
     return view('investor',['data'=>$data_inv]);
 });
-
+Route::get('/verifikasi', 'AdminController@indexVerifikasi');
 Route::get('/list-mitra', function (){
     $data_pet = DB::table('ca_farmer')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
     return view('mitra',['data'=>$data_pet]);
 });
-
+Route::post('/diterima', 'AdminController@diterima');
+Route::post('/ditolak', 'AdminController@ditolak');
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     

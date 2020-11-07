@@ -44,22 +44,66 @@ class AdminController extends Controller
         return view('admin.verifikasi',['data'=>$user], ['data2'=>$user2]);
     }
 
-    public function verifikasi(Request $request) {
-        DB::table('ca_farmer')->where('id_petani',$request->id)->update([
-            'status' => $request->status,
-        ]);
+    public function diterima(Request $request) {
 
-        Mail::send('email', ['nama' => $request->nama, 'pesan' => $request->pesan], function ($message) use ($request)
-        {
-            $message->subject($request->judul);
-            $message->from('goodfarm@gmail.com', '');
-            $message->to($request->email);
-        });
-        Mail::send('isiemail', array('pesan' => $request->pesan) , function($pesan) use($request){
-            $pesan->to($request->penerima,'Verifikasi')->subject('Pemberitahuan');
-            $pesan->from(env('MAIL_USERNAME','didikprab@gmail.com'),'Verifikasi Akun email anda');
-        });
+        if($request->role == 'investor'){
+            DB::table('ca_investor')->where('id_investor',$request->id)->update([
+                'status' => $request->status,
+            ]);
+        }
+        elseif($request->role == 'petani'){
+            DB::table('ca_farmer')->where('id_petani',$request->id)->update([
+                'status' => $request->status,
+            ]);
+        }
+
+        $data = [];
+        Mail::send('admin.email', $data, function($message) use ($request)
+            {
+                $message->from('do-notreply@domain.com', "Goodfarm");
+                $message->subject("Welcome to Goodfarm");
+                $message->to($request['email']);
+            });
+        
+        return redirect('/dashboard');
     }
+
+    public function ditolak(Request $request) {
+
+        if($request->role == 'investor'){
+            DB::table('ca_investor')->where('id_investor',$request->id)->update([
+                'status' => $request->status,
+            ]);
+        }
+        elseif($request->role == 'petani'){
+            DB::table('ca_farmer')->where('id_petani',$request->id)->update([
+                'status' => $request->status,
+            ]);
+        }
+
+        $data = [];
+        Mail::send('admin.emailF', $data, function($message) use ($request)
+            {
+                $message->from('do-notreply@domain.com', "Goodfarm");
+                $message->subject("Welcome to Goodfarm");
+                $message->to($request['email']);
+            });
+        
+        return redirect('/dashboard');
+    }
+
+    
+    //     Mail::send('email', ['nama' => $request->nama, 'pesan' => $request->pesan], function ($message) use ($request)
+    //     {
+    //         $message->subject($request->judul);
+    //         $message->from('goodfarm@gmail.com', '');
+    //         $message->to($request->email);
+    //     });
+    //     Mail::send('isiemail', array('pesan' => $request->pesan) , function($pesan) use($request){
+    //         $pesan->to($request->penerima,'Verifikasi')->subject('Pemberitahuan');
+    //         $pesan->from(env('MAIL_USERNAME','didikprab@gmail.com'),'Verifikasi Akun email anda');
+    //     });
+    
 
     
 }

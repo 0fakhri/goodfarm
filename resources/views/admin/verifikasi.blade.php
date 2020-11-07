@@ -35,7 +35,22 @@
               <td>{{$user->alamat}}</td>
               <td>{{$user->kota}}</td>
               <td>{{$user->provinsi}}</td>
-              <td></td>
+              <td>
+                <form action="/diterima" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $user->id_investor }}">
+                    <input type="hidden" name="email" value="{{ $user->email_investor }}">
+                    <input type="hidden" name="role" value="{{ $user->role }}">
+                    <input type="hidden" name="status" value="Diterima">
+                    <button type="submit">Terima</button>
+                  </form>
+                  <form action="/ditolak" method="post">
+                    <input type="hidden" name="id" value="{{ $user->id_investor }}">
+                    <input type="hidden" name="email" value="{{ $user->role }}">
+                    <input type="hidden" name="status" value="Ditolak">
+                    <button type="submit">Menolak</button>
+                  </form>
+              </td>
           </tr>
           </tbody>
           @endforeach
@@ -66,14 +81,18 @@
               <td>{{$user2->kota}}</td>
               <td>{{$user2->provinsi}}</td>
               <td>
-                <form action="" method="post">
+                <form action="/diterima" method="post">
                   @csrf
                   <input type="hidden" name="id" value="{{ $user2->id_petani }}">
+                  <input type="hidden" name="email" value="{{ $user2->email_petani }}">
+                  <input type="hidden" name="role" value="{{ $user2->role }}">
                   <input type="hidden" name="status" value="Diterima">
                   <button type="submit">Terima</button>
                 </form>
-                <form action="" method="post">
+                <form action="/ditolak" method="post">
                   <input type="hidden" name="id" value="{{ $user2->id_petani }}">
+                  <input type="hidden" name="email" value="{{ $user2->email_petani }}">
+                  <input type="hidden" name="role" value="{{ $user2->role }}">
                   <input type="hidden" name="status" value="Ditolak">
                   <button type="submit">Menolak</button>
                 </form>
