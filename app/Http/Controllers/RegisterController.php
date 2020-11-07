@@ -40,7 +40,7 @@ class RegisterController extends Controller
     {
         $this->validate($data,[
             // 'nohp'=>'required|min:11|max:13|regex:/(08)[0-9]{9}/',
-            'username'=>'required|unique:user',
+            'username'=>'required|unique:users',
         ]);
 
         $user =  Register::create([
@@ -71,7 +71,7 @@ class RegisterController extends Controller
             Storage::putFileAs('public/img', $data->file('img2'), $newName2);
 
             \App\Farmer::create([
-                'id_user' => $user->id,
+                'id' => $user->id,
                 'nama_petani'    => $data['nama'],
                 'no_ponsel_petani'    => $data['nohp'],
                 'tanggal_lahir_petani'    => $data['tgllahir'],
@@ -100,7 +100,7 @@ class RegisterController extends Controller
             Storage::putFileAs('public/img', $data->file('img'), $newName);
 
             \App\Investor::create([
-                'id_user' => $user->id,
+                'id' => $user->id,
                 'nama_investor'    => $data['nama'],
                 'no_ponsel_investor'    => $data['nohp'],
                 'tanggal_lahir_investor'    => $data['tgllahir'],

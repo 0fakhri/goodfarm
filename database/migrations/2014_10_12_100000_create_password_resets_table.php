@@ -14,7 +14,7 @@ class CreatePasswordResetsTable extends Migration
     public function up()
     {
         Schema::create('alamat', function (Blueprint $table) {
-            $table->integer('id_alamat')->length(11)->autoIncrement();
+            $table->integer('id_alamat', true);
             $table->string('alamat',50);
             $table->string('kota',20);
             $table->string('provinsi',15);

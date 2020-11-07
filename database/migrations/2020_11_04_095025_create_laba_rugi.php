@@ -15,8 +15,7 @@ class CreateLabaRugi extends Migration
     {
         Schema::create('laba_rugi', function (Blueprint $table) {
             $table->integer('id_laba_rugi')->length(11)->autoIncrement();
-            $table->integer('id_petani')->length(11);
-            $table->foreign('id_petani')->references('id_petani')->on('ca_farmer');
+            $table->integer('id_petani')->index('petani');
             $table->integer('panen_ke')->length(11);
             $table->integer('pengeluaran_total')->length(11);
             $table->integer('pemasukan/panen_total')->length(11);

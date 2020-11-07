@@ -14,9 +14,8 @@ class CreateProfilInvestor extends Migration
     public function up()
     {
         Schema::create('profil_investor', function (Blueprint $table) {
-            $table->integer('id_profil_investor')->length(11)->autoIncrement();
-            $table->integer('id_investor')->length(11);
-            $table->foreign('id_investor')->references('id_investor')->on('ca_investor');
+            $table->integer('id_profil_investor',true);
+            $table->integer('id_investor')->index('id_investor');
             $table->string('bio_investor',50);
             $table->string('situs_web_investor',20);
         });

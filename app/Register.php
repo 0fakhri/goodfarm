@@ -10,12 +10,13 @@ class Register extends Authenticatable
 {
     use Notifiable;
     public $timestamps = false;
-    protected $table = 'user';
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    // protected $guarded = [];
     protected $fillable = [
         'role', 'username', 'password',
     ];

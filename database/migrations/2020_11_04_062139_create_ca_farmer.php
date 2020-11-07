@@ -13,9 +13,8 @@ class CreateCaFarmer extends Migration
      */
     public function up() {
         Schema::create('ca_farmer', function (Blueprint $table) {
-            $table->integer('id_petani')->length(11)->autoIncrement();
-            $table->integer('id_user')->length(11);
-            $table->foreign('id_user')->references('id_user')->on('user');
+            $table->integer('id_petani', true);
+            $table->integer('id')->index('id');
             $table->string('nama_petani',50);
             $table->string('no_ponsel_petani',15);
             $table->date('tanggal_lahir_petani');

@@ -14,9 +14,8 @@ class CreateCaInvestor extends Migration
     public function up()
     {
         Schema::create('ca_investor', function (Blueprint $table) {
-            $table->integer('id_investor')->length(11)->autoIncrement();
-            $table->integer('id_user')->length(11);
-            $table->foreign('id_user')->references('id_user')->on('user');
+            $table->integer('id_investor',true);
+            $table->integer('id')->index('id');
             $table->string('nama_investor',50);
             $table->string('no_ponsel_investor',15);
             $table->date('tanggal_lahir_investor');

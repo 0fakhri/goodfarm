@@ -20,22 +20,6 @@ class AdminController extends Controller
        return view ('admin.dashboard');
     }
 
-    
-
-    public function editadmin($id){
-        $users = \App\Register::find($id);
-        return view('admin.editadmin', ['users' => $users]);
-    }
-
-    
-
-    public function updateadmin(Request $request, $id){
-        //dd($request->all());
-        $users = \App\Register::find($id);
-        //$users->password = bcrypt($users->password);
-        $users->update($request->all());
-        return redirect('/dataku/{id}')->with('sukses', 'data berhasil diubah');
-    }
 
     public function IndexVerifikasi(){
         $user= DB::table('user')->join('ca_investor','user.id_user','=','ca_investor.id_user')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();

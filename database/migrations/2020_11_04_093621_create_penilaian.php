@@ -14,9 +14,8 @@ class CreatePenilaian extends Migration
     public function up()
     {
         Schema::create('penilaian', function (Blueprint $table) {
-            $table->integer('id_penilaian')->length(11)->autoIncrement();
-            $table->integer('id_investor')->length(11);
-            $table->foreign('id_investor')->references('id_investor')->on('ca_investor');
+            $table->integer('id_penilaian',true);
+            $table->integer('id_investor')->index('id_investor');
             $table->integer('rate')->length(5);
             $table->integer('komentar')->length(11);
             $table->string('gambar',20);
