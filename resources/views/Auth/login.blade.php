@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -54,13 +53,13 @@
                                 <span>Login</span>
                                 <p>Enter Login details to get access</p>
                             </div>
-                            <form method="POST" action="postlogin">
+                            <form method="POST" action="/postlogin">
                                 @csrf
                             <!-- Single Input Fields -->
                                 <div class="input-box">
                                     <div class="single-input-fields">
                                         <label>Username</label>
-                                        <input name="username" class="@error('email') is-invalid @enderror" type="text" placeholder="Masukkan username">
+                                        <input name="username" class="@error('username') is-invalid @enderror" type="text" placeholder="Masukkan username">
                                         
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
