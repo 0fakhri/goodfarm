@@ -20,18 +20,18 @@
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="page/css/bootstrap.min.css">
-    <link rel="stylesheet" href="page/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="page/css/magnific-popup.css">
-    <link rel="stylesheet" href="page/css/font-awesome.min.css">
-    <link rel="stylesheet" href="page/css/themify-icons.css">
-    <link rel="stylesheet" href="page/css/nice-select.css">
-    <link rel="stylesheet" href="page/css/flaticon.css">
-    <link rel="stylesheet" href="page/css/gijgo.css">
-    <link rel="stylesheet" href="page/css/animate.min.css">
-    <link rel="stylesheet" href="page/css/slick.css">
-    <link rel="stylesheet" href="page/css/slicknav.css">
-    <link rel="stylesheet" href="page/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/magnific-popup.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/themify-icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/nice-select.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/gijgo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/animate.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/slicknav.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/style.css') }}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 <body>
@@ -54,7 +54,7 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="/">Dashboard</a></li>
-                                            <li><a href="/list-mitra">Mitra</a></li>
+                                            <li><a href="/investor/list-mitra">Mitra</a></li>
                                             <!-- <li><a href="about.html">about</a></li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
