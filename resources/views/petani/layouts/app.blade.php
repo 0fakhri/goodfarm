@@ -83,7 +83,7 @@
                                         <div class="main-menu  d-none d-lg-block">
                                             <nav>
                                                 <ul id="navigation">
-                                                    <li><a href="#">{{auth()->user()->username}} <i class="ti-angle-down"></i></a>
+                                                    <li><a href="#">Profil <i class="ti-angle-down"></i></a>
                                                         <ul class="submenu">
                                                             <li><a href="/logout">logout</a></li>
                                                             <!-- <li><a href="single-blog.html">single-blog</a></li> -->
