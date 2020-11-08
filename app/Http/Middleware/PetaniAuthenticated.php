@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CheckRole
+class PetaniAuthenticated
 {
     /**
      * Handle an incoming request.
@@ -13,11 +13,8 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, ...$roles)
+    public function handle($request, Closure $next)
     {
-        if (in_array($request->user()->role, $roles)) {
-            return $next($request);
-        }
-        return redirect('/');
+        return $next($request);
     }
 }

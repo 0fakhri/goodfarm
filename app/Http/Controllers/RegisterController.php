@@ -71,7 +71,7 @@ class RegisterController extends Controller
             Storage::putFileAs('public/img', $data->file('img2'), $newName2);
 
             \App\Farmer::create([
-                'id' => $user->id,
+                'id_user' => $user->id,
                 'nama_petani'    => $data['nama'],
                 'no_ponsel_petani'    => $data['nohp'],
                 'tanggal_lahir_petani'    => $data['tgllahir'],
@@ -100,7 +100,7 @@ class RegisterController extends Controller
             Storage::putFileAs('public/img', $data->file('img'), $newName);
 
             \App\Investor::create([
-                'id' => $user->id,
+                'id_user' => $user->id,
                 'nama_investor'    => $data['nama'],
                 'no_ponsel_investor'    => $data['nohp'],
                 'tanggal_lahir_investor'    => $data['tgllahir'],

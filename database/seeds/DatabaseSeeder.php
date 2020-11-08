@@ -22,13 +22,13 @@ class DatabaseSeeder extends Seeder
         ]);
        DB::table('users')->insert([
             'role' => 2,
-            'username' => 'master',
+            'username' => 'petani',
             'password' => bcrypt('password'),
             
         ]);
        DB::table('users')->insert([
             'role' => 3,
-            'username' => 'maid',
+            'username' => 'investor',
             'password' => bcrypt('password'),
             
         ]);

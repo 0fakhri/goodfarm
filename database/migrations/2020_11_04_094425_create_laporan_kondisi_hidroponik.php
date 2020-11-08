@@ -14,7 +14,7 @@ class CreateLaporanKondisiHidroponik extends Migration
     public function up()
     {
         Schema::create('laporan_kondisi_hidroponik', function (Blueprint $table) {
-            $table->integer('id_laporan')->length(11)->autoIncrement();
+            $table->integer('id_laporan',true);
             $table->integer('id_petani')->index('petani');
             $table->string('gambar_hidroponik',50);
             $table->integer('usia_hidroponik')->length(11);

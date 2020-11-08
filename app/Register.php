@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Register extends Authenticatable
@@ -39,6 +38,7 @@ class Register extends Authenticatable
     //     'email_verified_at' => 'datetime',
     // ];
 
+    
     public function farmer()
         {
             return $this->hasOne('App\Farmer', 'id_user');

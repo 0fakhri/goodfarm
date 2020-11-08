@@ -74,7 +74,7 @@
         <tbody>
           <tr class="text-center">
               <td><a href="">{{$user2->nama_petani}}</a></td>
-              <td><a href="">{{$user->username}}</a></td>
+              <td><a href="">{{$user2->username}}</a></td>
               <td>{{$user2->email_petani}}</td>
               <td>{{$user2->no_ponsel_petani}}</td>
               <td>{{$user2->alamat}}</td>

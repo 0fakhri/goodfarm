@@ -17,20 +17,22 @@ class LoginController extends Controller
     
         if (Auth::attempt($request->only('username', 'password'))) {
             // dd(Auth::attempt($request->only('username', 'password')));
-            
-            // $user = \App\Register::where('username', $request->username)->first();
+            Auth::check();
+            $user = \App\Register::where('username', $request->username)->first();
             // dd($user);
-            if (Auth()->user()->role == 'admin') {
+            if ($user->role === 'admin') {
+                // dd(Auth::attempt($request->only('username', 'password')),Auth::user()->role);
                 return redirect('/dashboard');
             }
-            else if (Auth()->user()->role == 'petani') {
-                return redirect('/dashboard');
+            else if ($user->role === 'petani') {
+                // dd(Auth()->user()->role);
+                return redirect('/petani/dashboard');
             }
-            else if (Auth()->user()->role == 'investor') {
-                return redirect('/dashboard');
+            else if ($user->role === 'investor') {
+                return redirect('/investor/dashboard');
             }
         }
-        return redirect(404)->with('error', 'Harap memasukan data dengan benar');
+        return redirect('/login')->with('error', 'Harap memasukan data dengan benar');
     }
 
     
@@ -43,4 +45,9 @@ class LoginController extends Controller
     // {
     //     $this->middleware('guest')->except('logout');
     // }
+
+//     public function __construct()
+// {
+//     $this->middleware(['checkRole:admin,petani,investor']);
+// }
 }

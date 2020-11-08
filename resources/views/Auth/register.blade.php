@@ -184,7 +184,7 @@
                                         <!-- form Footer -->
                                         <div class="register-footer">
                                             <p> Already have an account? <a href="{{ route('login') }}"> Login</a> here</p>
-                                            <button type="submit" class="submit-btn3">Sign Up</button>
+                                            <button type="submit" class="submit-btn3">Register</button>
                                         </div>
                                     </form>
                                 </div>
@@ -291,7 +291,7 @@
                                         <!-- form Footer -->
                                         <div class="register-footer">
                                             <p> Already have an account? <a href="{{ route('login') }}"> Login</a> here</p>
-                                            <button type="submit" class="submit-btn3">Sign Up</button>
+                                            <button type="submit" class="submit-btn3">Register</button>
                                         </div>
                                     </form>
                                 </div>

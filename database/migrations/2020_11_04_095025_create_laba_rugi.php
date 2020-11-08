@@ -14,7 +14,7 @@ class CreateLabaRugi extends Migration
     public function up()
     {
         Schema::create('laba_rugi', function (Blueprint $table) {
-            $table->integer('id_laba_rugi')->length(11)->autoIncrement();
+            $table->integer('id_laba_rugi',true);
             $table->integer('id_petani')->index('petani');
             $table->integer('panen_ke')->length(11);
             $table->integer('pengeluaran_total')->length(11);

@@ -22,8 +22,8 @@ class AdminController extends Controller
 
 
     public function IndexVerifikasi(){
-        $user= DB::table('users')->join('ca_investor','users.id','=','ca_investor.id')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
-        $user2= DB::table('users')->join('ca_farmer','users.id','=','ca_farmer.id')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
+        $user= DB::table('users')->join('ca_investor','users.id_user','=','ca_investor.id_user')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->where('status','')->get();
+        $user2= DB::table('users')->join('ca_farmer','users.id_user','=','ca_farmer.id_user')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('status','')->get();
         // dd($user2);
         return view('admin.verifikasi',['data'=>$user], ['data2'=>$user2]);
     }
@@ -49,7 +49,7 @@ class AdminController extends Controller
                 $message->to($request['email']);
             });
         
-        return redirect('/dashboard');
+        return redirect('/verifikasi');
     }
 
     public function ditolak(Request $request) {

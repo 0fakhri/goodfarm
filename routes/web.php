@@ -24,11 +24,13 @@ Route::post('/regCu', 'RegisterController@store');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 
-Route::group(['middleware' => ['auth', 'CheckRole:admin']], function(){
-    Route::get('/dashboard', 'AdminController@index');
+Route::get('/dashboard', 'AdminController@index');
     Route::get('/verifikasi', 'AdminController@indexVerifikasi');
     Route::post('/diterima', 'AdminController@diterima');
     Route::post('/ditolak', 'AdminController@ditolak');
+
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
+    
     // Route::get('/dataart', 'AdminController@dataart');
     // Route::get('/datamaster', 'AdminController@datamaster');
     // Route::post('/dataart/create','AdminController@create');
@@ -42,23 +44,27 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function(){
     // Route::get('dataku/{id}','AdminController@profiladmin');
 });
 
-Route::group(['middleware' => ['auth', 'CheckRole:petani']], function(){
-    Route::get('/dashboard', function () {
-        return view('petani.index');
-    });
-    Route::get('/list-investor', function (){
-        $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
-        return view('petani.investor',['data'=>$data_inv]);
-    });
+Route::get('/petani/dashboard', function () {
+    return view('petani.index');
+});
+Route::get('/petani/list-investor', function (){
+    $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
+    return view('petani.investor',['data'=>$data_inv]);
 });
 
-Route::group(['middleware' => ['auth', 'CheckRole:investor']], function(){
-    Route::get('/dashboard', function () {
-        return view('investor.index');
-    });
-    Route::get('/list-mitra', function (){
-        $data_pet = DB::table('ca_farmer')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
-        return view('investor.mitra',['data'=>$data_pet]);
-    });
+Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
+    
+});
+
+Route::get('/investor/dashboard', function () {
+    return view('investor.index');
+});
+Route::get('/investor/list-mitra', function (){
+    $data_pet = DB::table('ca_farmer')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
+    return view('investor.mitra',['data'=>$data_pet]);
+});
+
+Route::group(['middleware' => ['auth', 'checkRole:investor']], function(){
+    
 });
 

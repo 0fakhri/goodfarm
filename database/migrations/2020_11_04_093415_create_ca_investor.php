@@ -15,15 +15,14 @@ class CreateCaInvestor extends Migration
     {
         Schema::create('ca_investor', function (Blueprint $table) {
             $table->integer('id_investor',true);
-            $table->integer('id')->index('id');
+            $table->integer('id_user')->index('id_user');
             $table->string('nama_investor',50);
             $table->string('no_ponsel_investor',15);
             $table->date('tanggal_lahir_investor');
             $table->enum('jenis_kelamin',['Laki-laki','Perempuan']);
             $table->enum('jenis_identitas',['KTP','SIM','Pasport']);
             $table->integer('no_identitas_investor')->length(20);
-            $table->integer('id_alamat')->length(11);
-            $table->foreign('id_alamat')->references('id_alamat')->on('alamat');
+            $table->integer('id_alamat')->index('id_alamat');
             $table->string('email_investor',50);
             $table->string('foto_ktp_investor',50);
             $table->enum('status',['Ditolak','Diterima'])->nullable();
