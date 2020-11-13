@@ -3,19 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Investor;
+use App\m_Investor;
+use App\m_Registrasi;
 use App\Register;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
-class RegisterController extends Controller
+class c_Register extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function mengeklikMenu()
     {
         return view('auth.register');
     }
@@ -30,20 +32,27 @@ class RegisterController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $data)
+
+    
+    public function menyimpanData(Request $data)
     {
-        $this->validate($data,[
-            // 'nohp'=>'required|min:11|max:13|regex:/(08)[0-9]{9}/',
-            'username'=>'required|unique:users',
+        $validatedData = $data->validate([
+            'username' => 'required|unique:users',
+            'password' => 'required',
+            'alamat' => 'required',
+            'ddlkota' => 'required',
+            'ddlprovinsi' => 'required',
+            'img' => 'required',
+            'nama' => 'required',
+            'nohp' => 'required',
+            'tgllahir'=> 'required',
+            'jeniskelamin' => 'required',
+            'jenisidentitas' => 'required',
+            'noidentitas' => 'required',
+            'email' => 'required',
         ]);
 
-        $user =  Register::create([
+        $user =  m_Registrasi::create([
             'role'      => $data['role'],
             'username'  => $data['username'],
             'password'  => Hash::make($data['password']),
@@ -70,7 +79,7 @@ class RegisterController extends Controller
             Storage::putFileAs('public/img', $data->file('img'), $newName);
             Storage::putFileAs('public/img', $data->file('img2'), $newName2);
 
-            \App\Farmer::create([
+            \App\m_Mitra::create([
                 'id_user' => $user->id,
                 'nama_petani'    => $data['nama'],
                 'no_ponsel_petani'    => $data['nohp'],
@@ -80,8 +89,8 @@ class RegisterController extends Controller
                 'no_identitas_petani'    => $data['noidentitas'],
                 'id_alamat'    => $alamat->id,
                 'email_petani'    => $data['email'],
-                'foto_ktp_petani'    => 'stoage/' . $newName,
-                'foto_lahan_hidroponik' => 'storage/' . $newName2,
+                'foto_ktp_petani'    => 'storage/img/' . $newName,
+                'foto_lahan_hidroponik' => 'storage/img/' . $newName2,
             ]);
         }
         elseif ($data['role'] == "investor") {
@@ -99,7 +108,7 @@ class RegisterController extends Controller
             // dd($newName);
             Storage::putFileAs('public/img', $data->file('img'), $newName);
 
-            \App\Investor::create([
+            \App\m_Investor::create([
                 'id_user' => $user->id,
                 'nama_investor'    => $data['nama'],
                 'no_ponsel_investor'    => $data['nohp'],
@@ -109,10 +118,11 @@ class RegisterController extends Controller
                 'no_identitas_investor'    => $data['noidentitas'],
                 'id_alamat'    => $alamat->id,
                 'email_investor'    => $data['email'],
-                'foto_ktp_investor'    => 'stoage/' . $newName,
+                'foto_ktp_investor'    => 'storage/img/' . $newName,
             ]);
             
         }
+        
         return redirect('login')->with('sukses', 'Selamat anda berhasil membuat akun');;
     }
 
@@ -122,7 +132,7 @@ class RegisterController extends Controller
      * @param  \App\Investor  $investor
      * @return \Illuminate\Http\Response
      */
-    public function show(Investor $investor)
+    public function show(m_Investor $investor)
     {
         //
     }
@@ -133,7 +143,7 @@ class RegisterController extends Controller
      * @param  \App\Investor  $investor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Investor $investor)
+    public function edit(m_Investor $investor)
     {
         //
     }
@@ -145,7 +155,7 @@ class RegisterController extends Controller
      * @param  \App\Investor  $investor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Investor $investor)
+    public function update(Request $request, m_Investor $investor)
     {
         //
     }
@@ -156,7 +166,7 @@ class RegisterController extends Controller
      * @param  \App\Investor  $investor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Investor $investor)
+    public function destroy(m_Investor $investor)
     {
         //
     }

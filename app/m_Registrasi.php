@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Register extends Authenticatable
+class m_Registrasi extends Authenticatable
 {
     use Notifiable;
     public $timestamps = false;

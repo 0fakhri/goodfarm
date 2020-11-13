@@ -18,15 +18,15 @@
 </head>
 
 <body>
-    @if(session('error'))
-    <!-- Modal -->
-    <div class="alert alert-danger" role="alert">
-      {{session('error')}}
+@if(session('sukses'))
+<!-- Modal -->
+    <div class="alert alert-success" role="alert">
+      {{session('sukses')}}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
     </div>
-    @endif
+  @endif
 
     <!-- ? Preloader Start -->
     <div id="preloader-active">

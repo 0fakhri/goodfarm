@@ -21,7 +21,7 @@
               <th>No HP</th>
               <th>Alamat</th>
               <th>Kota</th>
-              <th>Provinsi</th>
+              <!-- <th>Ktp</th> -->
               <th>Verifikasi</th>
           </tr>
         </thead>
@@ -34,7 +34,7 @@
               <td>{{$user->no_ponsel_investor}}</td>
               <td>{{$user->alamat}}</td>
               <td>{{$user->kota}}</td>
-              <td>{{$user->provinsi}}</td>
+              
               <td>
                 <form action="/diterima" method="post">
                     @csrf
@@ -66,7 +66,7 @@
               <th>No HP</th>
               <th>Alamat</th>
               <th>Kota</th>
-              <th>Provinsi</th>
+              <!-- <th>ktp</th> -->
               <th>Verifikasi</th>
           </tr>
         </thead>
@@ -79,7 +79,7 @@
               <td>{{$user2->no_ponsel_petani}}</td>
               <td>{{$user2->alamat}}</td>
               <td>{{$user2->kota}}</td>
-              <td>{{$user2->provinsi}}</td>
+              
               <td>
                 <form action="/diterima" method="post">
                   @csrf

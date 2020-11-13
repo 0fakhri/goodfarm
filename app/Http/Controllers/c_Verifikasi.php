@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
-class AdminController extends Controller
+class c_Verifikasi extends Controller
 {
     
 
@@ -17,15 +17,15 @@ class AdminController extends Controller
 
     
     public function index() {
-       return view ('admin.dashboard');
+       return view ('admin.v_Dashboard');
     }
 
 
     public function IndexVerifikasi(){
-        $user= DB::table('users')->join('ca_investor','users.id_user','=','ca_investor.id_user')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->where('status','')->get();
-        $user2= DB::table('users')->join('ca_farmer','users.id_user','=','ca_farmer.id_user')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('status','')->get();
-        // dd($user2);
-        return view('admin.verifikasi',['data'=>$user], ['data2'=>$user2]);
+        $user= DB::table('users')->join('ca_investor','users.id_user','=','ca_investor.id_user')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->where('status',null)->get();
+        $user2= DB::table('users')->join('ca_farmer','users.id_user','=','ca_farmer.id_user')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('status',null)->get();
+        // dd($user);
+        return view('admin.v_verifikasi',['data'=>$user], ['data2'=>$user2]);
     }
 
     public function diterima(Request $request) {

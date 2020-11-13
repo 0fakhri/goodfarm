@@ -5,20 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class c_Login extends Controller
 {   
 
-    public function login()
+    public function mengeklikMenu()
     {
         return view('auth.login');
     }
 
-    public function postlogin(Request $request) {
+    public function getData(Request $request) {
     
         if (Auth::attempt($request->only('username', 'password'))) {
             // dd(Auth::attempt($request->only('username', 'password')));
             Auth::check();
-            $user = \App\Register::where('username', $request->username)->first();
+            $user = \App\m_Registrasi::where('username', $request->username)->first();
             // dd($user);
             if ($user->role === 'admin') {
                 // dd(Auth::attempt($request->only('username', 'password')),Auth::user()->role);
