@@ -13,19 +13,23 @@
 
 use Illuminate\Support\Facades\DB;
 
+Route::group(['middleware' => 'web'], function() {
+    Route::get('/register', 'c_Register@mengeklikMenu')->name('register');
+});
+
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', 'c_Login@login')->name('login');
-Route::get('/register', 'c_Register@index')->name('register');
-Route::post('/postlogin', 'c_Login@postlogin');
-Route::post('/regCu', 'c_Register@store');
+Route::get('/login', 'c_Login@mengeklikMenu')->name('login');
+
+Route::post('/postlogin', 'c_Login@getData');
+Route::post('/regCu', 'c_Register@menyimpanData');
 // Route::get('/logout', 'c_Login@logout')->name('logout');
 
 
-Route::get('/dashboard', 'c_Verifikasi@index');
-    Route::get('/verifikasi', 'c_Verifikasi@indexVerifikasi');
+Route::get('/dashboard', 'c_Verifikasi@masukHalaman');
+    Route::get('/verifikasi', 'c_Verifikasi@mengeklikMenu');
     Route::post('/diterima', 'c_Verifikasi@diterima');
     Route::post('/ditolak', 'c_Verifikasi@ditolak');
 

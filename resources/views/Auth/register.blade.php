@@ -19,20 +19,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-@if(session('sukses'))
-    <!-- Modal -->
-    <div class="alert alert-danger" role="alert">
-      {{session('error')}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    </div>
-@endif
-<div class="alert alert-danger">
-    <ul>
-        <li>{{ $error }}</li>
-    </ul>
-</div>
+
 
     <!-- ? Preloader Start -->
     <div id="preloader-active">
@@ -79,32 +66,53 @@
                                         <!-- <div class="input-box"> -->
                                         <div class="single-input-fields">
                                             <label>Username</label>
-                                            <input name="username" type="text" placeholder="Masukkan username" >
+                                            <input name="username" type="text" placeholder="Masukkan username" class="@error('username') is-invalid @enderror">
+                                            @error('username')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Password</label>
-                                            <input name="password" type="password" placeholder="Masukkan Password" class="@error('name') is-invalid @enderror">
+                                            <input name="password" type="password" placeholder="Masukkan Password" class="@error('password') is-invalid @enderror">
+                                            @error('password')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Nama Lengkap</label>
-                                            <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="@error('name') is-invalid @enderror">
+                                            <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="@error('nama') is-invalid @enderror">
+                                            @error('nama')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Email Address</label>
-                                            <input name="email" type="email" placeholder="Masukkan email address" class="@error('name') is-invalid @enderror">
+                                            <input name="email" type="email" placeholder="Masukkan email address" class="@error('email') is-invalid @enderror">
+                                            @error('email')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>No. Handphone</label>
-                                            <input name="nohp" type="number" placeholder="Masukkan nomer handphone" >
+                                            <input name="nohp" type="number" placeholder="Masukkan nomer handphone" class="@error('nohp') is-invalid @enderror">
+                                            @error('nohp')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Tanggal lahir</label>
-                                            <input name="tgllahir" type="date" placeholder="Masukkan tanggal lahir" >
+                                            <input name="tgllahir" type="date" placeholder="Masukkan tanggal lahir" class="@error('tgllahir') is-invalid @enderror">
+                                            @error('tgllahir')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <input type="hidden" name="role" value="petani">
                                         <div class="single-input-fields">
                                             <label>Alamat</label>
-                                            <input name="alamat" type="text" placeholder="Masukkan alamat" >
+                                            <input name="alamat" type="text" placeholder="Masukkan alamat" class="@error('alamat') is-invalid @enderror">
+                                            @error('alamat')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <select name="ddlProvinsi" id="ddlProvinsi" class="form-control" onchange="comboboxkota()">
@@ -167,15 +175,24 @@
 										</div>
                                         <div class="single-input-fields">
                                             <label>No. Identitas</label>
-                                            <input name="noidentitas" type="number" placeholder="Masukkan nomer identitas" >
+                                            <input name="noidentitas" type="number" placeholder="Masukkan nomer identitas" class="@error('noidentitas') is-invalid @enderror">
+                                            @error('noidentitas')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Foto KTP</label>
-                                            <input type="file" name="img" placeholder="Bukti">
+                                            <input type="file" name="img" placeholder="Bukti" class="@error('img') is-invalid @enderror">
+                                            @error('img')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Foto lahan hidroponik</label>
-                                            <input type="file" name="img2" placeholder="Bukti">
+                                            <input type="file" name="img2" placeholder="Bukti" class="@error('img2') is-invalid @enderror">
+                                            @error('img2')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <!-- form Footer -->
                                         <div class="register-footer">
@@ -190,32 +207,53 @@
                                     <!-- <div class="input-box"> -->
                                     <div class="single-input-fields">
                                             <label>Username</label>
-                                            <input name="username" type="text" placeholder="Masukkan username" >
+                                            <input name="username" type="text" placeholder="Masukkan username" class="@error('username') is-invalid @enderror">
+                                            @error('username')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Password</label>
-                                            <input name="password" type="password" placeholder="Masukkan Password" class="@error('name') is-invalid @enderror">
+                                            <input name="password" type="password" placeholder="Masukkan Password" class="@error('password') is-invalid @enderror">
+                                            @error('password')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Nama Lengkap</label>
-                                            <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="@error('name') is-invalid @enderror">
+                                            <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="@error('nama') is-invalid @enderror">
+                                            @error('nama')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Email Address</label>
-                                            <input name="email" type="email" placeholder="Masukkan email address" class="@error('name') is-invalid @enderror">
+                                            <input name="email" type="email" placeholder="Masukkan email address" class="@error('email') is-invalid @enderror">
+                                            @error('email')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>No. Handphone</label>
-                                            <input name="nohp" type="number" placeholder="Masukkan nomer handphone" >
+                                            <input name="nohp" type="number" placeholder="Masukkan nomer handphone" class="@error('nohp') is-invalid @enderror">
+                                            @error('nohp')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Tanggal lahir</label>
-                                            <input name="tgllahir" type="date" placeholder="Masukkan tanggal lahir" >
+                                            <input name="tgllahir" type="date" placeholder="Masukkan tanggal lahir" class="@error('tgllahir') is-invalid @enderror">
+                                            @error('tgllahir')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <input type="hidden" name="role" value="investor">
                                         <div class="single-input-fields">
                                             <label>Alamat</label>
-                                            <input name="alamat" type="text" placeholder="Masukkan alamat" >
+                                            <input name="alamat" type="text" placeholder="Masukkan alamat" class="@error('alamat') is-invalid @enderror">
+                                            @error('alamat')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <select name="ddlProvinsi" id="ddlProvinsi2" class="form-control" onchange="comboboxkota2()">
@@ -278,11 +316,17 @@
 										</div>
                                         <div class="single-input-fields">
                                             <label>No. Identitas</label>
-                                            <input name="noidentitas" type="number" placeholder="Masukkan nomer identitas" >
+                                            <input name="noidentitas" type="number" placeholder="Masukkan nomer identitas" class="@error('noidentitas') is-invalid @enderror">
+                                            @error('noidentitas')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="single-input-fields">
                                             <label>Foto KTP</label>
-                                            <input type="file" name="img" placeholder="Bukti">
+                                            <input type="file" name="img" placeholder="Bukti" class="@error('img') is-invalid @enderror">
+                                            @error('img')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <!-- form Footer -->
                                         <div class="register-footer">

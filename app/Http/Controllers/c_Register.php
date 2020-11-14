@@ -36,7 +36,7 @@ class c_Register extends Controller
     
     public function menyimpanData(Request $data)
     {
-        $validatedData = $data->validate([
+        $data->validate([
             'username' => 'required|unique:users',
             'password' => 'required',
             'alamat' => 'required',
@@ -50,7 +50,22 @@ class c_Register extends Controller
             'jenisidentitas' => 'required',
             'noidentitas' => 'required',
             'email' => 'required',
-        ]);
+        ],[
+            'username.required' => 'Mohon mengisi data dengan lengkap',
+            'password.required' => 'Mohon mengisi data dengan lengkap',
+            'alamat.required' => 'Mohon mengisi data dengan lengkap',
+            'ddlkota.required' => 'Mohon mengisi data dengan lengkap',
+            'ddlprovinsi.required' => 'Mohon mengisi data dengan lengkap',
+            'img.required' => 'Mohon mengisi data dengan lengkap',
+            'nama.required' => 'Mohon mengisi data dengan lengkap',
+            'nohp.required' => 'Mohon mengisi data dengan lengkap',
+            'tgllahir.required'=> 'Mohon mengisi data dengan lengkap',
+            'jeniskelamin.required' => 'Mohon mengisi data dengan lengkap',
+            'jenisidentitas.required' => 'Mohon mengisi data dengan lengkap',
+            'noidentitas.required' => 'Mohon mengisi data dengan lengkap',
+            'email.required' => 'Mohon mengisi data dengan lengkap',
+        ]
+        );
 
         $user =  m_Registrasi::create([
             'role'      => $data['role'],
@@ -126,16 +141,11 @@ class c_Register extends Controller
         return redirect('login')->with('sukses', 'Selamat anda berhasil membuat akun');;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Investor  $investor
-     * @return \Illuminate\Http\Response
-     */
-    public function show(m_Investor $investor)
+    public function __construct()
     {
-        //
+        $this->middleware('guest');
     }
+    
 
     /**
      * Show the form for editing the specified resource.

@@ -16,12 +16,12 @@ class c_Verifikasi extends Controller
     // }
 
     
-    public function index() {
+    public function masukHalaman() {
        return view ('admin.v_Dashboard');
     }
 
 
-    public function IndexVerifikasi(){
+    public function mengeklikMenu(){
         $user= DB::table('users')->join('ca_investor','users.id_user','=','ca_investor.id_user')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->where('status',null)->get();
         $user2= DB::table('users')->join('ca_farmer','users.id_user','=','ca_farmer.id_user')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('status',null)->get();
         // dd($user);
@@ -42,7 +42,7 @@ class c_Verifikasi extends Controller
         }
 
         $data = [];
-        Mail::send('admin.email', $data, function($message) use ($request)
+        Mail::send('admin.layouts.includes.email', $data, function($message) use ($request)
             {
                 $message->from('do-notreply@domain.com', "Goodfarm");
                 $message->subject("Welcome to Goodfarm");
@@ -66,7 +66,7 @@ class c_Verifikasi extends Controller
         }
 
         $data = [];
-        Mail::send('admin.emailF', $data, function($message) use ($request)
+        Mail::send('admin.layouts.includes.emailF', $data, function($message) use ($request)
             {
                 $message->from('do-notreply@domain.com', "Goodfarm");
                 $message->subject("Welcome to Goodfarm");

@@ -22,7 +22,7 @@
         <label >Nama</label>
         <input name="name" type="text" class="form-control" id="name" value="{{$users->name}}">
       </div>
-     <div class="form-group">
+      <div class="form-group">
           <label >Email</label>
           <input name="email" type="email" class="form-control" id="email" value="{{$users->email}}">
         </div>

@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('page/css/style.css') }}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
+
 <body>
     <!-- header-start -->
     <header>
