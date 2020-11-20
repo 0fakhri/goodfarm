@@ -38,14 +38,15 @@
 <body>
     <!-- header-start -->
     <header>
-        <div class="header-area" style="background-color: #6c757d;">
+    <!-- style="background-color: #6c757d;" -->
+        <div class="header-area">
             <div id="sticky-header" class="main-header-area">
                 <div class="container-fluid ">
                     <div class="header_bottom_border">
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="/" style="color: white; font-weight: bold;">
+                                    <a href="/investor/dashboard" style="color: white; font-weight: bold;">
                                         GOODFARM
                                     </a>
                                 </div>
@@ -54,7 +55,7 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="/">Dashboard</a></li>
+                                            <li><a href="/investor/dashboard">Dashboard</a></li>
                                             <li><a href="/investor/list-mitra">Mitra</a></li>
                                             <!-- <li><a href="about.html">about</a></li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
@@ -78,17 +79,17 @@
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="Appointment">
                                     <div class="phone_num d-none d-xl-block">
-                                        <a href="#"> <i class="fa fa-phone"></i> +10 673 567 367</a>
+                                        <!-- <a href="#"> <i class="fa fa-phone"></i> +10 673 567 367</a> -->
                                     </div>
                                     <div class="d-none d-lg-block" style="padding: 10 10 10 10;">
                                         <div class="main-menu  d-none d-lg-block">
                                             <nav>
                                                 <ul id="navigation">
-                                                    <li><a href="#">Profil <i class="ti-angle-down"></i></a>
-                                                        <ul class="submenu">
+                                                    <li><a href="/investor/profil">Profil</i></a>
+                                                        <!-- <ul class="submenu">
                                                             <li><a href="/logout">logout</a></li>
-                                                            <!-- <li><a href="single-blog.html">single-blog</a></li> -->
-                                                        </ul>
+                                                            <li><a href="single-blog.html">single-blog</a></li>
+                                                        </ul> -->
                                                     </li>
                                                     
                                                 </ul>

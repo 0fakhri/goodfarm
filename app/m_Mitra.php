@@ -19,9 +19,9 @@ class m_Mitra extends Model
         'id_alamat',
         'email_petani',
         'foto_ktp_petani',
-        'foto_lahan_hidroponik',];
+        'foto_lahan_hidroponik'];
 
     public function register(){
-        return $this->belongsTo('App\Register', 'id_user');
+        return $this->belongsTo('m_Registrasi::class');
     }
 }

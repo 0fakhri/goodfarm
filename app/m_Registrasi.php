@@ -41,11 +41,11 @@ class m_Registrasi extends Authenticatable
     
     public function farmer()
         {
-            return $this->hasOne('App\Farmer', 'id_user');
+            return $this->hasOne('m_Mitra::class');
         }
     
-    public function investor()
-    {
-        return $this->hasOne('App\Investor', 'id_user');
-    }
+    // public function investor()
+    // {
+    //     return $this->hasOne('App\m_Investor', 'id_user');
+    // }
 }

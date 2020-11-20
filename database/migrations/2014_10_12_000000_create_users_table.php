@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->integer('id_user', true);
             $table->enum('role',['admin','petani','investor']);
             //$table->string('name');
-            $table->string('username',30)->unique();
+            $table->string('username',30);
             $table->string('password');
 
         });
