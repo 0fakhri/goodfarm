@@ -66,8 +66,8 @@ Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
     
 });
 
-
 Route::get('/investor/list-mitra/detail/{id}', 'c_Mitra@klikMenuMitra');
+Route::get('/investor/list-mitra/detail/{id}/chat', 'c_Mitra@klikTombolChat');
 Route::get('/investor/profil', 'c_profil_investor@klikMenuProfil');
 
 Route::get('/investor/dashboard', function () {

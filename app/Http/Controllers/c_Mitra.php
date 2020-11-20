@@ -13,4 +13,12 @@ class c_Mitra extends Controller
         // dd($data);
         return view('investor.v_detail_mitra',['mitra'=>$data]);
     }
+
+    public function klikTombolChat() {
+        
+        // $data = m_Mitra::join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_petani',$id)->get();
+        // dd($data);
+        return view('investor.v_chat');
+    }
+
 }
