@@ -20,7 +20,7 @@
 <body>
 @if(session('sukses'))
 <!-- Modal -->
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-danger" role="alert">
     {{session('sukses')}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -60,30 +60,10 @@
                                     <div class="single-input-fields">
                                         <label>Username</label>
                                         <input name="username" class="@error('username') is-invalid @enderror" type="text" placeholder="Masukkan username">
-                                        
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
                                     </div>
                                     <div class="single-input-fields">
                                         <label>Password</label>
                                         <input name="password" class="@error('password') is-invalid @enderror" type="password" placeholder="Masukkan Password">
-                                    
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="single-input-fields login-check">
-                                        <!-- <input type="checkbox" id="fruit1" name="keep-log" {{ old('remember') ? 'checked' : '' }}> -->
-                                        <!-- <label for="fruit1">Keep me logged in</label> -->
-
-                                        @if (Route::has('password.request'))
-                                            <a href="{{ route('password.request') }}" class="f-right">Forgot Password?</a>
-                                        @endif
                                     </div>
                                 </div>
                                 <!-- form Footer -->

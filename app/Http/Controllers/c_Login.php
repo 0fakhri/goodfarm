@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class c_Login extends Controller
 {   
 
@@ -14,32 +15,41 @@ class c_Login extends Controller
     }
 
     public function getData(Request $request) {
-    
-        if (Auth::attempt($request->only('username', 'password'))) {
+        // dd($request->password);
+
+        // $username='admin';
+        // $pass='admin';
+        if (Auth::attempt(['username' => $request->input('username'), 'password' => $request->input('password')])) {
             // dd(Auth::attempt($request->only('username', 'password')));
-            Auth::check();
-            $user = \App\m_Registrasi::where('username', $request->username)->first();
-            // dd($user);
-            if ($user->role === 'admin') {
+            // Auth::check();
+            // $user = \App\m_Registrasi::where('username', $request->username)->first();
+            // dd(Auth()->user()->role);
+            if (Auth()->user()->role == "admin") {
                 // dd(Auth::attempt($request->only('username', 'password')),Auth::user()->role);
                 return redirect('/dashboard');
             }
-            else if ($user->role === 'petani') {
+            else if (Auth()->user()->role == 'petani') {
                 // dd(Auth()->user()->role);
                 return redirect('/petani/dashboard');
             }
-            else if ($user->role === 'investor') {
+            else if (Auth()->user()->role == 'investor') {
                 return redirect('/investor/dashboard');
             }
         }
-        return redirect('/login')->with('error', 'Harap memasukan data dengan benar');
+        return redirect('/login')->with('sukses', 'Harap memasukan data dengan benar');
     }
 
     
-    public function logout(Request $request) {
+    public function logout()
+    {
         Auth::logout();
         return redirect('/');
     }
+
+    // public function logout(Request $request) {
+    //     Auth::logout();
+    //     return redirect('/');
+    // }
     
     // public function __construct()
     // {

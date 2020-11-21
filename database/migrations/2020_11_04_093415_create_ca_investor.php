@@ -15,7 +15,7 @@ class CreateCaInvestor extends Migration
     {
         Schema::create('ca_investor', function (Blueprint $table) {
             $table->integer('id_investor',true);
-            $table->integer('id_user')->index('id_user');
+            $table->integer('id_user')->index('id');
             $table->string('nama_investor',50);
             $table->string('no_ponsel_investor',15);
             $table->date('tanggal_lahir_investor');

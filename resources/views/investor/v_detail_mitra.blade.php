@@ -35,19 +35,20 @@
                                 {{$li->alamat}}
                             </h6>
                             <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Ubah</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
                 @endforeach
             </div>
             <div class="col-md-2">
                 <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> -->
+                <a href="/investor/list-mitra/detail/{{$li->id_petani}}/investasi" class="btn btn-primary">Investasi</a>
                 <a href="/investor/list-mitra/detail/{{$li->id_petani}}/chat" class="btn btn-success">Chat</a>
             </div>
         </div>

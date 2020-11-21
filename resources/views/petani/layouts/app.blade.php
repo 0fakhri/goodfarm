@@ -83,13 +83,13 @@
                                         <div class="main-menu  d-none d-lg-block">
                                             <nav>
                                                 <ul id="navigation">
-                                                    <li><a href="#">Profil <i class="ti-angle-down"></i></a>
-                                                        <ul class="submenu">
+                                                    <li><a href="/petani/profil">Profil</i></a>
+                                                    <a href="/logout" class="btn btn-danger">Logout</a>
+                                                        <!-- <ul class="submenu">
                                                             <li><a href="/logout">logout</a></li>
-                                                            <!-- <li><a href="single-blog.html">single-blog</a></li> -->
-                                                        </ul>
+                                                            <li><a href="single-blog.html">single-blog</a></li>
+                                                        </ul> -->
                                                     </li>
-                                                    
                                                 </ul>
                                             </nav>
                                         </div>

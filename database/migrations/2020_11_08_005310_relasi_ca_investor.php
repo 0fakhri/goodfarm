@@ -14,7 +14,7 @@ class RelasiCaInvestor extends Migration
     public function up()
     {
         Schema::table('ca_investor', function (Blueprint $table) {
-            $table->foreign('id_user', 'ca_investorfk_1')->references('id_user')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('id_user', 'ca_investorfk_1')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             $table->foreign('id_alamat', 'ca_investorfk_2')->references('id_alamat')->on('alamat')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }

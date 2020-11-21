@@ -140,13 +140,7 @@ class c_Register extends Controller
         
         return redirect('login')->with('sukses', 'Selamat anda berhasil membuat akun');;
     }
-
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
     
-
     /**
      * Show the form for editing the specified resource.
      *

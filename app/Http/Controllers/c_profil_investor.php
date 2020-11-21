@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Alamat;
-use App\m_Mitra;
+use App\m_Investor;
+
 use Illuminate\Http\Request;
 
 class c_profil_investor extends Controller
@@ -11,9 +12,9 @@ class c_profil_investor extends Controller
     public function klikMenuProfil()
     {
         $idUser = 4;
-        $user = m_Mitra::join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_user', $idUser)->get();
+        $user = m_Investor::join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_user', $idUser)->get();
         // dd($user);
-        return view('petani.v_profil_petani',['data'=>$user]);
+        return view('investor.v_profil_investor',['data'=>$user]);
     }
 
     public function saveDataPetani(Request $data, $id)

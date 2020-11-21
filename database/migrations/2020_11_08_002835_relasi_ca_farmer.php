@@ -14,7 +14,7 @@ class RelasiCaFarmer extends Migration
     public function up()
     {
         Schema::table('ca_farmer', function (Blueprint $table) {
-            $table->foreign('id_user', 'ca_farmerfk_1')->references('id_user')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('id_user', 'ca_farmerfk_1')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             $table->foreign('id_alamat', 'ca_farmerfk_2')->references('id_alamat')->on('alamat')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }

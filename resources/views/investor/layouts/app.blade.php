@@ -86,6 +86,7 @@
                                             <nav>
                                                 <ul id="navigation">
                                                     <li><a href="/investor/profil">Profil</i></a>
+                                                    <a href="/logout" class="btn btn-danger">Logout</a>
                                                         <!-- <ul class="submenu">
                                                             <li><a href="/logout">logout</a></li>
                                                             <li><a href="single-blog.html">single-blog</a></li>

@@ -14,22 +14,29 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        // DB::table('users')->insert([
+        //     'role' => 1,
+        //     'email' => 'adminku@gmail.com',
+        //     'username' => 'admin',
+        //     'password' => bcrypt('admin'),
+        //     'remember_token' => str_random(60),
+        // ]);
         DB::table('users')->insert([
             'role' => 1,
             'username' => 'admin',
-            'password' => bcrypt('admin'),
+            'password' => Hash::make('admin'),
             
         ]);
        DB::table('users')->insert([
             'role' => 2,
             'username' => 'petani',
-            'password' => bcrypt('password'),
+            'password' => Hash::make('password'),
             
         ]);
        DB::table('users')->insert([
             'role' => 3,
             'username' => 'investor',
-            'password' => bcrypt('password'),
+            'password' => Hash::make('password'),
             
         ]);
     }
