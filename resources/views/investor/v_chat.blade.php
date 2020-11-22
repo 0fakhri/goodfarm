@@ -13,5 +13,6 @@
     </div>
 </div>
 
+<private-chat :user="{{auth()->user()}}"></private-chat>
 
 @endsection

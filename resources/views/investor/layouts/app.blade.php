@@ -7,9 +7,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Goodfarm') }}</title>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -206,6 +209,8 @@
     </footer>
     <!--/ footer end  -->
 </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ asset('js/comboBox.js') }}"></script>
     <!-- JS here -->
     <script src="{{ asset('page/js/vendor/modernizr-3.5.0.min.js') }}"></script>
     <script src="{{ asset('page/js/vendor/jquery-1.12.4.min.js') }}"></script>

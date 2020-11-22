@@ -30,44 +30,48 @@ Route::post('/regCu', 'c_Register@menyimpanData');
 Route::get('/logout', 'c_Login@logout')->name('logout');
 
 
-Route::get('/verifikasi', 'c_Verifikasi@mengeklikMenu');
-Route::post('/diterima', 'c_Verifikasi@diterima');
-Route::post('/ditolak', 'c_Verifikasi@ditolak');
+
 
 Route::group(['middleware' =>  ['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard', 'c_Verifikasi@masukHalaman');
+    Route::get('/verifikasi', 'c_Verifikasi@mengeklikMenu');
+    Route::post('/diterima', 'c_Verifikasi@diterima');
+    Route::post('/ditolak', 'c_Verifikasi@ditolak');
 });
 
-Route::get('/petani/profil', 'c_profil_petani@klikMenuProfil');
 
 
 
-Route::get('/petani/list-investor', function (){
-    $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
-    return view('petani.v_investor',['data'=>$data_inv]);
-});
+
+
 
 Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
     Route::get('/petani/dashboard', function () {
         return view('petani.v_Dashboard');
     });
+    Route::get('/petani/profil', 'c_profil_petani@klikMenuProfil');
+    Route::get('/petani/list-investor', function (){
+        $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
+        return view('petani.v_investor',['data'=>$data_inv]);
+    });
 });
 
-Route::get('/investor/list-mitra/detail/{id}', 'c_Mitra@klikMenuMitra');
-Route::get('/investor/list-mitra/detail/{id}/chat', 'c_Mitra@klikTombolChat');
-Route::get('/investor/list-mitra/detail/{id}/investasi', 'c_Mitra@klikTombolInvestasi');
-Route::get('/investor/profil', 'c_profil_investor@klikMenuProfil');
 
-
-Route::get('/investor/list-mitra', function (){
-    $data_pet = DB::table('ca_farmer')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
-    // dd($data_pet);
-    return view('investor.v_mitra',['data'=>$data_pet]);
-});
 
 Route::group(['middleware' => ['auth', 'checkRole:investor']], function(){
     Route::get('/investor/dashboard', function () {
         return view('investor.v_Dashboard');
+    });
+    Route::get('/investor/list-mitra/detail/{id}', 'c_Mitra@klikMenuMitra');
+    Route::get('/investor/list-mitra/detail/{id}/chat', 'c_Mitra@klikTombolChat');
+    Route::get('/investor/list-mitra/detail/{id}/investasi', 'c_Mitra@klikTombolInvestasi');
+
+    Route::get('/investor/profil', 'c_profil_investor@klikMenuProfil');
+    Route::post('/editProfil', 'c_profil_investor@saveDataInvestor');
+    Route::get('/investor/list-mitra', function (){
+        $data_pet = DB::table('ca_farmer')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
+        // dd($data_pet);
+        return view('investor.v_mitra',['data'=>$data_pet]);
     });
 });
 

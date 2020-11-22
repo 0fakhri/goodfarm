@@ -1,9 +1,8 @@
-@extends('petani.layouts.app')
+@extends('investor.layouts.app')
 @section('content')
 
 <div class="wrapper" style="margin-top: 120px;">
   <div class="container emp-profile">
-    <form method="post">
         <div class="row">
             <!-- <div class="col-md-4">
                 <div class="profile-img">
@@ -18,7 +17,7 @@
                 @foreach ($data as $li)
                 <div class="profile-head">
                             <h5>
-                                {{$li->nama_petani}}
+                                {{$li->nama_investor}}
                             </h5>
                             <h6>
                                 {{$li->alamat}}
@@ -37,7 +36,7 @@
             </div>
             <div class="col-md-2">
                 <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> -->
-                <a href="/petani/chat" class="btn btn-success">Chat</a>
+                <a href="/investor/chat" class="btn btn-success">Chat</a>
                 <a href="/logout" class="btn btn-danger">Logout</a>
             </div>
         </div>
@@ -66,7 +65,7 @@
                                         <label>Nama</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{$li->nama_petani}}</p>
+                                        <p>{{$li->nama_investor}}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -74,7 +73,7 @@
                                         <label>Tanggal lahir</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{$li->tanggal_lahir_petani}}</p>
+                                        <p>{{$li->tanggal_lahir_investor}}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -98,7 +97,7 @@
                                         <label>No. Indentitas</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{$li->no_identitas_petani}}</p>
+                                        <p>{{$li->no_identitas_investor}}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -106,7 +105,7 @@
                                         <label>Email</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{$li->email_petani}}</p>
+                                        <p>{{$li->email_investor}}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -114,7 +113,7 @@
                                         <label>No. Handphone</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{$li->no_ponsel_petani}}</p>
+                                        <p>{{$li->no_ponsel_investor}}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -128,33 +127,33 @@
                         @endforeach
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <form class="input-box" method="POST" action="/regCu" enctype="multipart/form-data">
+                        <form class="input-box" method="POST" action="/editProfil">
                             @csrf
                             <!-- <div class="input-box"> -->
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
-                                <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="form-control @error('nama') is-invalid @enderror" value="{{$li->nama_petani}}">
+                                <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="form-control @error('nama') is-invalid @enderror" value="{{$li->nama_investor}}">
                                 @error('nama')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input name="email" type="email" placeholder="Masukkan email address" class="form-control @error('email') is-invalid @enderror" value="{{$li->email_petani}}">
+                                <input name="email" type="email" placeholder="Masukkan email address" class="form-control @error('email') is-invalid @enderror" value="{{$li->email_investor}}">
                                 @error('email')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label>No. Handphone</label>
-                                <input name="nohp" type="number" placeholder="Masukkan nomer handphone" class="form-control @error('nohp') is-invalid @enderror" value="{{$li->no_ponsel_petani}}">
+                                <input name="nohp" type="number" placeholder="Masukkan nomer handphone" class="form-control @error('nohp') is-invalid @enderror" value="{{$li->no_ponsel_investor}}">
                                 @error('nohp')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label>Tanggal lahir</label>
-                                <input name="tgllahir" type="date" placeholder="Masukkan tanggal lahir" class="form-control @error('tgllahir') is-invalid @enderror" value="{{$li->tanggal_lahir_petani}}">
+                                <input name="tgllahir" type="date" placeholder="Masukkan tanggal lahir" class="form-control @error('tgllahir') is-invalid @enderror" value="{{$li->tanggal_lahir_investor}}">
                                 @error('tgllahir')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -166,7 +165,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            <div class="single-input-fields">
                                 <select name="ddlProvinsi" id="ddlProvinsi" class="form-control" onchange="comboboxkota()">
                                     <option value="0" selected>- Pilih Provinsi -</option>
                                     <option value="1">Aceh</option>
@@ -227,7 +226,7 @@
                             </div>
                             <div class="form-group">
                                 <label>No. Identitas</label>
-                                <input name="noidentitas" type="number" placeholder="Masukkan nomer identitas" class="form-control @error('noidentitas') is-invalid @enderror" value="{{$li->no_identitas_petani}}">
+                                <input name="noidentitas" type="number" placeholder="Masukkan nomer identitas" class="form-control @error('noidentitas') is-invalid @enderror" value="{{$li->no_identitas_investor}}">
                                 @error('noidentitas')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -235,7 +234,7 @@
                             <!-- form Footer -->
                             <div class="register-footer">
                                 <button type="submit" class="btn btn-primary">Selesai</button>
-                                <a href="/petani/profil" class="btn btn-secondary">Batal</a>
+                                <a href="/investor/profil" class="btn btn-secondary">Batal</a>
                             </div>
                             <!-- <div class="login-footer">
                                 
@@ -245,7 +244,6 @@
                 </div>
             </div>
         </div>
-    </form> 
   </div>          
 </div>
 

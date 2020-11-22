@@ -6,18 +6,19 @@ use App\Alamat;
 use App\m_Investor;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class c_profil_investor extends Controller
 {
     public function klikMenuProfil()
     {
-        $idUser = 4;
-        $user = m_Investor::join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_user', $idUser)->get();
+        $idUser = Auth()->User()->id;
+        $user = m_Investor::join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->where('id_user', $idUser)->get();
         // dd($user);
         return view('investor.v_profil_investor',['data'=>$user]);
     }
 
-    public function saveDataPetani(Request $data, $id)
+    public function saveDataInvestor(Request $data, $id)
     {
         $data->validate([
             'alamat' => 'required',
@@ -43,15 +44,15 @@ class c_profil_investor extends Controller
             'email.required' => 'Form harus diisi',
         ]);
         
-        m_Mitra::where('id', $id)
+        m_Investor::where('id', $id)
             ->update([
-                'nama_petani'    => $data['nama'],
-                'no_ponsel_petani'    => $data['nohp'],
-                'tanggal_lahir_petani'    => $data['tgllahir'],
+                'nama_investor'    => $data['nama'],
+                'no_ponsel_investor'    => $data['nohp'],
+                'tanggal_lahir_investor'    => $data['tgllahir'],
                 'jenis_kelamin'    => $data['jeniskelamin'],
                 'jenis_identitas'   => $data['jenisidentitas'],
-                'no_identitas_petani'    => $data['noidentitas'],
-                'email_petani'    => $data['email'],
+                'no_identitas_investor'    => $data['noidentitas'],
+                'email_investor'    => $data['email'],
             ]);
 
         Alamat::where('id' , $data['idAlamat'])->update([
@@ -60,7 +61,7 @@ class c_profil_investor extends Controller
             'provinsi' => $data['ddlProvinsi'],
         ]);
 
-        return redirect('/petani/profil');
+        return redirect('/investor/profil');
     }
 
 }

@@ -40,8 +40,8 @@ class c_Register extends Controller
             'username' => 'required|unique:users',
             'password' => 'required',
             'alamat' => 'required',
-            'ddlkota' => 'required',
-            'ddlprovinsi' => 'required',
+            'ddlKota' => 'required',
+            'ddlProvinsi' => 'required',
             'img' => 'required',
             'nama' => 'required',
             'nohp' => 'required',
@@ -54,8 +54,8 @@ class c_Register extends Controller
             'username.required' => 'Mohon mengisi data dengan lengkap',
             'password.required' => 'Mohon mengisi data dengan lengkap',
             'alamat.required' => 'Mohon mengisi data dengan lengkap',
-            'ddlkota.required' => 'Mohon mengisi data dengan lengkap',
-            'ddlprovinsi.required' => 'Mohon mengisi data dengan lengkap',
+            'ddlKota.required' => 'Mohon mengisi data dengan lengkap',
+            'ddlProvinsi.required' => 'Mohon mengisi data dengan lengkap',
             'img.required' => 'Mohon mengisi data dengan lengkap',
             'nama.required' => 'Mohon mengisi data dengan lengkap',
             'nohp.required' => 'Mohon mengisi data dengan lengkap',
@@ -64,8 +64,7 @@ class c_Register extends Controller
             'jenisidentitas.required' => 'Mohon mengisi data dengan lengkap',
             'noidentitas.required' => 'Mohon mengisi data dengan lengkap',
             'email.required' => 'Mohon mengisi data dengan lengkap',
-        ]
-        );
+        ]);
 
         $user =  m_Registrasi::create([
             'role'      => $data['role'],
@@ -138,7 +137,7 @@ class c_Register extends Controller
             
         }
         
-        return redirect('login')->with('sukses', 'Selamat anda berhasil membuat akun');;
+        return redirect('login')->with('reg', 'Selamat anda berhasil membuat akun');;
     }
     
     /**

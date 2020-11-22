@@ -48,4 +48,8 @@ class m_Registrasi extends Authenticatable
     // {
     //     return $this->hasOne('App\m_Investor', 'id_user');
     // }
+    public function messages()
+    {
+        return $this->hasMany(Chat::class);
+    }
 }
