@@ -35,8 +35,11 @@ Route::get('/logout', 'c_Login@logout')->name('logout');
 Route::group(['middleware' =>  ['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard', 'c_Verifikasi@masukHalaman');
     Route::get('/verifikasi', 'c_Verifikasi@mengeklikMenu');
+    Route::get('/verif-transaksi', 'c_veriftransaksi@mengeklikMenu');
     Route::post('/diterima', 'c_Verifikasi@diterima');
     Route::post('/ditolak', 'c_Verifikasi@ditolak');
+    Route::post('/terima', 'c_veriftransaksi@diterima');
+    Route::post('/tolak', 'c_veriftransaksi@ditolak');
 });
 
 

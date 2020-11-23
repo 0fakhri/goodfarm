@@ -1,5 +1,6 @@
 @extends('investor.layouts.app')
 @section('content')
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class="bradcam_area bradcam_bg_3">
     <div class="container">

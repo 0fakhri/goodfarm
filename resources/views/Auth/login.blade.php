@@ -78,7 +78,7 @@
                                 </div>
                                 <!-- form Footer -->
                                 <div class="login-footer">
-                                    <p>Belum punya akun? <a href="{{ route('register') }}">Daftar</a>  here</p>
+                                    <p>Belum punya akun? <a href="{{ route('register') }}">Daftar</a>  disini</p>
                                     <button type="submit" class="submit-btn3">Login</button>
                                 </div>
                             </form>

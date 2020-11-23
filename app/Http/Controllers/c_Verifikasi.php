@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Mail;
 class c_Verifikasi extends Controller
 {
     
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     // public function dataUser(Request $request)
     // {
     //     $admin = \App\Register::all();
