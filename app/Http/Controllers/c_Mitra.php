@@ -23,13 +23,6 @@ class c_Mitra extends Controller
         return view('investor.v_chat');
     }
 
-    public function klikTombolInvestasi() {
-        
-        // $data = m_Mitra::join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_petani',$id)->get();
-        // dd($data);
-        return view('investor.v_investasi');
-    }
-
     public function fetchMessages()
     {
         return Chat::with('user')->get();

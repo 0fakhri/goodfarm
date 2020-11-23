@@ -1,9 +1,20 @@
 @extends('petani.layouts.app')
 @section('content')
 
+<div class="bradcam_area bradcam_bg_3">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Profil</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="wrapper" style="margin-top: 120px;">
   <div class="container emp-profile">
-    <form method="post">
         <div class="row">
             <!-- <div class="col-md-4">
                 <div class="profile-img">
@@ -38,6 +49,7 @@
             <div class="col-md-2">
                 <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> -->
                 <!-- <a href="/petani/chat" class="btn btn-success">Chat</a> -->
+                <a href="/logout" class="btn btn-danger">Logout</a>
             </div>
         </div>
         <div class="row">
@@ -59,76 +71,79 @@
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         @foreach ($data as $li)
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Nama</label>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Nama</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$li->nama_petani}}</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <p>{{$li->nama_petani}}</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Tanggal lahir</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$li->tanggal_lahir_petani}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Tanggal lahir</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Jenis kelamin</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$li->jenis_kelamin}}</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <p>{{$li->tanggal_lahir_petani}}</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Jenis identitas</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$li->jenis_identitas}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Jenis kelamin</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>No. Indentitas</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$li->no_identitas_petani}}</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <p>{{$li->jenis_kelamin}}</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$li->email_petani}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Jenis identitas</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>No. Handphone</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$li->no_ponsel_petani}}</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <p>{{$li->jenis_identitas}}</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Alamat</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$li->alamat}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>No. Indentitas</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{$li->no_identitas_petani}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Email</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{$li->email_petani}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>No. Handphone</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{$li->no_ponsel_petani}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Alamat</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{$li->alamat}}</p>
-                                </div>
-                            </div>
                         @endforeach
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <form class="input-box" method="POST" action="/regCu" enctype="multipart/form-data">
+                        <form class="input-box" method="POST" action="/editProfil">
                             @csrf
                             <!-- <div class="input-box"> -->
+                            <input type="hidden" name="id" value="{{$li->id_petani}}">
+                            <input type="hidden" name="idAlamat" value="{{$li->id_alamat}}">
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
                                 <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="form-control @error('nama') is-invalid @enderror" value="{{$li->nama_petani}}">
@@ -164,7 +179,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            <div class="single-input-fields">
                                 <select name="ddlProvinsi" id="ddlProvinsi" class="form-control" onchange="comboboxkota()">
                                     <option value="0" selected>- Pilih Provinsi -</option>
                                     <option value="1">Aceh</option>
@@ -243,7 +258,6 @@
                 </div>
             </div>
         </div>
-    </form> 
   </div>          
 </div>
 

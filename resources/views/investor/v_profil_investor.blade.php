@@ -1,6 +1,18 @@
 @extends('investor.layouts.app')
 @section('content')
 
+<div class="bradcam_area bradcam_bg_3">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Profil</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="wrapper" style="margin-top: 120px;">
   <div class="container emp-profile">
         <div class="row">
@@ -130,6 +142,8 @@
                         <form class="input-box" method="POST" action="/editProfil">
                             @csrf
                             <!-- <div class="input-box"> -->
+                            <input type="hidden" name="id" value="{{$li->id_investor}}">
+                            <input type="hidden" name="idAlamat" value="{{$li->id_alamat}}">
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
                                 <input name="nama" type="text" placeholder="Masukkan nama lengkap" class="form-control @error('nama') is-invalid @enderror" value="{{$li->nama_investor}}">

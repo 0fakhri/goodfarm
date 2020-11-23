@@ -45,10 +45,21 @@
     }
 </style>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div style="margin-top: 10%;">
-    <div class="row" style="margin: 0px 50px 0px 50px;">
+<div class="bradcam_area bradcam_bg_3">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Investor</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin: 10px;">
+    <div class="row" >
         <div class="card" style="width: 100%;">
-            <div class="card-header">List profil investor</div>
+            <!-- <div class="card-header">List profil investor</div> -->
             <div class="card-body">
                 @foreach($data as $li)
                     <div class="col-md-3">

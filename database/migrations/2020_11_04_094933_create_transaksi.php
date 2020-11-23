@@ -18,6 +18,8 @@ class CreateTransaksi extends Migration
             $table->integer('id_investor')->index('id_investor');
             $table->integer('jumlah_modal')->length(11);
             $table->enum('nama_bank',['Bank Mandiri','BCA','BRI','BNI','CIMB Niaga']);
+            $table->string('bukti_pembayaran',50);
+            $table->enum('status',['Ditolak','Diterima'])->nullable();
         });
     }
 

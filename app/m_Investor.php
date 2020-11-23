@@ -23,4 +23,9 @@ class m_Investor extends Model
     public function user(){
         return $this->belongsTo('App\Register', 'id_user');
     }
+
+    public function messages()
+    {
+        return $this->hasMany(m_transaksi::class);
+    }
 }

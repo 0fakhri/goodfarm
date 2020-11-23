@@ -18,12 +18,14 @@ class c_profil_investor extends Controller
         return view('investor.v_profil_investor',['data'=>$user]);
     }
 
-    public function saveDataInvestor(Request $data, $id)
+    public function saveDataInvestor(Request $data)
     {
+        $id = $data['id'];
+        // dd($data['idAlamat']);
         $data->validate([
             'alamat' => 'required',
-            'ddlkota' => 'required',
-            'ddlprovinsi' => 'required',
+            'ddlKota' => 'required',
+            'ddlProvinsi' => 'required',
             'nama' => 'required',
             'nohp' => 'required',
             'tgllahir'=> 'required',
@@ -33,8 +35,8 @@ class c_profil_investor extends Controller
             'email' => 'required',
         ],[
             'alamat.required' => 'Form harus diisi',
-            'ddlkota.required' => 'Form harus diisi',
-            'ddlprovinsi.required' => 'Form harus diisi',
+            'ddlKota.required' => 'Form harus diisi',
+            'ddlProvinsi.required' => 'Form harus diisi',
             'nama.required' => 'Form harus diisi',
             'nohp.required' => 'Form harus diisi',
             'tgllahir.required'=> 'Form harus diisi',
@@ -44,8 +46,7 @@ class c_profil_investor extends Controller
             'email.required' => 'Form harus diisi',
         ]);
         
-        m_Investor::where('id', $id)
-            ->update([
+        m_Investor::where('id_investor', $id)->update([
                 'nama_investor'    => $data['nama'],
                 'no_ponsel_investor'    => $data['nohp'],
                 'tanggal_lahir_investor'    => $data['tgllahir'],
@@ -55,7 +56,7 @@ class c_profil_investor extends Controller
                 'email_investor'    => $data['email'],
             ]);
 
-        Alamat::where('id' , $data['idAlamat'])->update([
+        Alamat::where('id_alamat' , $data['idAlamat'])->update([
             'alamat' => $data['alamat'],
             'kota' => $data['ddlKota'],
             'provinsi' => $data['ddlProvinsi'],
