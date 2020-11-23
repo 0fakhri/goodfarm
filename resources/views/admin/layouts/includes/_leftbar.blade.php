@@ -55,6 +55,11 @@
           <i class="fas fa-handshake"></i>
           <span>Verifikasi</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/verif-transaksi">
+          <i class="fas fa-handshake"></i>
+          <span>Pemberitahuan</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider">
 

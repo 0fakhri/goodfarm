@@ -20,7 +20,7 @@ Route::group(['middleware' => 'web'], function() {
 });
 
 Route::get('/', function () {
-    return view('index');
+    return view('auth.login');
 });
 
 Route::get('/login', 'c_Login@mengeklikMenu')->name('login');
@@ -50,6 +50,7 @@ Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
         return view('petani.v_Dashboard');
     });
     Route::get('/petani/profil', 'c_profil_petani@klikMenuProfil');
+    Route::post('/editProfilPetani', 'c_profil_petani@saveDataPetani');
     Route::get('/petani/list-investor', function (){
         $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
         return view('petani.v_investor',['data'=>$data_inv]);

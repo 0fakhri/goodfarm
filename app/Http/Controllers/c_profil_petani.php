@@ -18,14 +18,14 @@ class c_profil_petani extends Controller
         return view('petani.v_profil_petani',['data'=>$user]);
     }
 
-    public function saveDataInvestor(Request $data)
+    public function saveDataPetani(Request $data)
     {
         $id = $data['id'];
         // dd($data['idAlamat']);
         $data->validate([
             'alamat' => 'required',
-            'ddlKota' => 'required',
-            'ddlProvinsi' => 'required',
+            // 'ddlKota' => 'required',
+            // 'ddlProvinsi' => 'required',
             'nama' => 'required',
             'nohp' => 'required',
             'tgllahir'=> 'required',
@@ -35,8 +35,8 @@ class c_profil_petani extends Controller
             'email' => 'required',
         ],[
             'alamat.required' => 'Form harus diisi',
-            'ddlKota.required' => 'Form harus diisi',
-            'ddlProvinsi.required' => 'Form harus diisi',
+            // 'ddlKota.required' => 'Form harus diisi',
+            // 'ddlProvinsi.required' => 'Form harus diisi',
             'nama.required' => 'Form harus diisi',
             'nohp.required' => 'Form harus diisi',
             'tgllahir.required'=> 'Form harus diisi',
@@ -58,8 +58,8 @@ class c_profil_petani extends Controller
 
         Alamat::where('id_alamat' , $data['idAlamat'])->update([
             'alamat' => $data['alamat'],
-            'kota' => $data['ddlKota'],
-            'provinsi' => $data['ddlProvinsi'],
+            // 'kota' => $data['ddlKota'],
+            // 'provinsi' => $data['ddlProvinsi'],
         ]);
 
         return redirect('/petani/profil');

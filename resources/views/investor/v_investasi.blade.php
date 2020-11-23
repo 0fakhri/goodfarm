@@ -19,7 +19,9 @@
             <div class="col-lg-8">
                 <form action="/transaksi" class="apply_form" method="POST" enctype="multipart/form-data">
                     @csrf
-                    
+                    @foreach($mitra as $li)
+                    <input type="hidden" name="idPetani" value="{{$li->id_petani}}">
+                    @endforeach
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="apply_info_text text-center">
@@ -34,12 +36,15 @@
                         </div> -->
                         <div class="col-md-12">
                             <div class="single_field">
-                                <input type="number" placeholder="Jumlah modal" name="jumlah">
+                                <input type="number" placeholder="Jumlah modal" name="jumlah" class="@error('jumlah') is-invalid @enderror">
                             </div>
+                            @error('jumlah')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-md-12">
                             <div class="single_field">
-                                <select class="form-control" name="bank" id="pilih">
+                                <select class="form-control" name="bank" id="pilih" class="@error('bank') is-invalid @enderror">
                                     <option selected disabled>Pilih Bank</option>
                                     <option value="Bank Mandiri">Bank Mandiri</option>
                                     <option value="BCA">BCA</option>
@@ -47,6 +52,9 @@
                                     <option value="BRI">BRI</option>
                                     <option value="CIMB Niaga">CIMB Niaga</option>
                                 </select>
+                                @error('bank')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <h1><span><p></p></span>
                         </div>

@@ -16,6 +16,7 @@ class CreateTransaksi extends Migration
         Schema::create('transaksi', function (Blueprint $table) {
             $table->integer('id_transaksi',true);
             $table->integer('id_investor')->index('id_investor');
+            $table->integer('id_petani')->index('id_petani');
             $table->integer('jumlah_modal')->length(11);
             $table->enum('nama_bank',['Bank Mandiri','BCA','BRI','BNI','CIMB Niaga']);
             $table->string('bukti_pembayaran',50);

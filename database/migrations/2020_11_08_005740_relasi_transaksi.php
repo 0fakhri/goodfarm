@@ -15,6 +15,7 @@ class RelasiTransaksi extends Migration
     {
         Schema::table('transaksi', function (Blueprint $table) {
             $table->foreign('id_investor', 'transaksifk_1')->references('id_investor')->on('ca_investor')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('id_petani', 'transaksifk_2')->references('id_petani')->on('ca_farmer')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 

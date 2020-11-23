@@ -134,7 +134,7 @@
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="single-input-fields">
+                                        <!-- <div class="single-input-fields">
                                             <select name="ddlProvinsi" id="ddlProvinsi" class="form-control" onchange="comboboxkota()">
                                                 <option value="0" selected>- Pilih Provinsi -</option>
                                                 <option value="1">Aceh</option>
@@ -173,7 +173,7 @@
                                             <select name="ddlKota" id="ddlKota" class="form-control">
                                                 <option selected="selected" value="0">- Pilih Kota -</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                         <div class="single-input-fields">
                                             <label>Jenis kelamin</label>
 											<div class="default-select" id="default-select">
@@ -275,7 +275,7 @@
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="single-input-fields">
+                                        <!-- <div class="single-input-fields">
                                             <select name="ddlProvinsi" id="ddlProvinsi2" class="form-control" onchange="comboboxkota2()">
                                                 <option value="0" selected>- Pilih Provinsi -</option>
                                                 <option value="1">Aceh</option>
@@ -314,7 +314,7 @@
                                             <select name="ddlKota" id="ddlKota2" class="form-control">
                                                 <option selected="selected" value="0">- Pilih Kota -</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                         <div class="single-input-fields">
                                             <label>Jenis kelamin</label>
 											<div class="default-select" id="default-select">

@@ -7,10 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Goodfarm') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,31 +23,57 @@
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="{{ asset('page/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/gijgo.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/slicknav.css') }}">
-    <link rel="stylesheet" href="{{ asset('page/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/magnific-popup.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/themify-icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/nice-select.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/gijgo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/animate.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/slicknav.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('page/css/style.css') }}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <style>
+        .modal-backdrop {
+            z-index: 0;
+        }
+    </style>
 </head>
+
 <body>
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi untuk log out</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <!-- <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div> -->
+        <div class="modal-footer">
+          <a class="btn btn-secondary" type="button" href="/petani/dashboard">Cancel</a>
+          <a class="btn btn-primary" href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
     <!-- header-start -->
     <header>
-        <div class="header-area" >
+    <!-- style="background-color: #6c757d;" -->
+        <div class="header-area">
             <div id="sticky-header" class="main-header-area">
                 <div class="container-fluid ">
                     <div class="header_bottom_border">
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="/" style="color: white; font-weight: bold;">
+                                    <a href="/petani/dashboard" style="color: white; font-weight: bold;">
                                         GOODFARM
                                     </a>
                                 </div>
@@ -53,8 +82,8 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="/">Dashboard</a></li>
-                                            <li><a href="/petani/list-investor">Investor</a></li>
+                                            <li><a href="/petani/dashboard">Dashboard</a></li>
+                                            <li><a href="/petani/list-investor">Mitra</a></li>
                                             <!-- <li><a href="about.html">about</a></li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
@@ -76,9 +105,9 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="Appointment">
-                                    <!-- <div class="phone_num d-none d-xl-block">
-                                        <a href="#"> <i class="fa fa-phone"></i> +10 673 567 367</a>
-                                    </div> -->
+                                    <div class="phone_num d-none d-xl-block">
+                                        <!-- <a href="#"> <i class="fa fa-phone"></i> +10 673 567 367</a> -->
+                                    </div>
                                     <div class="d-none d-lg-block" style="padding: 10 10 10 10;">
                                         <div class="main-menu  d-none d-lg-block">
                                             <nav>
@@ -90,6 +119,7 @@
                                                             <li><a href="single-blog.html">single-blog</a></li>
                                                         </ul> -->
                                                     </li>
+                                                    
                                                 </ul>
                                             </nav>
                                         </div>
@@ -106,6 +136,8 @@
         </div>
     </header>
     @yield('content')
+
+ 
     <!-- footer start -->
     <footer class="footer">
         <div class="footer_top">
@@ -202,7 +234,11 @@
         </div>
     </footer>
     <!--/ footer end  -->
+
+    
 </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ asset('js/comboBox.js') }}"></script>
     <!-- JS here -->
     <script src="{{ asset('page/js/vendor/modernizr-3.5.0.min.js') }}"></script>
     <script src="{{ asset('page/js/vendor/jquery-1.12.4.min.js') }}"></script>

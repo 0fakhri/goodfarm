@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\m_Investor;
+use App\m_Mitra;
 use App\m_transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class c_transaksi extends Controller
 {
@@ -16,9 +18,11 @@ class c_transaksi extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function showFormInvestasi()
+    public function showFormInvestasi($id)
     {
-        return view('investor.v_investasi');
+        $data = m_Mitra::where('id_petani',$id)->get();
+        // dd($data);
+        return view('investor.v_investasi',['mitra'=>$data]);
     }
 
     /**
@@ -30,15 +34,15 @@ class c_transaksi extends Controller
     {
         $id = Auth()->User()->id;
         $idInve = m_Investor::where('id_user',$id)->first();
-        dd($idInve);
+        // dd($idInve->id_investor);
         $request->validate([
             'jumlah' => 'required',
             'bank' => 'required',
             'img' => 'required',
         ],[
-            'jumlah.required' => 'Mohon mengisi data dengan lengkap',
-            'bank.required' => 'Mohon mengisi data dengan lengkap',
-            'img.required' => 'Mohon mengisi data dengan lengkap',
+            'jumlah.required' => 'form masih ada yang kosong',
+            'bank.required' => 'form masih ada yang kosong',
+            'img.required' => 'form masih ada yang kosong',
         ]);
         $file = $request->file('img');
             $name = time();
@@ -47,11 +51,14 @@ class c_transaksi extends Controller
             Storage::putFileAs('public/img', $request->file('img'), $newName);
 
         m_transaksi::create([
-            'id_investor' => $idInve,
+            'id_investor' => $idInve->id_investor,
+            'id_petani' => $request['idPetani'],
             'jumlah_modal' => $request['jumlah'],
             'nama_bank' => $request['bank'],
             'bukti_pembayaran' => 'storage/img/' . $newName,
         ]);
+
+        return redirect('/investor/dashboard')->with('sukses','transaksi berhasil');
     }
 
     /**

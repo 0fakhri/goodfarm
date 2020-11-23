@@ -25,7 +25,7 @@ class CreateCaFarmer extends Migration
             $table->string('email_petani',50);
             $table->string('foto_ktp_petani',50);
             $table->string('foto_lahan_hidroponik',50);
-            $table->enum('status',['Ditolak','Diterima'])->nullable();;
+            $table->enum('status',['Ditolak','Diterima'])->nullable();
         });
     }
 

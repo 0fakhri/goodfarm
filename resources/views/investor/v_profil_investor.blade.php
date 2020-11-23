@@ -48,8 +48,11 @@
             </div>
             <div class="col-md-2">
                 <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> -->
-                <a href="/investor/chat" class="btn btn-success">Chat</a>
-                <a href="/logout" class="btn btn-danger">Logout</a>
+                <!-- <a href="/investor/chat" class="btn btn-success">Chat</a> -->
+                <a class="btn btn-danger" href="" data-toggle="modal" data-target="#logoutModal">
+                  Logout
+                </a>
+                <!-- <a href="/logout" class="btn btn-danger">Logout</a> -->
             </div>
         </div>
         <div class="row">
@@ -179,7 +182,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="single-input-fields">
+                            <!-- <div class="single-input-fields">
                                 <select name="ddlProvinsi" id="ddlProvinsi" class="form-control" onchange="comboboxkota()">
                                     <option value="0" selected>- Pilih Provinsi -</option>
                                     <option value="1">Aceh</option>
@@ -218,7 +221,7 @@
                                 <select name="ddlKota" id="ddlKota" class="form-control">
                                     <option selected="selected" value="0">- Pilih Kota -</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label>Jenis kelamin</label>
                                 <div class="default-select" id="default-select">
@@ -260,5 +263,5 @@
         </div>
   </div>          
 </div>
-
+   
 @endsection

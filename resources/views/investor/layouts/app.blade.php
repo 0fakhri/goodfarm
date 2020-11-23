@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -36,9 +36,33 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('page/css/slicknav.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('page/css/style.css') }}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <style>
+        .modal-backdrop {
+            z-index: 0;
+        }
+    </style>
 </head>
 
 <body>
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi untuk log out</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <!-- <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div> -->
+        <div class="modal-footer">
+          <a class="btn btn-secondary" type="button" href="/investor/dashboard">Cancel</a>
+          <a class="btn btn-primary" href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
     <!-- header-start -->
     <header>
     <!-- style="background-color: #6c757d;" -->
@@ -112,6 +136,8 @@
         </div>
     </header>
     @yield('content')
+
+ 
     <!-- footer start -->
     <footer class="footer">
         <div class="footer_top">
@@ -208,6 +234,8 @@
         </div>
     </footer>
     <!--/ footer end  -->
+
+    
 </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/comboBox.js') }}"></script>
