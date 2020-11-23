@@ -20,7 +20,6 @@
               <th>E-mail</th>
               <th>No HP</th>
               <th>Alamat</th>
-              <th>Kota</th>
               <!-- <th>Ktp</th> -->
               <th>Verifikasi</th>
           </tr>
@@ -33,7 +32,6 @@
               <td>{{$user->email_investor}}</td>
               <td>{{$user->no_ponsel_investor}}</td>
               <td>{{$user->alamat}}</td>
-              <td>{{$user->kota}}</td>
               
               <td>
                 <form action="/diterima" method="post">
@@ -65,7 +63,6 @@
               <th>E-mail</th>
               <th>No HP</th>
               <th>Alamat</th>
-              <th>Kota</th>
               <!-- <th>ktp</th> -->
               <th>Verifikasi</th>
           </tr>
@@ -78,7 +75,6 @@
               <td>{{$user2->email_petani}}</td>
               <td>{{$user2->no_ponsel_petani}}</td>
               <td>{{$user2->alamat}}</td>
-              <td>{{$user2->kota}}</td>
               
               <td>
                 <form action="/diterima" method="post">

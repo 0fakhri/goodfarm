@@ -25,8 +25,8 @@ class c_Verifikasi extends Controller
 
 
     public function mengeklikMenu(){
-        $user= DB::table('users')->join('ca_investor','users.id_user','=','ca_investor.id_user')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->where('status',null)->get();
-        $user2= DB::table('users')->join('ca_farmer','users.id_user','=','ca_farmer.id_user')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('status',null)->get();
+        $user= DB::table('users')->join('ca_investor','users.id','=','ca_investor.id_user')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->where('status',null)->get();
+        $user2= DB::table('users')->join('ca_farmer','users.id','=','ca_farmer.id_user')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('status',null)->get();
         // dd($user);
         return view('admin.v_verifikasi',['data'=>$user], ['data2'=>$user2]);
     }
