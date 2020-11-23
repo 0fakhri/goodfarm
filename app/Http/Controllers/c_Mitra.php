@@ -23,65 +23,78 @@ class c_Mitra extends Controller
         return view('investor.v_chat');
     }
 
-    public function fetchMessages()
+    public function setPesan(Request $request)
     {
-        return Chat::with('user')->get();
+        //metode sistem pakar
+        m_GroupKomunitas::create([
+            'id_user' => $request->id,
+            'komentar' => $request->komen,
+            'tanggal_komen' => date("Y-m-d H:i:s")
+        ]);
+
+            return redirect('investor/list-mitra/detail/1/chat');
+        
     }
+
+    // public function fetchMessages()
+    // {
+    //     return Chat::with('user')->get();
+    // }
    
-    public function privateMessages(m_Registrasi $user)
-    {
-        $privateCommunication= Chat::with('user')
-        ->where(['id_user'=> auth()->id(), 'receiver_id'=> $user->id])
-        ->orWhere(function($query) use($user){
-            $query->where(['user_id' => $user->id, 'receiver_id' => auth()->id()]);
-        })
-        ->get();
+    // public function privateMessages(m_Registrasi $user)
+    // {
+    //     $privateCommunication= Chat::with('user')
+    //     ->where(['id_user'=> auth()->id(), 'receiver_id'=> $user->id])
+    //     ->orWhere(function($query) use($user){
+    //         $query->where(['user_id' => $user->id, 'receiver_id' => auth()->id()]);
+    //     })
+    //     ->get();
 
-        return $privateCommunication;
-    }
+    //     return $privateCommunication;
+    // }
 
-    public function sendMessage(Request $request)
-    {
-
-
-        if(request()->has('file')){
-            $filename = request('file')->store('chat');
-            $message=Chat::create([
-                'user_id' => request()->user()->id,
-                'image' => $filename,
-                'receiver_id' => request('receiver_id')
-            ]);
-        }else{
-            $message = auth()->user()->messages()->create(['message' => $request->message]);
-
-        }
+    // public function sendMessage(Request $request)
+    // {
 
 
-        broadcast(new MessageSent(auth()->user(),$message->load('user')))->toOthers();
+    //     if(request()->has('file')){
+    //         $filename = request('file')->store('chat');
+    //         $message=Chat::create([
+    //             'user_id' => request()->user()->id,
+    //             'image' => $filename,
+    //             'receiver_id' => request('receiver_id')
+    //         ]);
+    //     }else{
+    //         $message = auth()->user()->messages()->create(['message' => $request->message]);
+
+    //     }
+
+
+    //     broadcast(new MessageSent(auth()->user(),$message->load('user')))->toOthers();
         
-        return response(['status'=>'Message sent successfully','message'=>$message]);
+    //     return response(['status'=>'Message sent successfully','message'=>$message]);
 
-    }
+    // }
 
-    public function sendPrivateMessage(Request $request,m_Registrasi $user)
-    {
-        if(request()->has('file')){
-            $filename = request('file')->store('chat');
-            $message=Chat::create([
-                'user_id' => request()->user()->id,
-                'image' => $filename,
-                'receiver_id' => $user->id
-            ]);
-        }else{
-            $input=$request->all();
-            $input['receiver_id']=$user->id;
-            $message=auth()->user()->messages()->create($input);
-        }
+    // public function sendPrivateMessage(Request $request,m_Registrasi $user)
+    // {
+    //     if(request()->has('file')){
+    //         $filename = request('file')->store('chat');
+    //         $message=Chat::create([
+    //             'user_id' => request()->user()->id,
+    //             'image' => $filename,
+    //             'receiver_id' => $user->id
+    //         ]);
+    //     }else{
+    //         $input=$request->all();
+    //         $input['receiver_id']=$user->id;
+    //         $message=auth()->user()->messages()->create($input);
+    //     }
 
-        broadcast(new PrivateMessageSent($message->load('user')))->toOthers();
+    //     broadcast(new PrivateMessageSent($message->load('user')))->toOthers();
         
-        return response(['status'=>'Message private sent successfully','message'=>$message]);
+    //     return response(['status'=>'Message private sent successfully','message'=>$message]);
 
-    }
+    // }
 
 }
