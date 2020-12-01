@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Chat;
 use App\m_Mitra;
+use App\m_pesan;
 use App\m_Registrasi;
 use Illuminate\Http\Request;
 
@@ -16,24 +17,26 @@ class c_Mitra extends Controller
         return view('investor.v_detail_mitra',['mitra'=>$data]);
     }
 
-    public function klikTombolChat() {
-        
-        // $data = m_Mitra::join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_petani',$id)->get();
+    public function klikTombolChat($id) {
+        // dd($id);
+        // $idpetani = 
+        $user = m_Mitra::join('users','ca_farmer.id_user','=','users.id')->where(['id_petani'=>$id,'id_user'=>2])->get();
+        $data = m_pesan::join('users','pesan.investor_id','=','users.id')->where(['petani_id' => 2, 'investor_id' => auth()->id()])->get();
         // dd($data);
-        return view('investor.v_chat');
+        return view('investor.v_chat', ['data'=>$data],['data2'=>$user]);
     }
 
     public function setPesan(Request $request)
     {
-        //metode sistem pakar
-        m_GroupKomunitas::create([
-            'id_user' => $request->id,
-            'komentar' => $request->komen,
-            'tanggal_komen' => date("Y-m-d H:i:s")
+        m_pesan::create([
+            'petani_id' => $request->idcv,
+            'investor_id' => $request->id,
+            'pesan' => $request->pesan,
+            'waktu' => date("Y-m-d H:i:s")
         ]);
 
-            return redirect('investor/list-mitra/detail/1/chat');
-        
+        return redirect('investor/list-mitra/detail/1/chat');
+
     }
 
     // public function fetchMessages()

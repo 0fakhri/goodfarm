@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth', 'checkRole:investor']], function(){
     });
     Route::get('/investor/list-mitra/detail/{id}', 'c_Mitra@klikMenuMitra');
     Route::get('/investor/list-mitra/detail/{id}/chat', 'c_Mitra@klikTombolChat');
+    Route::post('/kirimpesan', 'c_Mitra@setPesan');
     Route::get('/investor/list-mitra/detail/{id}/investasi', 'c_Transaksi@showFormInvestasi');
     Route::post('/transaksi', 'c_Transaksi@saveTransaction');
     

@@ -277,55 +277,68 @@
 							</div>
 						</div>
 						<div class="card-body msg_card_body">
-						@foreach
-							<div class="d-flex justify-content-start mb-4">
-								<div class="msg_cotainer">
-									{{$li->pesan}}
-									<span class="msg_time">8:40 AM, Today</span>
-								</div>
-							</div>
-						@endforeach
-							<div class="d-flex justify-content-start mb-4">
-								<!-- <div class="img_cont_msg"> -->
-									<!-- <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg"> -->
-								<!-- </div> -->
-								<div class="msg_cotainer">
-									I am good too, thank you for your chat template
-									<span class="msg_time">9:00 AM, Today</span>
-								</div>
-							</div>
+						@foreach($data as $p)
+							@if(Auth::user()->id != $p->investor_id)
 							<div class="d-flex justify-content-end mb-4">
 								<div class="msg_cotainer_send">
-									You are welcome
-									<span class="msg_time_send">9:05 AM, Today</span>
+									{{$p->pesan}}
+									<span class="msg_time_send">{{substr($p->waktu,0,10)}}</span>
 								</div>
-								
+							@else
 							</div>
 							<div class="d-flex justify-content-start mb-4">
 								<div class="msg_cotainer">
-									Bye, see you
-									<span class="msg_time">9:12 AM, Today</span>
+									{{$p->pesan}}
+									<span class="msg_time">{{substr($p->waktu,0,10)}}</span>
 								</div>
 							</div>
+							@endif
+						@endforeach
+							
 						</div>
 
 						<div class="card-footer">
-							<div class="input-group">
+							<form action="/kirimpesan" method="post" class="input-group">
 								<div class="input-group-append">
 									<span class="input-group-text attach_btn"></span>
 								</div>
-								<textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+
+								@csrf
+								@foreach($data2 as $p)
+								<input type="hidden" name="id" value="{{Auth::user()->id}}">
+								<input type="hidden" name="idcv" value="{{$p->id_user}}">
+								@endforeach
+								<textarea name="pesan" class="form-control type_msg" placeholder="Type your message..." required></textarea>
 								<div class="input-group-append">
 									<button class="input-group-text send_btn" type="submit"><i class="fas fa-location-arrow"></i> </button>
 									<!-- <span ></span> -->
 								</div>
-							</div>
+								<!-- </form> -->
+							</form>
 						</div>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</body>
 </html>
+
+							<!-- <div class="d-flex justify-content-start mb-4">
+								<div class="img_cont_msg">
+									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+								</div>
+								<div class="msg_cotainer">
+									I am good too, thank you for your chat template
+									<span class="msg_time">9:00 AM, Today</span>
+								</div>
+							</div>
+							
+							<div class="d-flex justify-content-start mb-4">
+								<div class="msg_cotainer">
+									Bye, see you
+									<span class="msg_time">9:12 AM, Today</span>
+								</div>
+							</div> -->
 
 @endsection
