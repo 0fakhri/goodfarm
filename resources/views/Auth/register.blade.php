@@ -216,7 +216,7 @@
                                         </div>
                                         <!-- form Footer -->
                                         <div class="register-footer">
-                                            <p> Already have an account? <a href="{{ route('login') }}"> Login</a> here</p>
+                                            <p> Sudah punya akun? <a href="{{ route('login') }}"> Login</a> disini</p>
                                             <button type="submit" class="submit-btn3">Register</button>
                                         </div>
                                     </form>

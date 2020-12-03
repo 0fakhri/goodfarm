@@ -16,11 +16,11 @@
           <thead style="background-color: #ddd;">
           <tr class="text-center">
               <th>Nama</th>
-              <th>username</th>
+              
               <th>E-mail</th>
               <th>No HP</th>
               <th>Alamat</th>
-              <!-- <th>Ktp</th> -->
+              <th>Ktp</th>
               <th>Verifikasi</th>
           </tr>
         </thead>
@@ -28,10 +28,11 @@
         <tbody>
           <tr class="text-center">
               <td><a href="">{{$user->nama_investor}}</a></td>
-              <td><a href="">{{$user->username}}</a></td>
+              
               <td>{{$user->email_investor}}</td>
               <td>{{$user->no_ponsel_investor}}</td>
               <td>{{$user->alamat}}</td>
+              <td><img src="{{url($user->foto_ktp_investor)}}" alt=""></td>
               
               <td>
                 <form action="/diterima" method="post">
@@ -43,6 +44,7 @@
                     <button type="submit">Terima</button>
                   </form>
                   <form action="/ditolak" method="post">
+                    @csrf
                     <input type="hidden" name="id" value="{{ $user->id_investor }}">
                     <input type="hidden" name="email" value="{{ $user->role }}">
                     <input type="hidden" name="status" value="Ditolak">
@@ -59,11 +61,10 @@
           <thead style="background-color: #ddd;">
           <tr class="text-center">
               <th>Nama</th>
-              <th>username</th>
               <th>E-mail</th>
               <th>No HP</th>
               <th>Alamat</th>
-              <!-- <th>ktp</th> -->
+              <th>ktp</th>
               <th>Verifikasi</th>
           </tr>
         </thead>
@@ -75,6 +76,7 @@
               <td>{{$user2->email_petani}}</td>
               <td>{{$user2->no_ponsel_petani}}</td>
               <td>{{$user2->alamat}}</td>
+              <td><img src="{{url($user2->foto_ktp_petani)}}" alt=""></td>
               
               <td>
                 <form action="/diterima" method="post">
@@ -86,6 +88,7 @@
                   <button type="submit">Terima</button>
                 </form>
                 <form action="/ditolak" method="post">
+                  @csrf
                   <input type="hidden" name="id" value="{{ $user2->id_petani }}">
                   <input type="hidden" name="email" value="{{ $user2->email_petani }}">
                   <input type="hidden" name="role" value="{{ $user2->role }}">

@@ -38,6 +38,7 @@
                     <button type="submit">Terima</button>
                   </form>
                   <form action="/tolak" method="post">
+                    @csrf
                     <input type="hidden" name="id" value="{{ $li->id_investor }}">
                     <input type="hidden" name="status" value="Ditolak">
                     <button type="submit">Menolak</button>

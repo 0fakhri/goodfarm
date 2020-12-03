@@ -1,7 +1,7 @@
-@extends('investor.layouts.app')
+@extends('petani.layouts.app')
 @section('content')
 
-<div class="bradcam_area bradcam_bg_3">
+<!-- <div class="bradcam_area bradcam_bg_3">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -267,7 +267,7 @@
 									<span class="online_icon"></span>
 								</div> -->
 								<div class="user_info">
-									<span>Chat dengan petani</span>
+									<span>Chat dengan Investor</span>
 									<!-- <p>1767 Messages</p> -->
 								</div>
 								<!-- <div class="video_cam">
@@ -278,7 +278,7 @@
 						</div>
 						<div class="card-body msg_card_body">
 							@foreach($data as $p)
-								@if(Auth::user()->id == $p->investor_id)
+								@if(Auth::user()->id != $p->petani_id)
 								<div class="d-flex justify-content-end mb-4">
 									<div class="msg_cotainer_send">
 										{{$p->pesan}}
@@ -300,13 +300,14 @@
 						</div>
 
 						<div class="card-footer">
-							<form action="/kirimpesan" method="post" class="input-group">
+							<form action="/kirimpesanpet" method="post" class="input-group">
 								<div class="input-group-append">
 									<span class="input-group-text attach_btn"></span>
 								</div>
 
 								@csrf
 								@foreach($data2 as $p)
+								<input type="hidden" name="idurl" value="{{$p->id_investor}}">
 								<input type="hidden" name="id" value="{{Auth::user()->id}}">
 								<input type="hidden" name="idcv" value="{{$p->id_user}}">
 								@endforeach

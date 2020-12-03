@@ -19,9 +19,16 @@ class c_Mitra extends Controller
 
     public function klikTombolChat($id) {
         // dd($id);
-        // $idpetani = 
-        $user = m_Mitra::join('users','ca_farmer.id_user','=','users.id')->where(['id_petani'=>$id,'id_user'=>2])->get();
-        $data = m_pesan::join('users','pesan.investor_id','=','users.id')->where(['petani_id' => 2, 'investor_id' => auth()->id()])->get();
+        
+        $user = m_Mitra::join('users','ca_farmer.id_user','=','users.id')->where('id_petani',$id)->get();
+        foreach($user as $li){
+            $idnya = $li->id_user; 
+        }
+        // dd($idnya);
+        $data = m_pesan::join('users','pesan.investor_id','=','users.id')->where(['pesan.petani_id' => auth()->id(), 'pesan.investor_id' => $idnya])->orWhere->where(['pesan.petani_id' => $idnya, 'pesan.investor_id' => auth()->id()])->get();
+        // foreach($data as $li){
+        //     $idnya = $li->petani_id; 
+        // }
         // dd($data);
         return view('investor.v_chat', ['data'=>$data],['data2'=>$user]);
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\m_Investor;
 use App\m_Mitra;
+use App\m_Registrasi;
 use App\m_transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,27 @@ class c_transaksi extends Controller
         $data = m_Mitra::where('id_petani',$id)->get();
         // dd($data);
         return view('investor.v_investasi',['mitra'=>$data]);
+    }
+
+    public function showInvestasi($id)
+    {
+        $data = m_transaksi::join('ca_investor','transaksi.id_investor','=','ca_investor.id_investor')->where(['transaksi.id_transaksi'=>$id, 'transaksi.status'=>'Diterima'])->get();
+        // dd($data);
+        return view('petani.v_detailInves',['trans'=>$data]);
+    }
+
+    public function showNotif()
+    {
+        $id = Auth()->id();
+        
+        $getid = m_Registrasi::join('ca_farmer','users.id','=','ca_farmer.id_user')->where('id_user',$id)->get();
+        foreach($getid as $li){
+            $idnya = $li->id_petani;
+        }
+        // dd($idnya);
+        $data = m_transaksi::where(['id_petani'=>$idnya, 'status'=>'Diterima'])->get();
+        // dd($data);
+        return view('petani.v_notifikasi',['trans'=>$data]);
     }
 
     /**

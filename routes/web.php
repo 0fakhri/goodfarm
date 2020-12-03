@@ -58,9 +58,17 @@ Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
         $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
         return view('petani.v_investor',['data'=>$data_inv]);
     });
+    Route::get('/petani/pesan', function (){
+        $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
+        return view('petani.v_pesan',['data'=>$data_inv]);
+    });
+    Route::get('/petani/pesan/{id}/chat', 'c_dashboard@klikTombolChat');
+    Route::post('/kirimpesanpet', 'c_dashboard@setPesan');
+    Route::get('/petani/notifikasi', 'c_transaksi@showNotif');
+    Route::get('/petani/notifikasi/inves/{id}', 'c_transaksi@showInvestasi');
 });
 
-
+// testftp
 
 Route::group(['middleware' => ['auth', 'checkRole:investor']], function(){
     Route::get('/investor/dashboard', function () {
@@ -69,8 +77,8 @@ Route::group(['middleware' => ['auth', 'checkRole:investor']], function(){
     Route::get('/investor/list-mitra/detail/{id}', 'c_Mitra@klikMenuMitra');
     Route::get('/investor/list-mitra/detail/{id}/chat', 'c_Mitra@klikTombolChat');
     Route::post('/kirimpesan', 'c_Mitra@setPesan');
-    Route::get('/investor/list-mitra/detail/{id}/investasi', 'c_Transaksi@showFormInvestasi');
-    Route::post('/transaksi', 'c_Transaksi@saveTransaction');
+    Route::get('/investor/list-mitra/detail/{id}/investasi', 'c_transaksi@showFormInvestasi');
+    Route::post('/transaksi', 'c_transaksi@saveTransaction');
     
     Route::get('/investor/profil', 'c_profil_investor@klikMenuProfil');
     Route::post('/editProfil', 'c_profil_investor@saveDataInvestor');

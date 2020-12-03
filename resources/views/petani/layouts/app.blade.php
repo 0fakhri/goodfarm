@@ -84,6 +84,8 @@
                                         <ul id="navigation">
                                             <li><a href="/petani/dashboard">Dashboard</a></li>
                                             <li><a href="/petani/list-investor">Mitra</a></li>
+                                            <li><a href="/petani/pesan/">Pesan</a></li>
+                                            <li><a href="/petani/notifikasi">Notifikasi</a></li>
                                             <!-- <li><a href="about.html">about</a></li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
