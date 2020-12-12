@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\m_buka_laporan;
 use App\m_Investor;
 use App\m_Mitra;
 use App\m_Registrasi;
@@ -21,14 +22,14 @@ class c_transaksi extends Controller
     
     public function showFormInvestasi($id)
     {
-        $data = m_Mitra::where('id_petani',$id)->get();
+        $data = m_Mitra::join('buka_laporan','ca_farmer.id_petani','=','buka_laporan.petani_id')->where('id_petani',$id)->get();
         // dd($data);
         return view('investor.v_investasi',['mitra'=>$data]);
     }
 
     public function showInvestasi($id)
     {
-        $data = m_transaksi::join('ca_investor','transaksi.id_investor','=','ca_investor.id_investor')->where(['transaksi.id_transaksi'=>$id, 'transaksi.status'=>'Diterima'])->get();
+        $data = m_transaksi::join('ca_investor','transaksi.id_investor','=','ca_investor.id_investor')->where(['transaksi.id_transaksi'=>$id])->get();
         // dd($data);
         return view('petani.v_detailInves',['trans'=>$data]);
     }
@@ -42,7 +43,8 @@ class c_transaksi extends Controller
             $idnya = $li->id_petani;
         }
         // dd($idnya);
-        $data = m_transaksi::where(['id_petani'=>$idnya, 'status'=>'Diterima'])->get();
+        // $data = m_transaksi::leftJoin('buka_laporan','transaksi.buka_id','=','buka_laporan.id_buka')->where(['petani_id'=>$idnya, 'status'=>'Diterima'])->get();
+        $data = m_buka_laporan::join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where(['petani_id'=>$idnya, 'status'=>'Diterima'])->get();
         // dd($data);
         return view('petani.v_notifikasi',['trans'=>$data]);
     }
@@ -74,7 +76,7 @@ class c_transaksi extends Controller
 
         m_transaksi::create([
             'id_investor' => $idInve->id_investor,
-            'id_petani' => $request['idPetani'],
+            'buka_id' => $request['idBuka'],
             'jumlah_modal' => $request['jumlah'],
             'nama_bank' => $request['bank'],
             'bukti_pembayaran' => 'storage/img/' . $newName,

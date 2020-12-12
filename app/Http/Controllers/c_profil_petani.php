@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alamat;
+use App\m_buka_laporan;
 use App\m_Mitra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,9 +14,16 @@ class c_profil_petani extends Controller
     {
         $idUser = Auth()->user()->id;
         // dd($idUser);
-        $user = m_Mitra::join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_user', $idUser)->get();
+        $user = m_Mitra::join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->leftJoin('buka_laporan','ca_farmer.id_petani','=','buka_laporan.petani_id')->where('id_user', $idUser)->get();
+        foreach ($user as $li) {
+            $idpet = $li->id_petani;
+        }
+        
         // dd($user);
-        return view('petani.v_profil_petani',['data'=>$user]);
+        $inves = m_buka_laporan::join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where('petani_id',$idpet)->get();
+        // dd($user);
+        // dd($inves);
+        return view('petani.v_profil_petani',['data'=>$user],['data2'=>$inves]);
     }
 
     public function saveDataPetani(Request $data)

@@ -28,7 +28,7 @@
               <td><a href="">{{$li->nama_investor}}</a></td>
               <td><a href="">{{$li->jumlah_modal}}</a></td>
               <td>{{$li->nama_bank}}</td>
-              <td><img src="{{url($li->bukti_pembayaran)}}" alt=""></td>
+              <td><img src="{{url($li->bukti_pembayaran)}}" alt="" width="200px"></td>
               
               <td>
                 <form action="/terima" method="post">

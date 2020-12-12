@@ -21,7 +21,8 @@
                 <form action="/transaksi" class="apply_form" method="POST" enctype="multipart/form-data">
                     @csrf
                     @foreach($mitra as $li)
-                    <input type="hidden" name="idPetani" value="{{$li->id_petani}}">
+                    <input type="hidden" name="idBuka" value="{{$li->id_buka}}">
+                    <h4></h4>
                     @endforeach
                     <div class="row">
                         <div class="col-lg-12">
@@ -57,7 +58,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <h1><span><p></p></span>
+                            <h1><span><p></p></span></h1>
                         </div>
                         <div class="col-md-12">
                             <div class="single-input-fields">

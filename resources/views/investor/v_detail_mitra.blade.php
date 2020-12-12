@@ -71,71 +71,128 @@
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         @foreach ($mitra as $li)
-                                
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Nama</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{$li->nama_petani}}</p>
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Nama</label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Tanggal lahir</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{$li->tanggal_lahir_petani}}</p>
-                                    </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->nama_petani}}</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Jenis kelamin</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{$li->jenis_kelamin}}</p>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Tanggal lahir</label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Jenis identitas</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{$li->jenis_identitas}}</p>
-                                    </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->tanggal_lahir_petani}}</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>No. Indentitas</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{$li->no_identitas_petani}}</p>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Jenis kelamin</label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{$li->email_petani}}</p>
-                                    </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->jenis_kelamin}}</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>No. Handphone</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{$li->no_ponsel_petani}}</p>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Jenis identitas</label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Alamat</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{$li->alamat}}</p>
-                                    </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->jenis_identitas}}</p>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>No. Indentitas</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->no_identitas_petani}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->email_petani}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>No. Handphone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->no_ponsel_petani}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Alamat</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->alamat}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Foto lahan</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><img src="{{url($li->foto_lahan_hidroponik)}}" alt="" width="300px"></p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Nama tanaman</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->nama_tanaman}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Foto tanaman</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><img src="{{url($li->foto)}}" alt="" width="300px"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Bagi Hasil petani</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->hasil_petani}} %</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Bagi Hasil investor</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->hasil_investor}} %</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Harga perbenih</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Rp {{$li->harga_perbenih}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Total lot</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->total_lot}} </p>
+                                </div>
+                            </div>
+                            
                         @endforeach
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">

@@ -66,6 +66,13 @@ Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
     Route::post('/kirimpesanpet', 'c_dashboard@setPesan');
     Route::get('/petani/notifikasi', 'c_transaksi@showNotif');
     Route::get('/petani/notifikasi/inves/{id}', 'c_transaksi@showInvestasi');
+    Route::get('/buka-inves', 'c_buka_laporan@showForm');
+    Route::post('/bukaInves', 'c_buka_laporan@saveDataBukaInvestasi');
+    
+    Route::post('/postLaporan', 'c_profile_petani@saveDataLaporanHidro');
+
+    Route::get('/petani/data-pengajuan', 'c_profile_petani@showPengajuan');
+    Route::get('/petani/data-pengajuan/{id}', 'c_profile_petani@showFormLaporan');
 });
 
 // testftp
@@ -83,10 +90,12 @@ Route::group(['middleware' => ['auth', 'checkRole:investor']], function(){
     Route::get('/investor/profil', 'c_profil_investor@klikMenuProfil');
     Route::post('/editProfil', 'c_profil_investor@saveDataInvestor');
     Route::get('/investor/list-mitra', function (){
-        $data_pet = DB::table('ca_farmer')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
+        $data_pet = DB::table('ca_farmer')->join('buka_laporan','ca_farmer.id_petani','=','buka_laporan.petani_id')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->get();
         // dd($data_pet);
         return view('investor.v_mitra',['data'=>$data_pet]);
     });
+    Route::get('/investor/laporan', 'c_laporan_hidroponik@setDataPetani');
+    Route::get('/investor/laporan/{id}', 'c_laporan_hidroponik@setDetailLaporan');
 });
 
 

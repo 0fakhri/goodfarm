@@ -64,7 +64,7 @@
             <!-- <div class="card-header">List profil petani</div> -->
             <div class="card-body">
                 @foreach($data as $li)
-                    <div class="col-md-3">
+                    <div class="col-md-3" style="display: inline-block;">
                         <div class="contact-box center-version">
                             <a href="/investor/list-mitra/detail/{{$li->id_petani}}">
                                 

@@ -10,9 +10,9 @@
     <title>{{ config('app.name', 'Goodfarm') }}</title>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
@@ -84,6 +84,7 @@
                                         <ul id="navigation">
                                             <li><a href="/investor/dashboard">Dashboard</a></li>
                                             <li><a href="/investor/list-mitra">Mitra</a></li>
+                                            <li><a href="/investor/laporan">Laporan hidroponik</a></li>
                                             <!-- <li><a href="about.html">about</a></li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">

@@ -48,7 +48,7 @@
     <div id="content">
         <div class="notify successbox">
             <h1>Detail transaksi</h1><br />
-            <span class="alerticon"><img src="http://s22.postimg.org/i5iji9hv1/check.png" alt="checkmark" /></span><br />
+            <!-- <span class="alerticon"><img src="http://s22.postimg.org/i5iji9hv1/check.png" alt="checkmark" /></span><br /> -->
         </div>
 
         <div id="Box">

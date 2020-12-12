@@ -12,7 +12,7 @@ class c_Mitra extends Controller
 {
     public function klikMenuMitra($id) {
         
-        $data = m_Mitra::join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_petani',$id)->get();
+        $data = m_Mitra::join('buka_laporan','ca_farmer.id_petani','=','buka_laporan.petani_id')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_petani',$id)->get();
         // dd($data);
         return view('investor.v_detail_mitra',['mitra'=>$data]);
     }
@@ -42,7 +42,7 @@ class c_Mitra extends Controller
             'waktu' => date("Y-m-d H:i:s")
         ]);
 
-        return redirect('investor/list-mitra/detail/1/chat');
+        return redirect('investor/list-mitra/detail/'.$request->idurl.'/chat');
 
     }
 

@@ -307,6 +307,7 @@
 
 								@csrf
 								@foreach($data2 as $p)
+								<input type="hidden" name="idurl" value="{{$p->id_petani}}">
 								<input type="hidden" name="id" value="{{Auth::user()->id}}">
 								<input type="hidden" name="idcv" value="{{$p->id_user}}">
 								@endforeach

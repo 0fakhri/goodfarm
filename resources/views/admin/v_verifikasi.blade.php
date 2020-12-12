@@ -32,7 +32,7 @@
               <td>{{$user->email_investor}}</td>
               <td>{{$user->no_ponsel_investor}}</td>
               <td>{{$user->alamat}}</td>
-              <td><img src="{{url($user->foto_ktp_investor)}}" alt=""></td>
+              <td><img src="{{url($user->foto_ktp_investor)}}" alt="" width="200px"></td>
               
               <td>
                 <form action="/diterima" method="post">
@@ -76,7 +76,7 @@
               <td>{{$user2->email_petani}}</td>
               <td>{{$user2->no_ponsel_petani}}</td>
               <td>{{$user2->alamat}}</td>
-              <td><img src="{{url($user2->foto_ktp_petani)}}" alt=""></td>
+              <td><img src="{{url($user2->foto_ktp_petani)}}" alt="" width="200px"></td>
               
               <td>
                 <form action="/diterima" method="post">
