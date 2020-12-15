@@ -14,6 +14,7 @@
 use App\m_Mitra;
 use App\m_Registrasi;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 Route::group(['middleware' => 'web'], function() {
     Route::get('/register', 'c_Register@mengeklikMenu')->name('register');
@@ -69,7 +70,7 @@ Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
     Route::get('/buka-inves', 'c_buka_laporan@showForm');
     Route::post('/bukaInves', 'c_buka_laporan@saveDataBukaInvestasi');
     
-    Route::post('/postLaporan', 'c_profile_petani@saveDataLaporanHidro');
+    Route::post('/postLaporan', 'c_profil_petani@saveDataLaporanHidro');
 
     Route::get('/petani/data-pengajuan', 'c_profile_petani@showPengajuan');
     Route::get('/petani/data-pengajuan/{id}', 'c_profile_petani@showFormLaporan');

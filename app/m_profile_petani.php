@@ -9,7 +9,7 @@ class m_profile_petani extends Model
     public $timestamps = false;
     protected $table = 'laporan_kondisi_hidroponik';
     protected $fillable=[
-        'ajuan_id',
+        'petani_id',
         'benih_awal',
         'benih_ditanam',
         'benih_mati',

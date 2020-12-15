@@ -18,7 +18,8 @@ class m_Investor extends Model
         'no_identitas_investor',
         'id_alamat',
         'email_investor',
-        'foto_ktp_investor',];
+        'foto_ktp_investor',
+        'surat_pernyataan',];
 
     public function user(){
         return $this->belongsTo('App\Register', 'id_user');

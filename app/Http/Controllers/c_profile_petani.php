@@ -53,13 +53,13 @@ class c_profile_petani extends Controller
             Storage::putFileAs('public/img', $data->file('video'), $newName2);
 
             m_profile_petani::create([
-                'ajuan_id' => $data['id'],
+                'petani_id' => $data['id'],
                 'benih_awal'  => $data['benihAwal'],
                 'benih_ditanam'  => $data['benihTanam'],
                 'benih_mati'  => $data['benihMati'],
                 'foto_perkembangan'  => 'storage/img/' . $newName,
                 'video_perkembangan'  => 'storage/img/' . $newName2,
-                'tanggal' => date("Y-m-d H:i:s"),
+                // 'tanggal' => date("Y-m-d H:i:s"),
             ]);
         }
         elseif($file == null){
@@ -69,7 +69,7 @@ class c_profile_petani extends Controller
                 'benih_ditanam'  => $data['benihTanam'],
                 'benih_mati'  => $data['benihMati'],
                 'harga_total_tanaman' => $data['total'],
-                'tanggal' => date("Y-m-d H:i:s"),
+                // 'tanggal' => date("Y-m-d H:i:s"),
             ]);
         }
 

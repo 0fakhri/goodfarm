@@ -21,7 +21,7 @@ class c_laporan_hidroponik extends Controller
 
     public function setDetailLaporan($id)
     {
-        $user = m_profile_petani::join('buka_laporan','laporan_kondisi_hidroponik.ajuan_id','=','buka_laporan.id_buka')->join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where(['ajuan_id'=> $id])->get();
+        $user = m_profile_petani::join('buka_laporan','laporan_kondisi_hidroponik.petani_id','=','buka_laporan.id_buka')->join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where(['buka_laporan.petani_id'=> $id])->get();
         
         // $user = m_buka_laporan::join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where(['ajuan_id'=> $id])->get();
         // dd($user);

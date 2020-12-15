@@ -47,7 +47,7 @@ class c_Verifikasi extends Controller
         $data = [];
         Mail::send('admin.layouts.includes.email', $data, function($message) use ($request)
             {
-                $message->from('do-notreply@domain.com', "Goodfarm");
+                $message->from('penecuan@kulitekno.com', "Goodfarm");
                 $message->subject("Welcome to Goodfarm");
                 $message->to($request['email']);
             });
@@ -71,7 +71,7 @@ class c_Verifikasi extends Controller
         $data = [];
         Mail::send('admin.layouts.includes.emailF', $data, function($message) use ($request)
             {
-                $message->from('do-notreply@domain.com', "Goodfarm");
+                $message->from('penecuan@kulitekno.com', "Goodfarm");
                 $message->subject("Welcome to Goodfarm");
                 $message->to($request['email']);
             });

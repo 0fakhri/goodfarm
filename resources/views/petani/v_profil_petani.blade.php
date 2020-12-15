@@ -76,6 +76,7 @@
                     @csrf
                     <div class="modal-body">
                     <div class="form-group">
+                        <input type="hidden" name="id" value="{{$li->id_petani}}">
                             <label>Jumlah benih awal</label>
                             <input type="text" class="form-control" name="benihAwal" required>
                         </div>
@@ -106,7 +107,7 @@
 <!-- end laporan -->
 
 <div class="wrapper" style="margin-top: 120px;">
-  <div class="container emp-profile">
+    <div class="container emp-profile">
         <div class="row">
             <!-- <div class="col-md-4">
                 <div class="profile-img">
@@ -118,15 +119,8 @@
                 </div>
             </div> -->
             <div class="col-md-6">
-                @foreach ($data as $li)
                 <div class="profile-head">
-                            <h5>
-                                <!-- $li->nama_petani -->
-                            </h5>
-                            <h6>
-                                <!-- $li->alamat -->
-                            </h6>
-                            <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
+
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
@@ -136,7 +130,6 @@
                         </li>
                     </ul>
                 </div>
-                @endforeach
             </div>
             <div class="col-md-2">
                 <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> -->
@@ -146,9 +139,9 @@
                     Buka investasi
                 </a>
                 <br>
-                <a class="btn btn-success" href="/petani/data-pengajuan" >
+                <!-- <a class="btn btn-success" href="/petani/data-pengajuan" >
                     Lihat buka investasi
-                </a>
+                </a> -->
                 <br>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#laporan">
                     Perkembangan hidroponik
@@ -257,85 +250,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <h4>Laporan</h4>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Total Harga Investasi Terkini </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p hidden>
-                                        {{$hi =($li->benih_awal-$li->benih_mati)*$li->harga_perbenih}}
-                                    </p>
-                                    <p>Rp {{$hi}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Biaya Admin Final </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p hidden>
-                                        {{$BAF = $hi*5/100}}
-                                    </p>
-                                    <p>Rp {{$BAF}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Laba/Rugi </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p hidden>
-                                        {{$labaRugi =$li->harga_total_tanaman-$hi}}
-                                    </p>
-                                    <p>Rp {{$labaRugi}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Bagi Rugi Investor  </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p hidden>
-                                        {{$bagiRugiInves = $li->benih_mati*$li->hasil_investor/100}}
-                                    </p>
-                                    <p>{{$bagiRugiInves}} %</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Bagi Rugi Petani </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p hidden>
-                                        {{$bagiRugiPetani = $li->benih_mati*$li->hasil_petani/100}}
-                                    </p>
-                                    <p>{{$bagiRugiPetani}} %</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Pendapatan Investor </label>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <p hidden>
-                                        {{$pendapatanInvestor = (($labaRugi*$li->hasil_investor/100)+$lama)-$bagiRugiInves}}
-                                    </p>
-                                    <p>Rp {{$pendapatanInvestor}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Pendapatan Petani  </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p hidden>
-                                        {{$pendapatanPetani = ($labaRugi*$li->hasil_petani/100)-$bagiRugiPetani}}
-                                    </p>
-                                    <p>Rp {{$pendapatanPetani}}</p>
-                                </div>
-                            </div>
+                            
                         @endforeach
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -456,8 +371,186 @@
                         </form>
                     </div>
                 </div>
+                
             </div>
+
         </div>
+        <div class="col-md-6">
+
+                <div class="profile-head">
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#bulan" role="tab" aria-controls="home" aria-selected="true">Laporan Bulanan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#tahun" role="tab" aria-controls="profile" aria-selected="false">Laporan Tahunan</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+    <!-- </div> -->
+        <div class="row">
+            
+
+            <p hidden>
+            {{$lama = 0}}
+            @foreach($data2 as $li)
+                    {{$masuk = $li->jumlah_modal}}
+                    {{$hitung = $masuk+$lama}}
+                    {{$lama = $hitung}}
+            @endforeach
+            {{$lama}}
+            </p> 
+            <h1></h1>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="bulan" role="tabpanel" aria-labelledby="home-tab">
+                    @foreach($data as $li)
+                        @if($li->harga_total_tanaman == null)
+                        <hr>
+                        <h4>Laporan Bulanan</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Benih Awal </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{$li->benih_awal}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Benih Ditanam </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{$li->benih_ditanam}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Benih Mati </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{$li->benih_mati}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Foto perkembangan </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><img src="{{url($li->foto_perkembangan)}}" alt="" width="400px"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Video perkembangan </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                <video id="my-video" class="video-js" controls preload="auto" width="400" height="200" data-setup="{}">
+                                    <source src="{{url($li->video_perkembangan)}}" type='video/mp4'>
+                                </video>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        @endif
+                        @endforeach
+                    </div>
+                    <div class="tab-pane fade" id="tahun" role="tabpanel" aria-labelledby="profile-tab">
+                    @foreach($data as $li)
+                        @if($li->harga_total_tanaman != null)
+                        <h4>Laporan Tahunan</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Total Harga Investasi Terkini </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p hidden>
+                                    {{$hi =($li->benih_awal-$li->benih_mati)*$li->harga_perbenih}}
+                                </p>
+                                <p>Rp {{$hi}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Biaya Admin Final </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p hidden>
+                                    {{$BAF = $hi*5/100}}
+                                </p>
+                                <p>Rp {{$BAF}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Laba/Rugi </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p hidden>
+                                    {{$labaRugi =$li->harga_total_tanaman-$hi}}
+                                </p>
+                                <p>Rp {{$labaRugi}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Bagi Rugi Investor  </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p hidden>
+                                    {{$bagiRugiInves = $li->benih_mati*$li->hasil_investor/100}}
+                                </p>
+                                <p>{{$bagiRugiInves}} %</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Bagi Rugi Petani </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p hidden>
+                                    {{$bagiRugiPetani = $li->benih_mati*$li->hasil_petani/100}}
+                                </p>
+                                <p>{{$bagiRugiPetani}} %</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Pendapatan Investor </label>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <p hidden>
+                                    {{$pendapatanInvestor = (($labaRugi*$li->hasil_investor/100)+$lama)-$bagiRugiInves}}
+                                </p>
+                                <p>Rp {{$pendapatanInvestor}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Pendapatan Petani  </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p hidden>
+                                    {{$pendapatanPetani = ($labaRugi*$li->hasil_petani/100)-$bagiRugiPetani}}
+                                </p>
+                                <p>Rp {{$pendapatanPetani}}</p>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
+                
+            </div>
+
+            </div>
   </div>          
 </div>
 
