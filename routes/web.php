@@ -74,6 +74,10 @@ Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
 
     Route::get('/petani/data-pengajuan', 'c_profile_petani@showPengajuan');
     Route::get('/petani/data-pengajuan/{id}', 'c_profile_petani@showFormLaporan');
+
+    Route::get('/laba-rugi', 'c_labaRugi@showFormLabaRugi');
+    Route::post('/postLaba', 'c_labaRugi@saveDataLabaRugi');
+
 });
 
 // testftp

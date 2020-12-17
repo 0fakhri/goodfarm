@@ -44,8 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label>Total Lot</label>
-                            <input type="number" class="form-control" name="lot
-                            " required>
+                            <input type="number" class="form-control" name="lot" required>
                         </div>
                         <div class="form-group">
                             <label>Periode (dalam tahun)</label>

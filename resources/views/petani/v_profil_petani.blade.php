@@ -109,6 +109,59 @@
 <div class="wrapper" style="margin-top: 120px;">
     <div class="container emp-profile">
         <div class="row">
+            <!-- <div class="container"> -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                    <a class="nav-link" id="home-tab"  href="/buka-inves">
+                        <!-- <a class="btn btn-success" href="/buka-inves" > -->
+                            Buka investasi
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="home-tab"  data-toggle="modal" data-target="#laporan">
+                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#laporan"> -->
+                            Perkembangan hidroponik
+                        </a>
+                    </li>
+                    <a class="nav-link" id="home-tab"  href="/laba-rugi">
+                        <!-- <a class="btn btn-success" href="/buka-inves" > -->
+                            Tambah data laba/rugi
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger" href="" data-toggle="modal" data-target="#logoutModal">
+                            Logout
+                        </a>  
+                    </li>
+                </ul>
+                
+                
+                <!-- <a class="btn btn-success" href="/buka-inves" >
+                    Buka investasi
+                </a>
+                <br>
+                
+                <br>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#laporan">
+                    Perkembangan hidroponik
+                </button>
+
+                <br>
+                <a class="btn btn-danger" href="" data-toggle="modal" data-target="#logoutModal">
+                  Logout
+                </a> -->
+                <!-- <a class="btn btn-success" href="/petani/data-pengajuan" >
+                    Lihat buka investasi
+                </a> -->
+                <!-- <a href="/laporan" class="btn btn-primary"></a> -->
+                <!-- <a href="/logout" class="btn btn-danger">Logout</a> -->
+            <!-- </div> -->
+        </div>
+            <div id="chart">
+                    
+            </div>
+        <br>
+        <div class="row">
             <!-- <div class="col-md-4">
                 <div class="profile-img">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
@@ -118,8 +171,10 @@
                     </div>
                 </div>
             </div> -->
-            <div class="col-md-6">
-                <div class="profile-head">
+            
+            
+            <!-- <div class="col-md-6"> -->
+                <div class="container">
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -130,30 +185,8 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> -->
-                <!-- Button trigger modal -->
-                
-                <a class="btn btn-success" href="/buka-inves" >
-                    Buka investasi
-                </a>
-                <br>
-                <!-- <a class="btn btn-success" href="/petani/data-pengajuan" >
-                    Lihat buka investasi
-                </a> -->
-                <br>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#laporan">
-                    Perkembangan hidroponik
-                </button>
-                <!-- <a href="/laporan" class="btn btn-primary"></a> -->
-                <br>
-                <a class="btn btn-danger" href="" data-toggle="modal" data-target="#logoutModal">
-                  Logout
-                </a>
-                
-                <!-- <a href="/logout" class="btn btn-danger">Logout</a> -->
-            </div>
+            <!-- </div> -->
+            
         </div>
         <div class="row">
             <!-- <div class="col-md-4">
@@ -185,6 +218,7 @@
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         @foreach ($data as $li)
+                        @endforeach
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Nama</label>
@@ -251,7 +285,7 @@
                             </div>
                             <hr>
                             
-                        @endforeach
+                        
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <form class="input-box" method="POST" action="/editProfilPetani">
@@ -436,6 +470,7 @@
                                 <p>{{$li->benih_mati}}</p>
                             </div>
                         </div>
+                        @if($li->foto_perkembangan != null & $li->video_perkembangan !=null)
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Foto perkembangan </label>
@@ -456,6 +491,7 @@
                                 </p>
                             </div>
                         </div>
+                        @endif
                         
                         @endif
                         @endforeach
@@ -553,5 +589,60 @@
             </div>
   </div>          
 </div>
-
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+    Highcharts.chart('chart', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Laba rugi'
+        },
+        subtitle: {
+            // text: 'Source: WorldClimate.com'
+        },
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Total Penerimaan (Rp)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>Rp {point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '',
+            data: []
+            // [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        },]
+    });
+</script>
 @endsection

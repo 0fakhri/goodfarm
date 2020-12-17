@@ -214,9 +214,59 @@
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
+                                        <div class="single-input-fields">
+                                            <label>Foto selfie ktp</label>
+                                            <input type="file" name="selfie" placeholder="" class="@error('selfie') is-invalid @enderror">
+                                            @error('selfie')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        
+                                        <div class="single-input-fields">
+                                            <label>Logo usaha</label>
+                                            <input type="file" name="logo" placeholder="" class="@error('logo') is-invalid @enderror">
+                                            @error('logo')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Surat izin usaha</label>
+                                            <input type="file" name="surat" placeholder="" class="@error('surat') is-invalid @enderror">
+                                            @error('surat')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Portofolio perusahaan</label>
+                                            <input type="file" name="portofolio" placeholder="" class="@error('portofolio') is-invalid @enderror">
+                                            @error('portofolio')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Surat pernyataan</label>
+                                            <input type="file" name="pernyataan" placeholder="" class="@error('pernyataan') is-invalid @enderror">
+                                            @error('pernyataan')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Nomer rekening</label>
+                                            <input name="norek" type="number" placeholder="Masukkan nomer rekening" class="@error('norek') is-invalid @enderror">
+                                            @error('norek')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Foto halaman tabungan</label>
+                                            <input type="file" name="tabungan" placeholder="" class="@error('tabungan') is-invalid @enderror">
+                                            @error('tabungan')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                         <!-- form Footer -->
                                         <div class="register-footer">
-                                            <p> Sudah punya akun? <a href="{{ route('login') }}"> Login</a> disini</p>
+                                            <p> Sudah punya akun <a href="{{ route('login') }}"> Login</a> disini</p>
                                             <button type="submit" class="submit-btn3">Register</button>
                                         </div>
                                     </form>
@@ -345,6 +395,13 @@
                                             <label>Foto KTP</label>
                                             <input type="file" name="img" placeholder="Bukti" class="@error('img') is-invalid @enderror">
                                             @error('img')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="single-input-fields">
+                                            <label>Surat pernyataan</label>
+                                            <input type="file" name="pernyataan" placeholder="" class="@error('pernyataan') is-invalid @enderror">
+                                            @error('pernyataan')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

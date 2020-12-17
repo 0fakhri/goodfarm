@@ -6,6 +6,7 @@ use App\m_buka_laporan;
 use App\m_Investor;
 use App\m_profile_petani;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class c_laporan_hidroponik extends Controller
 {
@@ -21,7 +22,14 @@ class c_laporan_hidroponik extends Controller
 
     public function setDetailLaporan($id)
     {
-        $user = m_profile_petani::join('buka_laporan','laporan_kondisi_hidroponik.petani_id','=','buka_laporan.id_buka')->join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where(['buka_laporan.petani_id'=> $id])->get();
+        $idUser = Auth()->User()->id;
+        $get = m_Investor::where('id_user',$idUser)->get('id_investor');
+        foreach($get as $li){
+            $idnya = $li->id_investor;
+        }
+        // dd($idnya);
+
+        $user = m_profile_petani::join('buka_laporan','laporan_kondisi_hidroponik.petani_id','=','buka_laporan.id_buka')->join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where(['laporan_kondisi_hidroponik.petani_id'=> $id,'transaksi.id_investor'=>$idnya])->get();
         
         // $user = m_buka_laporan::join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where(['ajuan_id'=> $id])->get();
         // dd($user);

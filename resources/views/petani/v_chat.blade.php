@@ -276,20 +276,26 @@
 								</div> -->
 							</div>
 						</div>
+						<!-- @foreach($user as $c)
+						@endforeach -->
 						<div class="card-body msg_card_body">
 							@foreach($data as $p)
-								@if(Auth::user()->id != $p->petani_id)
+							@if(Auth::user()->id != $p->petani_id)
 								<div class="d-flex justify-content-end mb-4">
 									<div class="msg_cotainer_send">
 										{{$p->pesan}}
-										<span class="msg_time_send">{{substr($p->waktu,0,10)}}</span>
+										<span class="msg_time_send">
+											{{date('d-m-y | H:i', strtotime($p->waktu))}}
+										</span>
 									</div>
 								</div>
 								@else
 								<div class="d-flex justify-content-start mb-4">
 									<div class="msg_cotainer">
 										{{$p->pesan}}
-										<span class="msg_time">{{substr($p->waktu,0,10)}}</span>
+										<span class="msg_time" >
+											{{date('d-m-y | H:i', strtotime($p->waktu))}}
+										</span>
 									</div>
 								</div>
 								
@@ -306,11 +312,16 @@
 								</div>
 
 								@csrf
-								@foreach($data2 as $p)
+								@foreach($user as $p)
+								@endforeach
+								
 								<input type="hidden" name="idurl" value="{{$p->id_investor}}">
 								<input type="hidden" name="id" value="{{Auth::user()->id}}">
 								<input type="hidden" name="idcv" value="{{$p->id_user}}">
-								@endforeach
+								<!-- <input type="hidden" name="idurl" value="{{$p->id_investor}}">
+								<input type="hidden" name="id" value="{{$p->id_petani}}">
+								<input type="hidden" name="idcv" value="{{$p->id_investor}}"> -->
+								
 								<textarea name="pesan" class="form-control type_msg" placeholder="Type your message..." required></textarea>
 								<div class="input-group-append">
 									<button class="input-group-text send_btn" type="submit"><i class="fas fa-location-arrow"></i> </button>

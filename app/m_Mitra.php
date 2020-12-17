@@ -20,12 +20,12 @@ class m_Mitra extends Model
         'email_petani',
         'foto_ktp_petani',
         'foto_lahan_hidroponik',
-        'selfie_ktp ',
-        'logo_usaha ',
-        'surat_izin_usaha ',
+        'selfie_ktp',
+        'logo_usaha',
+        'surat_izin_usaha',
         'portofolio_perusahaan',
         'surat_pernyataan',
-        'nomer_rekening ',
+        'nomer_rekening',
         'foto_halaman_tabungan'];
 
     public function register(){

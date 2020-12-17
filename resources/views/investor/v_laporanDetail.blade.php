@@ -160,7 +160,7 @@
                             
                             <div class="col-md-6">
                                 <p hidden>
-                                    {{$pendapatanInvestor = (($labaRugi*$li->hasil_investor/100)+$lama)-$bagiRugiInves}}
+                                    {{$pendapatanInvestor = (($labaRugi*$li->hasil_investor/100)+$li->jumlah_modal)-$bagiRugiInves}}
                                 </p>
                                 <p>Rp {{$pendapatanInvestor}}</p>
                             </div>

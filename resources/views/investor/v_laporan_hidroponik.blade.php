@@ -103,7 +103,7 @@
           <small>Since 2011</small>
         </div>
       </div> -->
-      <p hidden>
+      <!-- <p hidden>
             {{$lama = 0}}
             @foreach($data as $li)
                     {{$masuk = $li->jumlah_modal}}
@@ -111,12 +111,12 @@
                     {{$lama = $hitung}}
             @endforeach
             {{$lama}}
-            </p> 
+            </p>  -->
             <h1></h1>
       <div class="my-3 p-3 bg-white rounded box-shadow bg-dark">
         <!-- <h6 class="border-bottom border-gray pb-2 mb-0">Laporan</h6> -->
         
-        @foreach ($data as $li)
+        <!-- @foreach ($data as $li)
         <h4>Profil</h4>
             <div class="row">
                 <div class="col-md-6">
@@ -185,7 +185,7 @@
             <hr>
             
             <hr>
-        @endforeach
+        @endforeach -->
             
         
            
