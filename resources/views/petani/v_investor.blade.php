@@ -79,8 +79,8 @@
                             </a>
                             <div class="contact-box-footer">
                                 <div class="m-t-xs btn-group">
-                                    <a class="btn btn-xs btn-white" href="tel:{{$li->no_ponsel_investor}}"><i class="fa fa-phone"></i> Call </a>
-                                    <a class="btn btn-xs btn-white" href="mailto:{{$li->email_investor}}"><i class="fa fa-envelope"></i> Email</a>
+                                    <!-- <a class="btn btn-xs btn-white" href=""><i class="fa fa-phone"></i> Call </a>
+                                    <a class="btn btn-xs btn-white" href=""><i class="fa fa-envelope"></i> Email</a> -->
                                 </div>
                             </div>
                     

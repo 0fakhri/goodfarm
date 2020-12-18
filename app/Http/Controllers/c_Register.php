@@ -37,39 +37,48 @@ class c_Register extends Controller
     public function menyimpanData(Request $data)
     {
         // dd($data);
-        $data->validate([
-            'username' => 'required|unique:users',
-            'password' => 'required',
-            'alamat' => 'required',
-            'img' => 'required',
-            'nama' => 'required',
-            'nohp' => 'required',
-            'tgllahir'=> 'required',
-            'jeniskelamin' => 'required',
-            'jenisidentitas' => 'required',
-            'noidentitas' => 'required',
-            'email' => 'required',
-        ],[
-            'username.required' => 'Mohon mengisi data dengan lengkap',
-            'password.required' => 'Mohon mengisi data dengan lengkap',
-            'alamat.required' => 'Mohon mengisi data dengan lengkap',
-            'img.required' => 'Mohon mengisi data dengan lengkap',
-            'nama.required' => 'Mohon mengisi data dengan lengkap',
-            'nohp.required' => 'Mohon mengisi data dengan lengkap',
-            'tgllahir.required'=> 'Mohon mengisi data dengan lengkap',
-            'jeniskelamin.required' => 'Mohon mengisi data dengan lengkap',
-            'jenisidentitas.required' => 'Mohon mengisi data dengan lengkap',
-            'noidentitas.required' => 'Mohon mengisi data dengan lengkap',
-            'email.required' => 'Mohon mengisi data dengan lengkap',
-        ]);
+        // $data->validate([
+        //     'username' => 'required|unique:users',
+        //     'password' => 'required',
+        //     'alamat' => 'required',
+        //     'img' => 'required',
+        //     'nama' => 'required',
+        //     'nohp' => 'required',
+        //     'tgllahir'=> 'required',
+        //     'jeniskelamin' => 'required',
+        //     'jenisidentitas' => 'required|max:20',
+        //     'noidentitas' => 'required',
+        //     'email' => 'required',
+        // ],[
+        //     'username.required' => 'Mohon mengisi data dengan lengkap',
+        //     'password.required' => 'Mohon mengisi data dengan lengkap',
+        //     'alamat.required' => 'Mohon mengisi data dengan lengkap',
+        //     'img.required' => 'Mohon mengisi data dengan lengkap',
+        //     'nama.required' => 'Mohon mengisi data dengan lengkap',
+        //     'nohp.required' => 'Mohon mengisi data dengan lengkap',
+        //     'tgllahir.required'=> 'Mohon mengisi data dengan lengkap',
+        //     'jeniskelamin.required' => 'Mohon mengisi data dengan lengkap',
+        //     'jenisidentitas.required' => 'Mohon mengisi data dengan lengkap',
+        //     'noidentitas.required' => 'Mohon mengisi data dengan lengkap',
+        //     'email.required' => 'Mohon mengisi data dengan lengkap',
+        // ]);
         // dd($data);
 
         
 
         if ($data['role'] == "petani") {
-            
-
             $data->validate([
+                'username' => 'required|unique:users',
+                'password' => 'required',
+                'alamat' => 'required',
+                'img' => 'required',
+                'nama' => 'required',
+                'nohp' => 'required',
+                'tgllahir'=> 'required',
+                'jeniskelamin' => 'required',
+                'jenisidentitas' => 'required|max:20',
+                'noidentitas' => 'required',
+                'email' => 'required',
                 'selfie' => 'required',
                 'logo' => 'required',
                 'surat' => 'required',
@@ -77,7 +86,45 @@ class c_Register extends Controller
                 'pernyataan' => 'required',
                 'norek' => 'required',
                 'tabungan' => 'required',
+            ],[
+                'username.required' => 'Mohon mengisi data dengan lengkap',
+                'password.required' => 'Mohon mengisi data dengan lengkap',
+                'alamat.required' => 'Mohon mengisi data dengan lengkap',
+                'img.required' => 'Mohon mengisi data dengan lengkap',
+                'nama.required' => 'Mohon mengisi data dengan lengkap',
+                'nohp.required' => 'Mohon mengisi data dengan lengkap',
+                'tgllahir.required'=> 'Mohon mengisi data dengan lengkap',
+                'jeniskelamin.required' => 'Mohon mengisi data dengan lengkap',
+                'jenisidentitas.required' => 'Mohon mengisi data dengan lengkap',
+                'noidentitas.required' => 'Mohon mengisi data dengan lengkap',
+                'email.required' => 'Mohon mengisi data dengan lengkap',
+                'selfie.required' => 'Mohon mengisi data dengan lengkap',
+                'logo.required' => 'Mohon mengisi data dengan lengkap',
+                'surat.required' => 'Mohon mengisi data dengan lengkap',
+                'portofolio.required' => 'Mohon mengisi data dengan lengkap',
+                'pernyataan.required' => 'Mohon mengisi data dengan lengkap',
+                'norek.required' => 'Mohon mengisi data dengan lengkap',
+                'tabungan.required'=> 'Mohon mengisi data dengan lengkap',
             ]);
+
+            // $data->validate([
+            //     'selfie' => 'required',
+            //     'logo' => 'required',
+            //     'surat' => 'required',
+            //     'portofolio' => 'required',
+            //     'pernyataan' => 'required',
+            //     'norek' => 'required',
+            //     'tabungan' => 'required',
+            // ],[
+            //     'selfie.required' => 'Mohon mengisi data dengan lengkap',
+            //     'logo.required' => 'Mohon mengisi data dengan lengkap',
+            //     'surat.required' => 'Mohon mengisi data dengan lengkap',
+            //     'portofolio.required' => 'Mohon mengisi data dengan lengkap',
+            //     'pernyataan.required' => 'Mohon mengisi data dengan lengkap',
+            //     'norek.required' => 'Mohon mengisi data dengan lengkap',
+            //     'tabungan.required'=> 'Mohon mengisi data dengan lengkap',
+            
+            // ]);
 
             $user =  m_Registrasi::create([
                 'role'      => $data['role'],
@@ -165,11 +212,34 @@ class c_Register extends Controller
 
         elseif ($data['role'] == "investor") {
 
-            
-
             $data->validate([
+                'username' => 'required|unique:users',
+                'password' => 'required',
+                'alamat' => 'required',
+                'img' => 'required',
+                'nama' => 'required',
+                'nohp' => 'required',
+                'tgllahir'=> 'required',
+                'jeniskelamin' => 'required',
+                'jenisidentitas' => 'required|max:20',
+                'noidentitas' => 'required',
+                'email' => 'required',
                 'pernyataan' => 'required',
+            ],[
+                'username.required' => 'Mohon mengisi data dengan lengkap',
+                'password.required' => 'Mohon mengisi data dengan lengkap',
+                'alamat.required' => 'Mohon mengisi data dengan lengkap',
+                'img.required' => 'Mohon mengisi data dengan lengkap',
+                'nama.required' => 'Mohon mengisi data dengan lengkap',
+                'nohp.required' => 'Mohon mengisi data dengan lengkap',
+                'tgllahir.required'=> 'Mohon mengisi data dengan lengkap',
+                'jeniskelamin.required' => 'Mohon mengisi data dengan lengkap',
+                'jenisidentitas.required' => 'Mohon mengisi data dengan lengkap',
+                'noidentitas.required' => 'Mohon mengisi data dengan lengkap',
+                'email.required' => 'Mohon mengisi data dengan lengkap',
+                'pernyataan.required' => 'Mohon mengisi data dengan lengkap',
             ]);
+
 
             $user =  m_Registrasi::create([
                 'role'      => $data['role'],
