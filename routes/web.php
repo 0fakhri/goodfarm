@@ -101,6 +101,10 @@ Route::group(['middleware' => ['auth', 'checkRole:investor']], function(){
     });
     Route::get('/investor/laporan', 'c_laporan_hidroponik@setDataPetani');
     Route::get('/investor/laporan/{id}', 'c_laporan_hidroponik@setDetailLaporan');
+
+    Route::get('/investor/penilaian', 'c_penilaian@showListDataPetani');
+    Route::post('/postRating', 'c_penilaian@saveDataPenilaian');
+    Route::post('/editRating', 'c_penilaian@editDataPenilaian');
 });
 
 

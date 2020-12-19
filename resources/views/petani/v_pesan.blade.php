@@ -62,7 +62,7 @@
             <!-- <div class="card-header">List profil investor</div> -->
             <div class="card-body">
                 @foreach($data as $li)
-                    <div class="col-md-3">
+                    <div class="col-md-3" style="display: inline-block;">
                         <div class="contact-box center-version">
                             <a href="/petani/pesan/{{$li->id_investor}}/chat">
 

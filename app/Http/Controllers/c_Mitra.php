@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Chat;
 use App\m_Investor;
+use App\m_labaRugi;
 use App\m_Mitra;
 use App\m_pesan;
 use App\m_Registrasi;
@@ -14,9 +15,14 @@ class c_Mitra extends Controller
 {
     public function klikMenuMitra($id) {
         
-        $data = m_Mitra::join('buka_laporan','ca_farmer.id_petani','=','buka_laporan.petani_id')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_petani',$id)->get();
-        // dd($data);
-        return view('investor.v_detail_mitra',['mitra'=>$data]);
+        $mitra = m_Mitra::join('buka_laporan','ca_farmer.id_petani','=','buka_laporan.petani_id')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->where('id_petani',$id)->get();
+        $data3 = m_labaRugi::where('id_petani',$id)->get()->toArray();
+
+        $data3 = array_column($data3, 'laba_rugi');
+        $data3 = json_encode($data3,JSON_NUMERIC_CHECK);
+        // dd($data3);
+        return view('investor.v_detail_mitra', compact('mitra','data3'));
+        // return view('investor.v_detail_mitra',['mitra'=>$data]);
     }
 
     public function klikTombolChat($id) {

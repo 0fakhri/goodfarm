@@ -277,8 +277,8 @@
                                     <!-- <div class="input-box"> -->
                                     <div class="single-input-fields">
                                             <label>Username</label>
-                                            <input name="username" type="text" placeholder="Masukkan username" class="@error('username') is-invalid @enderror">
-                                            @error('username')
+                                            <input name="username" type="text" placeholder="Masukkan username" class="@error('username1') is-invalid @enderror">
+                                            @error('username1')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

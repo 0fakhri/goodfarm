@@ -85,6 +85,7 @@
                                             <li><a href="/investor/dashboard">Dashboard</a></li>
                                             <li><a href="/investor/list-mitra">Mitra</a></li>
                                             <li><a href="/investor/laporan">Laporan hidroponik</a></li>
+                                            <li><a href="/investor/penilaian">Penilaian</a></li>
                                             <!-- <li><a href="about.html">about</a></li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">

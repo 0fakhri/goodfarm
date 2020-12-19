@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Alamat;
 use App\m_buka_laporan;
+use App\m_labaRugi;
 use App\m_Mitra;
 use App\m_profile_petani;
 use Illuminate\Http\Request;
@@ -16,16 +17,22 @@ class c_profil_petani extends Controller
     {
         $idUser = Auth()->user()->id;
         // dd($idUser);
-        $user = m_Mitra::leftJoin('laporan_kondisi_hidroponik','ca_farmer.id_petani','=','laporan_kondisi_hidroponik.petani_id')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->leftJoin('buka_laporan','ca_farmer.id_petani','=','buka_laporan.petani_id')->where('id_user', $idUser)->get();
-        foreach ($user as $li) {
+        $data = m_Mitra::leftJoin('laporan_kondisi_hidroponik','ca_farmer.id_petani','=','laporan_kondisi_hidroponik.petani_id')->join('alamat','ca_farmer.id_alamat','=','alamat.id_alamat')->leftJoin('buka_laporan','ca_farmer.id_petani','=','buka_laporan.petani_id')->where('id_user', $idUser)->get();
+        foreach ($data as $li) {
             $idpet = $li->id_petani;
         }
         
-        // dd($user);
-        $inves = m_buka_laporan::join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where('petani_id',$idpet)->get();
-        // dd($user);
-        // dd($inves);
-        return view('petani.v_profil_petani',['data'=>$user],['data2'=>$inves]);
+        $data2 = m_buka_laporan::join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where('petani_id',$idpet)->get();
+        $data3 = m_labaRugi::where('id_petani',$idpet)->get()->toArray();
+
+        $data3 = array_column($data3, 'laba_rugi');
+        $data3 = json_encode($data3,JSON_NUMERIC_CHECK);
+        // dd($data);
+        // dd($data2);
+        // dd($data3);
+        
+        return view('petani.v_profil_petani', compact('data','data2','data3'));
+        // return view('petani.v_profil_petani',['data'=>$user],['data2'=>$inves]);
     }
 
     public function saveDataPetani(Request $data)
