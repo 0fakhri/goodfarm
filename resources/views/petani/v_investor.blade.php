@@ -71,8 +71,7 @@
                                 <div class="font-bold">{{$li->jenis_kelamin}}</div>
                                 <address class="m-t-md">
                                     <!-- <strong>Twitter, Inc.</strong><br> -->
-                                    {{$li->alamat}},{{$li->kota}}<br>
-                                    {{$li->provinsi}}<br>
+                                    {{$li->alamat}}<br>
                                     <abbr title="Phone">P:</abbr> {{$li->no_ponsel_investor}}
                                 </address>
                     

@@ -60,6 +60,11 @@
           <i class="fas fa-handshake"></i>
           <span>Pemberitahuan</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profil">
+          <i class="fas fa-handshake"></i>
+          <span>Profil</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider">
 

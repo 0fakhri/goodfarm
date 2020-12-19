@@ -41,6 +41,7 @@ Route::group(['middleware' =>  ['auth', 'checkRole:admin']], function(){
     Route::post('/ditolak', 'c_Verifikasi@ditolak');
     Route::post('/terima', 'c_veriftransaksi@diterima');
     Route::post('/tolak', 'c_veriftransaksi@ditolak');
+    Route::get('/profil', 'c_profile@showDataAdmin');
 });
 
 
@@ -78,6 +79,7 @@ Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
     Route::get('/laba-rugi', 'c_labaRugi@showFormLabaRugi');
     Route::post('/postLaba', 'c_labaRugi@saveDataLabaRugi');
 
+    Route::get('/petani/penilaian', 'c_penilaianPetani@showDataPenilaian');
 });
 
 // testftp
