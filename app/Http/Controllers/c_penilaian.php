@@ -17,6 +17,7 @@ class c_penilaian extends Controller
         foreach($get as $li){
             $id = $li->id_investor;
         }
+        // dd($id);
         $data = m_Mitra::join('buka_laporan', 'ca_farmer.id_petani', '=', 'buka_laporan.petani_id')->join('transaksi', 'buka_laporan.id_buka', '=', 'transaksi.buka_id')->where('transaksi.id_investor',$id)->get();
         $review = m_penilaian::join('ca_farmer', 'penilaian.petani_id', '=', 'ca_farmer.id_petani')->where(['id_investor'=>$id])->get();
         // dd($review);

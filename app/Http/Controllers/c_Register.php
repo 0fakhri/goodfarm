@@ -134,8 +134,7 @@ class c_Register extends Controller
 
             $alamat = \App\Alamat::create([
                     'alamat' => $data['alamat'],
-                    'kota' => $data['ddlKota'],
-                    'provinsi' => $data['ddlProvinsi'],
+                    
             ]);
 
             $file = $data->file('img');
@@ -249,8 +248,7 @@ class c_Register extends Controller
 
             $alamat = \App\Alamat::create([
                 'alamat' => $data['alamat'],
-                'kota' => $data['ddlKota'],
-                'provinsi' => $data['ddlProvinsi'],
+                
             ]);
 
             $file = $data->file('img');

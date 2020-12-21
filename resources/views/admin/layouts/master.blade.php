@@ -9,6 +9,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <link rel="icon" href="{{ asset('Logo_Goodfarm.png') }}" type="image" sizes="20x20">
+
   <title>GOODFARM</title>
   <!-- <link rel="icon" type="image/png" sizes="20x20" href="{{asset('icon.png')}}"> -->
   <!-- Custom fonts for this template-->

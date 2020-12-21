@@ -8,7 +8,7 @@ class Alamat extends Model
 {
     public $timestamps = false;
     protected $table = 'alamat';
-    protected $fillable = ['alamat','kota','provinsi'];
+    protected $fillable = ['alamat'];
 
     public function farmer()
         {

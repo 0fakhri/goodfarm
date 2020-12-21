@@ -7,6 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="icon" href="{{ asset('Logo_Goodfarm.png') }}" type="image" sizes="16x16">
+
     <title>{{ config('app.name', 'Goodfarm') }}</title>
 
     <!-- Scripts -->
@@ -74,6 +76,7 @@
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
                                     <a href="/petani/dashboard" style="color: white; font-weight: bold;">
+                                    <img src="{{ asset('Logo_Goodfarm.png') }}" alt="" width="100px">
                                         GOODFARM
                                     </a>
                                 </div>

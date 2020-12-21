@@ -61,6 +61,7 @@
           <thead style="background-color: #ddd;">
           <tr class="text-center">
               <th>Nama</th>
+              <th>Username</th>
               <th>E-mail</th>
               <th>No HP</th>
               <th>Alamat</th>
@@ -85,7 +86,7 @@
                   <input type="hidden" name="email" value="{{ $user2->email_petani }}">
                   <input type="hidden" name="role" value="{{ $user2->role }}">
                   <input type="hidden" name="status" value="Diterima">
-                  <button type="submit">Terima</button>
+                  <button type="submit" class="btn btn-success">Terima</button>
                 </form>
                 <form action="/ditolak" method="post">
                   @csrf
@@ -93,7 +94,7 @@
                   <input type="hidden" name="email" value="{{ $user2->email_petani }}">
                   <input type="hidden" name="role" value="{{ $user2->role }}">
                   <input type="hidden" name="status" value="Ditolak">
-                  <button type="submit">Menolak</button>
+                  <button type="submit" class="btn btn-danger">Menolak</button>
                 </form>
               </td>
           </tr>

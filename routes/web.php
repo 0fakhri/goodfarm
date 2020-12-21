@@ -21,7 +21,7 @@ Route::group(['middleware' => 'web'], function() {
 });
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 Route::get('/login', 'c_Login@mengeklikMenu')->name('login');
