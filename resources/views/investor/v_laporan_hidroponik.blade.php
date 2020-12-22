@@ -67,7 +67,7 @@
                     <div class="col-md-3" style="display: inline-block;">
                         <div class="contact-box center-version">
                         <img src="{{url($li->foto)}}" alt="" width="200px" style="margin: 20px 50px 20px 50px;">
-                            <a href="/investor/laporan/{{$li->id_buka}}">
+                            <a href="/investor/laporan/{{$li->id_petani}}">
                             
                                 <h3 class="m-b-xs" style="margin-bottom: 20px;"><strong>{{$li->nama_tanaman}}</strong></h3>
                     

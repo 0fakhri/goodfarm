@@ -42,6 +42,8 @@ Route::group(['middleware' =>  ['auth', 'checkRole:admin']], function(){
     Route::post('/terima', 'c_veriftransaksi@diterima');
     Route::post('/tolak', 'c_veriftransaksi@ditolak');
     Route::get('/profil', 'c_profile@showDataAdmin');
+    Route::get('/profill/{id}', 'c_profile@showDataInvestor');
+    Route::get('/profile/{id}', 'c_profile@showDataPetani');
 });
 
 
@@ -57,7 +59,16 @@ Route::group(['middleware' => ['auth', 'checkRole:petani']], function(){
     Route::get('/petani/profil', 'c_profil_petani@klikMenuProfil');
     Route::post('/editProfilPetani', 'c_profil_petani@saveDataPetani');
     Route::get('/petani/list-investor', function (){
-        $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')->get();
+        $user2 = m_Mitra::where('id_user',Auth::user()->id)->get();
+        foreach($user2 as $li){
+            $id = $li->id_petani; 
+        }
+        
+        $data_inv = DB::table('ca_investor')->join('alamat','ca_investor.id_alamat','=','alamat.id_alamat')
+        ->join('transaksi','ca_investor.id_investor','=','transaksi.id_investor')
+        ->join('buka_laporan','transaksi.buka_id','=','buka_laporan.id_buka')->where('buka_laporan.petani_id',$id)->get();
+        
+        // dd($data_inv);
         return view('petani.v_investor',['data'=>$data_inv]);
     });
     Route::get('/petani/pesan', function (){

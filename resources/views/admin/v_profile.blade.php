@@ -45,12 +45,12 @@
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#petani" role="tab" aria-controls="pills-home" aria-selected="true">
-                                    Petani
+                                    Investor
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#investor" role="tab" aria-controls="pills-profile" aria-selected="false">
-                                    Investor
+                                    Petani
                                 </a>
                             </li>
                         </ul>
@@ -81,7 +81,7 @@
                                             <img src="" alt="" width="200px">
                                             @endif
                                         </td> -->
-                                        <td><a href="">{{$user->nama_investor}}</a></td>
+                                        <td><a href="/profill/{{$user->id_investor}}">{{$user->nama_investor}}</a></td>
                                         <td>{{date('d F y', strtotime($user->tanggal_lahir_investor))}}</td>
                                         <td>{{$user->email_investor}}</td>
                                         <td>{{$user->no_ponsel_investor}}</td>
@@ -121,7 +121,7 @@
                                             <img src="{{ url($user->logo_usaha) }}" alt="" width="200px">
                                             @endif
                                         </td>
-                                        <td><a href="">{{$user->nama_petani}}</a></td>
+                                        <td><a href="/profile/{{$user->id_petani}}">{{$user->nama_petani}}</a></td>
                                         <td>{{date('d F y', strtotime($user->tanggal_lahir_petani))}}</td>
                                         <td>{{$user->email_petani}}</td>
                                         <td>{{$user->no_ponsel_petani}}</td>

@@ -117,8 +117,8 @@
 <div class="col-lg-12">
 <div class="section_title text-center mb-90">
 <span class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s"></span>
-<h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">What we offer for you</h3>
-<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">We provide online instant cash loans with quick approval that suit your term</p>
+<h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">Goodfarm merupakan platform mempertemukan petani hidroponik dengan para investor</h3>
+<!-- <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">We provide online instant cash loans with quick approval that suit your term</p> -->
 </div>
 </div>
 </div>
@@ -138,7 +138,7 @@
 <div class="col-lg-6 col-md-6">
 <div class="about_info pl-68">
 <div class="section_title wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".3s">
-<h3>Why Choose Us?</h3>
+<h3>Kenapa Goodfarm?</h3>
 </div>
 <!-- <p class="wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".4s">Esteem spirit temper too say adieus who direct esteem.It esteems luckily or picture placing drawing. Apartments frequently or motionless on reasonable.</p> -->
 <div class="about_list">
@@ -158,7 +158,7 @@
 </div>
 </div>
 <!-- about_area_end  -->
-<div class="works_area">
+<!-- <div class="works_area">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -202,8 +202,9 @@ amount of cash your company need term</p>
 </div>
 </div>
 </div>
-</div>
-<div class="accordion_area">
+</div> -->
+
+<!-- <div class="accordion_area">
 <div class="container">
 <div class="row justify-content-end">
 <div class="col-lg-6">
@@ -268,9 +269,10 @@ Consectetur feugiat auctor?
 </div>
 </div>
 </div>
-</div>
+</div> -->
+
 <!-- testimonial_area  -->
-<div class="testimonial_area  ">
+<!-- <div class="testimonial_area  ">
 <div class="container">
 <div class="row">
 <div class="col-xl-12">
@@ -333,9 +335,10 @@ Consectetur feugiat auctor?
 </div>
 </div>
 </div>
-</div>
+</div> -->
+
 <!-- /testimonial_area  -->
-<div class="brad_area">
+<!-- <div class="brad_area">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -359,8 +362,9 @@ Consectetur feugiat auctor?
 </div>
 </div>
 </div>
-</div>
-<div class="apply_loan overlay">
+</div> -->
+
+<!-- <div class="apply_loan overlay">
 <div class="container">
 <div class="row align-items-center">
 <div class="col-lg-8 col-md-7">
@@ -376,7 +380,8 @@ education or company</h3>
 </div>
 </div>
 </div>
-</div>
+</div> -->
+
 <!-- footer start -->
 <footer class="footer">
 <div class="footer_top">
@@ -390,9 +395,9 @@ education or company</h3>
 </a>
 </div>
 <p>
-finloan@support.com <br>
+goodfarm@support.com <br>
 +10 873 672 6782 <br>
-600/D, Green road, NewYork
+600/D, Sumbersari, Jember
 </p>
 <div class="socail_links">
 <ul>
@@ -420,7 +425,8 @@ finloan@support.com <br>
 </div>
 </div>
 </div>
-<div class="col-xl-2 col-md-6 col-lg-3">
+
+<!-- <div class="col-xl-2 col-md-6 col-lg-3">
 <div class="footer_widget wow fadeInUp" data-wow-duration="1.1s" data-wow-delay=".4s">
 <h3 class="footer_title">
 Services
@@ -432,8 +438,9 @@ Services
 <li><a href="#">Digital marketing</a></li>
 </ul>
 </div>
-</div>
-<div class="col-xl-2 col-md-6 col-lg-2">
+</div> -->
+
+<!-- <div class="col-xl-2 col-md-6 col-lg-2">
 <div class="footer_widget wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".5s">
 <h3 class="footer_title">
 Useful Links
@@ -445,8 +452,9 @@ Useful Links
 <li><a href="#">Support</a></li>
 </ul>
 </div>
-</div>
-<div class="col-xl-4 col-md-6 col-lg-4">
+</div> -->
+
+<!-- <div class="col-xl-4 col-md-6 col-lg-4">
 <div class="footer_widget wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".6s">
 <h3 class="footer_title">
 Subscribe
@@ -458,7 +466,8 @@ Subscribe
 <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems
 luckily.</p>
 </div>
-</div>
+</div> -->
+
 </div>
 </div>
 </div>

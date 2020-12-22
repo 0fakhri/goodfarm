@@ -605,18 +605,18 @@ var data_laba = <?php echo $data3; ?>;
         },
         xAxis: {
             categories: [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
+                'Panen 1',
+                'Panen 2',
+                'Panen 3',
+                'Panen 4',
+                'Panen 5',
+                'Panen 6',
+                'Panen 7',
+                'Panen 8',
+                'Panen 9',
+                'Panen 10',
+                'Panen 11',
+                'Panen 12'
             ],
             crosshair: true
         },

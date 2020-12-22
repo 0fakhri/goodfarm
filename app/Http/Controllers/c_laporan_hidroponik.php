@@ -13,7 +13,10 @@ class c_laporan_hidroponik extends Controller
     public function setDataPetani()
     {
         $idUser = Auth()->User()->id;
-        $user = m_Investor::join('transaksi','ca_investor.id_investor','=','transaksi.id_investor')->join('buka_laporan','transaksi.buka_id','=','buka_laporan.id_buka')->where(['ca_investor.id_user'=> $idUser,'transaksi.status'=>'Diterima'])->get();
+        $user = m_Investor::join('transaksi','ca_investor.id_investor','=','transaksi.id_investor')
+        ->join('buka_laporan','transaksi.buka_id','=','buka_laporan.id_buka')
+        ->join('ca_farmer','buka_laporan.petani_id','=','ca_farmer.id_petani')
+        ->where(['ca_investor.id_user'=> $idUser,'transaksi.status'=>'Diterima'])->get();
         
         // dd($user);
 
@@ -22,6 +25,7 @@ class c_laporan_hidroponik extends Controller
 
     public function setDetailLaporan($id)
     {
+        // dd($id);
         $idUser = Auth()->User()->id;
         $get = m_Investor::where('id_user',$idUser)->get('id_investor');
         foreach($get as $li){
@@ -29,7 +33,9 @@ class c_laporan_hidroponik extends Controller
         }
         // dd($idnya);
 
-        $user = m_profile_petani::join('buka_laporan','laporan_kondisi_hidroponik.petani_id','=','buka_laporan.id_buka')->join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where(['laporan_kondisi_hidroponik.petani_id'=> $id,'transaksi.id_investor'=>$idnya])->get();
+        $user = m_profile_petani::join('buka_laporan','laporan_kondisi_hidroponik.petani_id','=','buka_laporan.id_buka')
+        ->join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')
+        ->where(['laporan_kondisi_hidroponik.petani_id'=> $id])->get();
         
         // $user = m_buka_laporan::join('transaksi','buka_laporan.id_buka','=','transaksi.buka_id')->where(['ajuan_id'=> $id])->get();
         // dd($user);
