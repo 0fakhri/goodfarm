@@ -129,6 +129,7 @@
             <div class="card-body">
                 @foreach($data as $li)
                     @foreach($review as $rev)
+                    
                     <div class="col-md-3" style="display: inline-block;">
                         <div class="contact-box center-version">
                             <img src="{{url($li->logo_usaha)}}" alt="" width="200px" style="margin: 20px 50px 20px 50px;">
@@ -164,7 +165,7 @@
                                 <div class="m-t-xs btn-group">
                                     @if($rev->petani_id == $li->id_petani)
                                         @if($rev->id_penilaian != null)
-                                            <a data-toggle="modal" data-target="#edit" class="btn btn-primary">Edit</a>
+                                            <a data-toggle="modal" data-target="#edit{{$rev->id_penilaian}}" class="btn btn-primary">Edit</a>
                                         @endif
                                     @else
                                         <a data-toggle="modal" data-target="#rating{{$li->id_petani}}" class="btn btn-primary">Penilaian</a>
@@ -173,93 +174,14 @@
                                     
                                     
                                     <!-- end rating -->
-                                        <!-- Modal edit rating-->
-                                        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edit penilaian</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                                <div class="tab-content profile-tab" id="myTabContent">
-                                                    <div class="tab-pane fade show active" id="bulanan" role="tabpanel" aria-labelledby="home-tab">
-                                                        <form method="post" action="/editRating">
-                                                            @csrf
-                                                            <div class="modal-body">
-                                                                <div class="form-group">
-                                                                    <input type="text" name="id" value="{{$rev->id_penilaian}}" hidden="">
-                                                                    <label for="">Nama Petani</label>
-                                                                    <h5>{{$li->nama_petani}}<span style="font-family: initial;font-style: italic;"></span></h5>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <h5 for="">Beri Rating</h5><span></span>
-                                                                    <div class="rating">
-                                                                    <label >
-                                                                        <input type="radio" name="rating" value="1" />
-                                                                        <span class="icon">★</span>
-                                                                    </label>
-                                                                    <label>
-                                                                        <input type="radio" name="rating" value="2" />
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                    </label>
-                                                                    <label>
-                                                                        <input type="radio" name="rating" value="3" />
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                    </label>
-                                                                    <label>
-                                                                        <input type="radio" name="rating" value="4" />
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                    </label>
-                                                                    <label>
-                                                                        <input type="radio" name="rating" value="5" />
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                        <span class="icon">★</span>
-                                                                    </label>
-                                                                    </div>
-                                                                    @error('rating')
-                                                                        <div class="alert alert-danger">{{ $message }}</div>
-                                                                    @enderror
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <label for="">Komentar</label>
-                                                                    <textarea class="form-control" name="review">{{$rev->komentar}}</textarea>
-                                                                    @error('review')
-                                                                        <div class="alert alert-danger">{{ $message }}</div>
-                                                                    @enderror
-                                                                </div>
-
-
-                                                                </div>
-                                                            <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                                                <!-- <button type="submit" class="btn btn-primary">Save changes</button> -->
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </div>
+                                        
                                     <!-- end ratingupdate -->
                                 </div>
                             </div>
                     
                         </div>
                     </div>
+                    
                     @endforeach
                 @endforeach
             </div>
@@ -331,6 +253,89 @@
                             <div class="form-group">
                                 <label for="">Komentar</label>
                                 <textarea class="form-control" name="review"></textarea>
+                                @error('review')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+
+                            </div>
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            <!-- <button type="submit" class="btn btn-primary">Save changes</button> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    @endforeach
+    @foreach($review as $rev)
+    <!-- Modal edit rating-->
+    <div class="modal fade" id="edit{{$rev->id_penilaian}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit penilaian</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+            <div class="tab-content profile-tab" id="myTabContent">
+                <div class="tab-pane fade show active" id="bulanan" role="tabpanel" aria-labelledby="home-tab">
+                    <form method="post" action="/editRating">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input type="text" name="id" value="{{$rev->id_penilaian}}" hidden="">
+                                <label for="">Nama Petani</label>
+                                <h5>{{$li->nama_petani}}<span style="font-family: initial;font-style: italic;"></span></h5>
+                            </div>
+
+                            <div class="form-group">
+                                <h5 for="">Beri Rating</h5><span></span>
+                                <div class="rating">
+                                <label >
+                                    <input type="radio" name="rating" value="1" />
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="rating" value="2" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="rating" value="3" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="rating" value="4" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="rating" value="5" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                </div>
+                                @error('rating')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Komentar</label>
+                                <textarea class="form-control" name="review">{{$rev->komentar}}</textarea>
                                 @error('review')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

@@ -56,7 +56,7 @@ class c_Verifikasi extends Controller
     }
 
     public function ditolak(Request $request) {
-
+        // dd($request['email']);
         if($request->role == 'investor'){
             DB::table('ca_investor')->where('id_investor',$request->id)->update([
                 'status' => $request->status,
@@ -67,7 +67,7 @@ class c_Verifikasi extends Controller
                 'status' => $request->status,
             ]);
         }
-
+        
         $data = [];
         Mail::send('admin.layouts.includes.emailF', $data, function($message) use ($request)
             {

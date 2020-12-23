@@ -46,7 +46,8 @@
                   <form action="/ditolak" method="post">
                     @csrf
                     <input type="hidden" name="id" value="{{ $user->id_investor }}">
-                    <input type="hidden" name="email" value="{{ $user->role }}">
+                    <input type="hidden" name="email" value="{{ $user->email_investor }}">
+                    <input type="hidden" name="role" value="{{ $user->role }}">
                     <input type="hidden" name="status" value="Ditolak">
                     <button type="submit" class="btn btn-danger">Menolak</button>
                   </form>

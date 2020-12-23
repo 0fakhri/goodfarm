@@ -406,9 +406,60 @@
                     </div>
                 </div>
                 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Nama tanaman</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->nama_tanaman}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Foto tanaman</label>
+                                </div>
+                                <div class="col-md-6">
+                                    @if($li->foto != null)
+                                    <p><img src="{{url($li->foto)}}" alt="" width="300px"></p>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Bagi Hasil petani</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->hasil_petani}} %</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Bagi Hasil investor</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->hasil_investor}} %</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Harga perbenih</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Rp {{$li->harga_perbenih}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Total lot</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$li->total_lot}} </p>
+                                </div>
+                            </div>
             </div>
 
         </div>
+        <hr>
         <div class="col-md-6">
 
                 <div class="profile-head">

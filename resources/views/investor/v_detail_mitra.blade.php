@@ -29,20 +29,12 @@
                 @foreach ($mitra as $li)
                 <div class="profile-head">
                             <h5>
-                                {{$li->nama_petani}}
+                                
                             </h5>
                             <h6>
-                                {{$li->alamat}}
+                                
                             </h6>
-                            <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
-                    <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Ubah</a>
-                        </li>
-                    </ul> -->
+                        
                 </div>
                 @endforeach
             </div>
@@ -71,6 +63,7 @@
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         @foreach ($mitra as $li)
+                        @endforeach
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Nama</label>
@@ -193,7 +186,7 @@
                                 </div>
                             </div>
                             
-                        @endforeach
+                        
                     </div>
                     <div class="row">
                         <div id="chart">
